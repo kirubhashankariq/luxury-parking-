@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d4af37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z'/><path d='m9 12 2 2 4-4'/></svg>">
+  <title>About Us // VELOCE LUXE Ultra-Luxury Vehicle Storage</title>
+  <meta name="description"
+    content="Discover the history, leadership, aerospace engineering philosophy, and security standards behind Veloce Luxe Automated Vehicle Storage." />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: ['class', '[data-theme="dark"]'],
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              50: '#fdfbf4',
+              100: '#fbf5e4',
+              200: '#f5e8c4',
+              300: '#ecd397',
+              400: '#e5c057',
+              500: '#d4af37', // Pure Champagne Gold
+              600: '#bf992e',
+              700: '#a17c22',
+              800: '#856420',
+              900: '#71541b',
+              950: '#412e0b'
+            },
+            obsidian: {
+              100: '#e6e6e6',
+              200: '#cccccc',
+              800: '#1f1f1f',
+              900: '#121212',
+              950: '#0a0a0a'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            heading: ['"Space Grotesk"', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Unified Ultra-Luxury CSS -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+    :root {
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-heading: 'Space Grotesk', sans-serif;
+
+      /* Light Theme */
+      --bg-primary: #F5F5F7;
+      --bg-secondary: #EBEBEF;
+      --bg-card: #F5F5F7;
+      --text-primary: #1A1A1A;
+      --text-secondary: #4A4A4A;
+      --text-muted: #8F8F8F;
+      --border-light: rgba(255, 255, 255, 0.9);
+      --border-subtle: rgba(180, 180, 180, 0.2);
+      --accent-primary: #d4af37;
+      --accent-glow: rgba(212, 175, 55, 0.4);
+      --neu-flat: 9px 9px 18px #d5d5d7, -9px -9px 18px #ffffff;
+      --neu-flat-sm: 5px 5px 10px #d9d9db, -5px -5px 10px #ffffff;
+      --neu-flat-lg: 15px 15px 30px #cecece, -15px -15px 30px #ffffff;
+      --neu-pressed: inset 5px 5px 10px #d5d5d7, inset -5px -5px 10px #ffffff;
+      --neu-pressed-sm: inset 2px 2px 5px #d5d5d7, inset -2px -2px 5px #ffffff;
+      --neu-elevated: 12px 12px 24px #cecece, -12px -12px 24px #ffffff;
+      --nav-bg: rgba(245, 245, 247, 0.92);
+      --toast-bg: rgba(255, 255, 255, 0.95);
+    }
+
+    /* Dark Theme */
+    [data-theme="dark"] {
+      --bg-primary: #121212;
+      --bg-secondary: #1A1A1A;
+      --bg-card: #121212;
+      --text-primary: #F5F5F7;
+      --text-secondary: #A3A3A3;
+      --text-muted: #666666;
+      --border-light: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.02);
+      --accent-primary: #d4af37;
+      --accent-glow: rgba(212, 175, 55, 0.25);
+      --neu-flat: 8px 8px 16px #0b0b0b, -8px -8px 16px #191919;
+      --neu-flat-sm: 4px 4px 8px #0d0d0d, -4px -4px 8px #171717;
+      --neu-flat-lg: 12px 12px 24px #090909, -12px -12px 24px #1b1b1b;
+      --neu-pressed: inset 4px 4px 8px #0b0b0b, inset -4px -4px 8px #191919;
+      --neu-pressed-sm: inset 2px 2px 5px #0d0d0d, inset -2px -2px 5px #171717;
+      --neu-elevated: 10px 10px 20px #090909, -10px -10px 20px #1b1b1b;
+      --nav-bg: rgba(18, 18, 18, 0.92);
+      --toast-bg: rgba(26, 26, 26, 0.98);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: var(--font-heading);
+      letter-spacing: -0.025em;
+      color: var(--text-primary);
+    }
+
+    /* Animations */
+    @keyframes kenBurns {
+      0% {
+        transform: scale(1.05) translate(0, 0);
+      }
+
+      100% {
+        transform: scale(1.15) translate(-1%, -2%);
+      }
+    }
+
+    .animate-cinematic {
+      animation: kenBurns 25s ease-in-out infinite alternate;
+    }
+
+    .ambient-background {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .ambient-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.15;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+    }
+
+    [data-theme="dark"] .ambient-orb {
+      opacity: 0.08;
+      filter: blur(120px);
+    }
+
+    .ambient-orb-1 {
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, #d4af37 0%, transparent 70%);
+      top: -10%;
+      left: -5%;
+      animation: floatOrb1 24s infinite alternate;
+    }
+
+    .ambient-orb-2 {
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, #ffffff 0%, transparent 70%);
+      bottom: 10%;
+      right: -10%;
+      animation: floatOrb2 28s infinite alternate-reverse;
+    }
+
+    .ambient-grid {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(var(--border-subtle) 1px, transparent 1px);
+      background-size: 40px 40px;
+      opacity: 0.8;
+    }
+
+    @keyframes floatOrb1 {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      50% {
+        transform: translate(120px, 80px) scale(1.15);
+      }
+
+      100% {
+        transform: translate(60px, 160px) scale(0.95);
+      }
+    }
+
+    @keyframes floatOrb2 {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      50% {
+        transform: translate(-100px, -90px) scale(1.1);
+      }
+
+      100% {
+        transform: translate(-160px, -40px) scale(0.9);
+      }
+    }
+
+    /* Interactive Card Effects */
+    .neu-card,
+    .neu-card-lg {
+      background: var(--bg-card);
+      box-shadow: var(--neu-flat);
+      border-radius: 20px;
+      border: 1px solid var(--border-light);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .neu-card-lg {
+      border-radius: 28px;
+    }
+
+    .neu-card::before,
+    .neu-card-lg::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 50% 0%, var(--accent-glow), transparent 45%);
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .neu-card>*,
+    .neu-card-lg>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    .neu-card:hover,
+    .neu-card-lg:hover {
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 25px var(--accent-glow);
+      border-color: rgba(212, 175, 55, 0.5);
+    }
+
+    .neu-card:hover::before,
+    .neu-card-lg:hover::before {
+      opacity: 1;
+    }
+
+    .neu-card-sm {
+      background: var(--bg-card);
+      box-shadow: var(--neu-flat-sm);
+      border-radius: 14px;
+      border: 1px solid var(--border-light);
+    }
+
+    .neu-inset {
+      background: var(--bg-card);
+      box-shadow: var(--neu-pressed);
+      border-radius: 16px;
+      border: 1px solid var(--border-subtle);
+      transition: all 0.4s ease;
+    }
+
+    .group:hover .neu-inset {
+      box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.15);
+      border-color: rgba(212, 175, 55, 0.4);
+    }
+
+    /* Interactive Button Effects */
+    .neu-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      background: var(--bg-card);
+      color: var(--text-primary);
+      box-shadow: var(--neu-flat-sm);
+      border-radius: 12px;
+      border: 1px solid var(--border-light);
+      font-weight: 700;
+      padding: 0.75rem 1.6rem;
+      cursor: pointer;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .neu-btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -150%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transform: skewX(-25deg);
+      transition: all 0.6s ease;
+      z-index: -1;
+    }
+
+    .neu-btn:hover {
+      box-shadow: var(--neu-flat);
+      transform: translateY(-3px);
+      color: var(--accent-primary);
+      border-color: var(--accent-primary);
+    }
+
+    .neu-btn:hover::after {
+      left: 150%;
+    }
+
+    .neu-btn:active {
+      box-shadow: var(--neu-pressed-sm);
+      transform: translateY(1px);
+    }
+
+    .neu-btn i {
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .neu-btn:hover i {
+      transform: scale(1.25) rotate(5deg);
+    }
+
+    .neu-btn-primary {
+      background: linear-gradient(135deg, #d4af37, #a17c22);
+      color: #121212 !important;
+      box-shadow: 0 6px 18px var(--accent-glow), var(--neu-flat-sm);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .neu-btn-primary:hover {
+      background: linear-gradient(135deg, #e5c057, #d4af37);
+      box-shadow: 0 15px 30px var(--accent-glow), var(--neu-flat);
+      border-color: #fff;
+    }
+
+    .neu-btn-primary::after {
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+    }
+
+    .neu-btn-silver {
+      background: linear-gradient(135deg, #e6e6e6, #cccccc);
+      color: #121212 !important;
+      box-shadow: var(--neu-flat-sm);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+    }
+
+    [data-theme="dark"] .neu-btn-silver {
+      background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+      color: #F5F5F7 !important;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .neu-btn-silver:hover {
+      box-shadow: var(--neu-flat);
+      border-color: var(--accent-primary);
+      color: var(--accent-primary) !important;
+    }
+
+    .neu-icon-btn {
+      width: 44px;
+      height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--bg-card);
+      box-shadow: var(--neu-flat-sm);
+      border: 1px solid var(--border-light);
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .neu-icon-btn:hover {
+      box-shadow: var(--neu-flat);
+      color: var(--accent-primary);
+      border-color: var(--accent-primary);
+      transform: translateY(-4px) scale(1.05);
+    }
+
+    .neu-icon-btn:active {
+      box-shadow: var(--neu-pressed-sm);
+      transform: translateY(1px) scale(0.95);
+    }
+
+    /* Inputs */
+    .neu-input {
+      width: 100%;
+      background: var(--bg-card);
+      box-shadow: var(--neu-pressed-sm);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 0.85rem 1.2rem;
+      color: var(--text-primary);
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .neu-input:focus {
+      border-color: var(--accent-primary);
+      box-shadow: var(--neu-pressed), 0 0 0 3px var(--accent-glow);
+      transform: translateY(-1px);
+    }
+
+    /* Text Effects */
+    .metallic-text {
+      background: linear-gradient(135deg, #71541b 0%, #d4af37 50%, #412e0b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    [data-theme="dark"] .metallic-text {
+      background: linear-gradient(135deg, #f5e8c4 0%, #d4af37 50%, #a17c22 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .metallic-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      background: var(--bg-card);
+      box-shadow: var(--neu-flat-sm);
+      border: 1px solid var(--border-light);
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-primary);
+      transition: transform 0.3s ease;
+    }
+
+    .metallic-badge:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px var(--accent-glow);
+    }
+
+    /* Navigation */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--nav-bg);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: all 0.4s ease;
+    }
+
+    .site-header.scrolled {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+
+    [data-theme="dark"] .site-header.scrolled {
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+      border-bottom-color: rgba(212, 175, 55, 0.2);
+    }
+
+    .nav-link {
+      color: var(--text-secondary);
+      font-weight: 600;
+      font-size: 0.92rem;
+      padding: 0.5rem 0.9rem;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--accent-primary);
+      background: var(--bg-card);
+      box-shadow: var(--neu-pressed-sm);
+      transform: translateY(-1px);
+    }
+
+    /* Dropdown CSS Logic */
+    .nav-dropdown-group {
+      position: relative;
+    }
+
+    .nav-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 220px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--neu-flat-lg);
+      border-radius: 16px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 50;
+      padding: 0.5rem;
+    }
+
+    .nav-dropdown-group:hover .nav-dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-item {
+      display: block;
+      padding: 0.75rem 1rem;
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 0.9rem;
+      border-radius: 10px;
+      transition: all 0.2s ease;
+    }
+
+    .dropdown-item:hover {
+      background: var(--bg-secondary);
+      color: var(--accent-primary);
+      transform: translateX(4px);
+    }
+
+    /* Toast */
+    #toast-container {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 99999;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      max-width: 400px;
+      width: calc(100vw - 3rem);
+      pointer-events: none;
+    }
+
+    .toast-message {
+      pointer-events: auto;
+      background: var(--toast-bg);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      border: 1px solid var(--accent-primary);
+      box-shadow: 0 10px 30px var(--accent-glow), var(--neu-flat-lg);
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      transform: translateX(120%);
+      opacity: 0;
+      transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.5s ease;
+    }
+
+    .toast-message.toast-visible {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .toast-icon-wrap {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: var(--accent-primary);
+      color: #121212;
+      box-shadow: var(--neu-flat-sm);
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-primary);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent-primary);
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body class="selection:bg-gold-500 selection:text-black">
+
+  <!-- Ambient Background -->
+  <div class="ambient-background" aria-hidden="true">
+    <div class="ambient-orb ambient-orb-1"></div>
+    <div class="ambient-grid"></div>
+  </div>
+
+  <div id="toast-container"></div>
+
+  <!-- ===================================================================
+       1. MAIN NAVIGATION HEADER (SYNCED)
+       =================================================================== -->
+  <header class="site-header" id="header">
+    <div
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between transition-all duration-300">
+
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3 group focus:outline-none z-10">
+        <div class="w-12 h-12 rounded-2xl flex items-center justify-center neu-card">
+          <i data-lucide="shield-check"
+            class="w-6 h-6 text-gold-500 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12"></i>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-heading font-extrabold text-2xl tracking-wider metallic-text uppercase">VELOCE LUXE</span>
+          <span class="text-[10px] tracking-widest text-gold-500 uppercase font-bold -mt-1">Automated Vaults</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden lg:flex items-center gap-1.5 neu-inset px-3 py-1.5 z-10">
+        <div class="nav-dropdown-group relative py-2">
+          <button class="nav-link flex items-center gap-1.5 outline-none">
+            Home <i data-lucide="chevron-down" class="w-4 h-4"></i>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="index.html" class="dropdown-item flex items-center gap-2">
+              <i data-lucide="shield" class="w-4 h-4 text-gold-500"></i> Classic Vaults
+            </a>
+            <a href="home-niche.html" class="dropdown-item flex items-center gap-2">
+              <i data-lucide="zap" class="w-4 h-4 text-gold-500"></i> EV SaaS Facilities
+            </a>
+          </div>
+        </div>
+
+        <a href="about.html" class="nav-link active">About Us</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Desktop Action Area -->
+      <div class="hidden lg:flex items-center gap-4 z-10">
+        <button class="rtlToggleBtn neu-icon-btn" title="Toggle RTL">
+          <span class="text-xs font-bold font-mono">RTL</span>
+        </button>
+
+        <button class="themeToggleBtn neu-icon-btn" title="Toggle Theme">
+          <i data-lucide="sun" class="icon-sun w-5 h-5 text-gold-500 hidden"></i>
+          <i data-lucide="moon" class="icon-moon w-5 h-5 text-gold-500"></i>
+        </button>
+
+        <a href="login.html" class="neu-btn neu-btn-primary py-3 px-6">
+          <i data-lucide="key-round" class="w-4 h-4"></i>
+          <span>Get Started</span>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobileMenuOpen" class="neu-icon-btn lg:hidden z-10" aria-label="Open Mobile Menu">
+        <i data-lucide="menu" class="w-5 h-5 text-gold-500"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===================================================================
+       MOBILE OFFCANVAS DRAWER MENU
+       =================================================================== -->
+  <div id="mobileMenuWrapper"
+    class="fixed inset-0 z-[1050] opacity-0 pointer-events-none transition-opacity duration-300">
+    <div id="mobileMenuBackdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+    <div id="mobileDrawer"
+      class="absolute top-0 right-0 w-72 max-w-full h-full bg-[var(--bg-primary)] shadow-2xl transform translate-x-full transition-transform duration-400 ease-out flex flex-col">
+      <div class="p-6 flex items-center justify-between border-b border-[var(--border-subtle)]">
+        <span class="font-heading font-extrabold text-xl metallic-text tracking-wide">MENU</span>
+        <button id="mobileMenuClose" class="neu-icon-btn !w-10 !h-10" aria-label="Close Menu">
+          <i data-lucide="x" class="w-5 h-5 text-[var(--text-secondary)]"></i>
+        </button>
+      </div>
+      <div class="p-6 flex-grow overflow-y-auto flex flex-col gap-5">
+        <div class="flex flex-col gap-4 text-lg font-bold">
+          <a href="index.html"
+            class="text-[var(--text-secondary)] hover:text-gold-500 transition-colors flex items-center gap-3"><i
+              data-lucide="shield" class="w-5 h-5"></i> Classic Vaults</a>
+          <a href="home-niche.html"
+            class="text-[var(--text-secondary)] hover:text-gold-500 transition-colors flex items-center gap-3"><i
+              data-lucide="zap" class="w-5 h-5"></i> EV SaaS Facilities</a>
+          <a href="about.html" class="text-gold-500 transition-colors">About Us</a>
+          <a href="services.html" class="text-[var(--text-primary)] hover:text-gold-500 transition-colors">Services</a>
+          <a href="pricing.html" class="text-[var(--text-primary)] hover:text-gold-500 transition-colors">Pricing</a>
+          <a href="blog.html" class="text-[var(--text-primary)] hover:text-gold-500 transition-colors">Blog</a>
+          <a href="contact.html" class="text-[var(--text-primary)] hover:text-gold-500 transition-colors">Contact</a>
+        </div>
+        <hr class="border-[var(--border-subtle)] my-2" />
+        <div class="flex flex-col gap-4">
+          <div class="flex items-center justify-between">
+            <span class="text-sm font-bold text-[var(--text-secondary)] uppercase tracking-wider">Direction</span>
+            <button class="rtlToggleBtn neu-btn !py-2 !px-4 text-xs">RTL/LTR</button>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-sm font-bold text-[var(--text-secondary)] uppercase tracking-wider">App Theme</span>
+            <button class="themeToggleBtn neu-icon-btn !w-10 !h-10">
+              <i data-lucide="sun" class="icon-sun w-4 h-4 text-gold-500 hidden"></i>
+              <i data-lucide="moon" class="icon-moon w-4 h-4 text-gold-500"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="p-6 border-t border-[var(--border-subtle)] bg-[var(--bg-card)]">
+        <a href="coming-soon.html" class="neu-btn neu-btn-primary w-full text-base font-bold justify-center py-4">
+          <i data-lucide="key-round" class="w-5 h-5"></i> Get Started
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       2. CONTAINER 1: HERO SECTION
+       =================================================================== -->
+  <section
+    class="relative pt-20 pb-24 md:pt-32 md:pb-40 overflow-hidden min-h-[70vh] flex items-center border-b border-slate-200 dark:border-white/5">
+    <!-- Cinematic Background -->
+    <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+      <div
+        class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600661653561-629509216228?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-30 dark:opacity-40 animate-cinematic mix-blend-luminosity">
+      </div>
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-[var(--bg-primary)]/40 via-[var(--bg-primary)]/80 to-[var(--bg-primary)]">
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <div class="metallic-badge mb-6 backdrop-blur-md bg-opacity-80 inline-flex">
+        <i data-lucide="award" class="w-4 h-4 text-gold-500"></i>
+        <span>Our Founding Philosophy</span>
+      </div>
+      <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold font-heading mb-6 max-w-4xl mx-auto leading-tight">
+        Where Aerospace Precision Meets <br class="hidden md:inline" />
+        <span class="metallic-text drop-shadow-md">Automotive Heritage</span>
+      </h1>
+      <p
+        class="text-lg text-slate-700 dark:text-slate-300 max-w-2xl mx-auto mb-10 leading-relaxed font-semibold drop-shadow-sm">
+        Founded in 2018 by structural engineers and competitive racing collectors, Veloce Luxe was born out of
+        frustration with conventional, exposed parking structures. We engineered the world’s first hermetically
+        balanced, robotics-driven automotive vault.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       3. CONTAINER 2: THE VELOCE STANDARD (CORE VALUES)
+       =================================================================== -->
+  <section class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl md:text-4xl font-extrabold font-heading mb-4">The Veloce Standard</h2>
+        <p class="text-slate-500 dark:text-slate-400 text-lg">Uncompromising principles guiding the preservation of the
+          world's most valuable machinery.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="neu-card p-10 text-center flex flex-col items-center group">
+          <div
+            class="w-20 h-20 rounded-2xl neu-inset flex items-center justify-center text-gold-500 mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
+            <i data-lucide="eye-off" class="w-10 h-10"></i>
+          </div>
+          <h3
+            class="font-heading font-bold text-2xl mb-3 group-hover:text-gold-600 dark:group-hover:text-gold-500 transition-colors">
+            Absolute Discretion</h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Confidentiality is our bedrock. From
+            private drop-off lounges to encrypted billing, your collection's location remains strictly classified.</p>
+        </div>
+        <div class="neu-card p-10 text-center flex flex-col items-center group">
+          <div
+            class="w-20 h-20 rounded-2xl neu-inset flex items-center justify-center text-gold-500 mb-6 transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6">
+            <i data-lucide="settings" class="w-10 h-10"></i>
+          </div>
+          <h3
+            class="font-heading font-bold text-2xl mb-3 group-hover:text-gold-600 dark:group-hover:text-gold-500 transition-colors">
+            Industrial Engineering</h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">No valet keys, no clutch wear. Our
+            subterranean facilities utilize laser-guided AGV shuttles to move vehicles without human interaction.</p>
+        </div>
+        <div class="neu-card p-10 text-center flex flex-col items-center group">
+          <div
+            class="w-20 h-20 rounded-2xl neu-inset flex items-center justify-center text-gold-500 mb-6 transition-all duration-500 group-hover:scale-110 group-hover:rotate-6">
+            <i data-lucide="microscope" class="w-10 h-10"></i>
+          </div>
+          <h3
+            class="font-heading font-bold text-2xl mb-3 group-hover:text-gold-600 dark:group-hover:text-gold-500 transition-colors">
+            Molecular Preservation</h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">Atmospheric management halts the hands
+            of time, stopping leather degradation, paint oxidation, and rubber dry-rot entirely.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       4. CONTAINER 3: HERITAGE & TIMELINE
+       =================================================================== -->
+  <section class="py-24 bg-black/5 relative border-y border-slate-200 dark:border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="metallic-badge mb-3">Milestones</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading mb-3">Our Evolution of Excellence</h2>
+        <p class="text-slate-500 dark:text-slate-400 text-lg">A steady progression of scientific automotive safeguarding
+          innovations.</p>
+      </div>
+
+      <div class="max-w-4xl mx-auto space-y-8 relative">
+        <!-- Connecting Line -->
+        <div class="absolute left-8 sm:left-[3.25rem] top-8 bottom-8 w-px bg-gold-500/20 z-0"></div>
+
+        <div class="neu-card p-6 sm:p-8 flex flex-col sm:flex-row items-start gap-6 relative z-10 group cursor-default">
+          <div
+            class="w-16 h-16 rounded-2xl neu-inset flex items-center justify-center font-extrabold font-heading text-xl text-gold-500 flex-shrink-0 group-hover:bg-gold-500 group-hover:text-obsidian-900 transition-colors duration-500 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
+            2018
+          </div>
+          <div>
+            <h3
+              class="font-heading font-bold text-xl mb-2 text-slate-800 dark:text-white group-hover:text-gold-600 dark:group-hover:text-gold-500 transition-colors">
+              Genesis of Facility Vault 01</h3>
+            <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+              Excavation completed for our flagship subterranean facility in Beverly Hills, introducing the first
+              positive-pressure nitrogen preservation cleanrooms for 50 initial collector vehicles.
+            </p>
+          </div>
+        </div>
+
+        <div class="neu-card p-6 sm:p-8 flex flex-col sm:flex-row items-start gap-6 relative z-10 group cursor-default">
+          <div
+            class="w-16 h-16 rounded-2xl neu-inset flex items-center justify-center font-extrabold font-heading text-xl text-gold-500 flex-shrink-0 group-hover:bg-gold-500 group-hover:text-obsidian-900 transition-colors duration-500 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
+            2021
+          </div>
+          <div>
+            <h3
+              class="font-heading font-bold text-xl mb-2 text-slate-800 dark:text-white group-hover:text-gold-600 dark:group-hover:text-gold-500 transition-colors">
+              Robotic AGV Platform Deployment</h3>
+            <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+              Implemented zero-touch Autonomous Guided Vehicle (AGV) shuttles, eliminating valet keys, seat contact, and
+              clutch wear during parking maneuvers.
+            </p>
+          </div>
+        </div>
+
+        <div class="neu-card p-6 sm:p-8 flex flex-col sm:flex-row items-start gap-6 relative z-10 group cursor-default">
+          <div
+            class="w-16 h-16 rounded-2xl neu-inset flex items-center justify-center font-extrabold font-heading text-xl text-gold-500 flex-shrink-0 group-hover:bg-gold-500 group-hover:text-obsidian-900 transition-colors duration-500 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
+            2024
+          </div>
+          <div>
+            <h3
+              class="font-heading font-bold text-xl mb-2 text-slate-800 dark:text-white group-hover:text-gold-600 dark:group-hover:text-gold-500 transition-colors">
+              EV High-Voltage Thermal Vaults</h3>
+            <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+              Patented our aerosol fire-suppression EV SuperPod system and integrated 800V DC smart battery conditioning
+              for next-generation electric hypercars.
+            </p>
+          </div>
+        </div>
+
+        <div class="neu-card p-6 sm:p-8 flex flex-col sm:flex-row items-start gap-6 relative z-10 group cursor-default">
+          <div
+            class="w-16 h-16 rounded-2xl neu-inset flex items-center justify-center font-extrabold font-heading text-xl text-gold-500 flex-shrink-0 group-hover:bg-gold-500 group-hover:text-obsidian-900 transition-colors duration-500 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
+            2026
+          </div>
+          <div>
+            <h3
+              class="font-heading font-bold text-xl mb-2 text-slate-800 dark:text-white group-hover:text-gold-600 dark:group-hover:text-gold-500 transition-colors">
+              Global Vault Telemetry Network</h3>
+            <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
+              Expanded to European and Middle Eastern private hub networks, connected by 256-bit encrypted satellite
+              telemetry and VIP cross-facility reciprocal privileges.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       5. CONTAINER 4: ARCHITECTURAL MARVEL
+       =================================================================== -->
+  <section class="py-24 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+        <div class="relative group cursor-pointer shadow-2xl">
+          <div
+            class="neu-card p-2 rounded-3xl transform -rotate-2 group-hover:rotate-0 transition-transform duration-700 relative z-10">
+            <div class="rounded-2xl overflow-hidden relative h-[450px]">
+              <div
+                class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center transition-transform duration-1000 group-hover:scale-105">
+              </div>
+              <div
+                class="absolute inset-0 bg-obsidian-900/40 group-hover:bg-transparent transition-colors duration-500">
+              </div>
+            </div>
+          </div>
+          <div
+            class="absolute inset-0 bg-gold-500/10 blur-[80px] z-0 rounded-full group-hover:bg-gold-500/30 transition-colors duration-700">
+          </div>
+        </div>
+
+        <div>
+          <div class="metallic-badge mb-4"><i data-lucide="layers" class="w-4 h-4 text-gold-500"></i> Structural
+            Integrity</div>
+          <h2 class="text-4xl font-extrabold font-heading mb-6">Engineering the Subterranean Vault.</h2>
+          <p class="text-slate-500 dark:text-slate-400 text-lg leading-relaxed mb-8">
+            To ensure zero atmospheric volatility, Veloce vaults are excavated 14 meters below grade. This naturally
+            insulates the facility from extreme weather events, seismic activity, and electromagnetic interference.
+          </p>
+          <div class="grid grid-cols-2 gap-6">
+            <div class="neu-inset p-5 rounded-2xl text-center">
+              <div class="text-3xl font-extrabold font-heading text-gold-500">550+</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 mt-1 uppercase font-semibold">Exotics Safeguarded
+              </div>
+            </div>
+            <div class="neu-inset p-5 rounded-2xl text-center">
+              <div class="text-3xl font-extrabold font-heading text-gold-500">14m</div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 mt-1 uppercase font-semibold">Subterranean Depth
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       6. CONTAINER 5: LEADERSHIP & CURATOR TEAM
+       =================================================================== -->
+  <section class="py-24 bg-black/5 relative border-y border-slate-200 dark:border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="metallic-badge mb-3">Master Curators</div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold font-heading mb-3">Executive Stewardship</h2>
+        <p class="text-slate-500 dark:text-slate-400 text-lg">Industry leaders in structural security, mechanical
+          conservation, and luxury hospitality.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <!-- Team Member 1 -->
+        <div class="neu-card p-8 text-center flex flex-col items-center group">
+          <div
+            class="w-32 h-32 rounded-full neu-inset overflow-hidden mb-6 group-hover:border-gold-500 transition-all duration-500 border-2 border-transparent">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=256&auto=format&fit=crop"
+              alt="Dr. Henrik Meyer"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 mix-blend-luminosity group-hover:mix-blend-normal" />
+          </div>
+          <h3
+            class="font-heading font-bold text-xl text-slate-800 dark:text-white mb-1 group-hover:text-gold-500 transition-colors">
+            Dr. Henrik Meyer</h3>
+          <div class="text-xs uppercase font-bold text-gold-600 dark:text-gold-500 tracking-wider mb-4">Founder & Chief
+            Engineer</div>
+          <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+            Former aerospace structural analyst and Le Mans historic endurance driver. 22 years of automotive metallurgy
+            research.
+          </p>
+        </div>
+
+        <!-- Team Member 2 -->
+        <div class="neu-card p-8 text-center flex flex-col items-center group">
+          <div
+            class="w-32 h-32 rounded-full neu-inset overflow-hidden mb-6 group-hover:border-gold-500 transition-all duration-500 border-2 border-transparent">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=256&auto=format&fit=crop"
+              alt="Claire Vance"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 mix-blend-luminosity group-hover:mix-blend-normal" />
+          </div>
+          <h3
+            class="font-heading font-bold text-xl text-slate-800 dark:text-white mb-1 group-hover:text-gold-500 transition-colors">
+            Claire Vance</h3>
+          <div class="text-xs uppercase font-bold text-gold-600 dark:text-gold-500 tracking-wider mb-4">Head of
+            Conservation Science</div>
+          <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+            Specialist in carbon-matrix preservation, organic leather hydration chemistry, and high-voltage lithium
+            battery conditioning.
+          </p>
+        </div>
+
+        <!-- Team Member 3 -->
+        <div class="neu-card p-8 text-center flex flex-col items-center group">
+          <div
+            class="w-32 h-32 rounded-full neu-inset overflow-hidden mb-6 group-hover:border-gold-500 transition-all duration-500 border-2 border-transparent">
+            <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=256&auto=format&fit=crop"
+              alt="Darius Sterling"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 mix-blend-luminosity group-hover:mix-blend-normal" />
+          </div>
+          <h3
+            class="font-heading font-bold text-xl text-slate-800 dark:text-white mb-1 group-hover:text-gold-500 transition-colors">
+            Darius Sterling</h3>
+          <div class="text-xs uppercase font-bold text-gold-600 dark:text-gold-500 tracking-wider mb-4">VP of Physical
+            Security</div>
+          <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+            Former diplomatic security liaison with expertise in multi-layer biometric perimeters, ballistic
+            architecture, and anti-surveillance.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       7. CONTAINER 6: GLOBAL NETWORK 
+       =================================================================== -->
+  <section class="py-24 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="metallic-badge mb-6"><i data-lucide="globe" class="w-4 h-4 text-gold-500"></i> International Presence
+      </div>
+      <h2 class="text-4xl font-extrabold font-heading mb-12">The Veloce Global Network.</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="neu-inset p-8 rounded-3xl relative overflow-hidden group">
+          <div
+            class="absolute inset-0 bg-[url('https://images.pexels.com/photos/34276901/pexels-photo-34276901.jpeg')] bg-cover bg-center opacity-10 group-hover:opacity-50 transition-opacity duration-500 mix-blend-luminosity">
+          </div>
+          <i data-lucide="map-pin" class="w-8 h-8 text-gold-500 mx-auto mb-4 relative z-10"></i>
+          <h3 class="font-heading font-bold text-2xl mb-2 relative z-10">Beverly Hills</h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm relative z-10">Flagship Facility & HQ</p>
+        </div>
+        <div class="neu-inset p-8 rounded-3xl relative overflow-hidden group">
+          <div
+            class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-10 group-hover:opacity-50 transition-opacity duration-500 mix-blend-luminosity">
+          </div>
+          <i data-lucide="map-pin" class="w-8 h-8 text-gold-500 mx-auto mb-4 relative z-10"></i>
+          <h3 class="font-heading font-bold text-2xl mb-2 relative z-10">London</h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm relative z-10">Heritage Preservation Hub</p>
+        </div>
+        <div class="neu-inset p-8 rounded-3xl relative overflow-hidden group">
+          <div
+            class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-10 group-hover:opacity-50 transition-opacity duration-500 mix-blend-luminosity">
+          </div>
+          <i data-lucide="map-pin" class="w-8 h-8 text-gold-500 mx-auto mb-4 relative z-10"></i>
+          <h3 class="font-heading font-bold text-2xl mb-2 relative z-10">Dubai</h3>
+          <p class="text-slate-500 dark:text-slate-400 text-sm relative z-10">Hypercar Logistics Center</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       8. CONTAINER 7: FUNCTIONING TESTIMONIALS CAROUSEL
+       =================================================================== -->
+  <section class="py-24 bg-black/5 relative border-y border-slate-200 dark:border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="neu-card-lg p-10 sm:p-16 relative overflow-hidden text-center border-gold-500/20">
+        <div class="metallic-badge mb-4">Client Endorsements</div>
+        <h2 class="text-3xl md:text-4xl font-extrabold font-heading mb-10">What Our Members Experience</h2>
+
+        <!-- Carousel Slide Container -->
+        <div class="max-w-3xl mx-auto text-center min-h-[160px] flex flex-col justify-center items-center"
+          id="testimonial-display">
+          <p class="text-lg sm:text-2xl text-slate-700 dark:text-slate-300 italic leading-relaxed mb-8 font-medium"
+            id="testimonial-quote">
+            "Veloce Luxe is the only facility on earth where I would trust my 1963 250 GTO. The biometric vault and
+            climate stabilization are without equal."
+          </p>
+          <div>
+            <div class="font-heading font-bold text-slate-900 dark:text-white text-lg" id="testimonial-author">Lord
+              Nicholas Sterling</div>
+            <div class="text-sm font-bold text-gold-600 dark:text-gold-500" id="testimonial-role">Heritage Automobile
+              Trust, London</div>
+          </div>
+        </div>
+
+        <!-- Carousel Navigation Controls -->
+        <div class="flex items-center justify-center gap-6 mt-12">
+          <button class="neu-icon-btn" id="prev-testimonial" aria-label="Previous Testimonial">
+            <i data-lucide="chevron-left" class="w-5 h-5"></i>
+          </button>
+          <div class="flex items-center gap-3" id="testimonial-dots">
+            <span
+              class="w-3 h-3 rounded-full bg-gold-500 cursor-pointer shadow-[0_0_10px_rgba(212,175,55,0.8)] transition-all"></span>
+            <span class="w-3 h-3 rounded-full bg-slate-300 dark:bg-slate-700 cursor-pointer transition-all"></span>
+            <span class="w-3 h-3 rounded-full bg-slate-300 dark:bg-slate-700 cursor-pointer transition-all"></span>
+          </div>
+          <button class="neu-icon-btn" id="next-testimonial" aria-label="Next Testimonial">
+            <i data-lucide="chevron-right" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       9. CONTAINER 8: VIP CALL TO ACTION
+       =================================================================== -->
+  <section class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div
+        class="neu-card-lg p-12 sm:p-20 text-center relative overflow-hidden border border-gold-500/30 shadow-[0_0_50px_rgba(212,175,55,0.1)]">
+        <div class="absolute inset-0 bg-gold-500/5"></div>
+        <div class="max-w-3xl mx-auto relative z-10">
+          <div class="metallic-badge mb-6">Exclusive Allocation</div>
+          <h2 class="text-4xl sm:text-6xl font-extrabold font-heading mb-8">Secure Your Vault Today</h2>
+          <p class="text-slate-500 dark:text-slate-400 text-lg sm:text-xl mb-10">Due to strict atmospheric constraints,
+            our subterranean chambers maintain a waitlist. Request an immediate site tour or reserve an active bay.</p>
+          <div class="flex flex-wrap items-center justify-center gap-5">
+            <a href="coming-soon.html"
+              class="neu-btn neu-btn-primary py-4 sm:py-5 px-8 sm:px-10 text-base sm:text-lg shadow-2xl">
+              <i data-lucide="calendar" class="w-5 h-5 sm:w-6 sm:h-6"></i> <span>Apply for Membership</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       10. MASTER FOOTER (BULLETPROOF, INLINE SVGS)
+       =================================================================== -->
+  <footer class="pt-20 pb-12 border-t border-slate-200 dark:border-white/10 bg-black/5 dark:bg-black/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-slate-200 dark:border-white/10">
+
+        <div class="lg:col-span-4 flex flex-col justify-between">
+          <div>
+            <a href="index.html" class="flex items-center gap-3 mb-6 group w-max">
+              <div
+                class="w-12 h-12 rounded-xl flex items-center justify-center border border-[#d4af37]/40 shadow-[0_0_15px_rgba(212,175,55,0.2)] group-hover:shadow-[0_0_25px_rgba(212,175,55,0.5)] transition-all duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12">
+                  <path
+                    d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+                  <path d="m9 12 2 2 4-4" />
+                </svg>
+              </div>
+              <span class="font-heading font-extrabold text-2xl tracking-wider metallic-text">VELOCE LUXE</span>
+            </a>
+            <p class="text-base text-slate-500 dark:text-slate-400 leading-relaxed mb-8">The premier automated vehicle
+              vault. Engineered for hypercars and electric mobility.</p>
+          </div>
+
+          <div class="flex items-center gap-6">
+  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+    class="hover:-translate-y-1 hover:scale-110 transition-all duration-300" aria-label="Instagram"
+    style="color: #d4af37;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      style="filter: drop-shadow(0px 4px 6px rgba(212,175,55,0.4));">
+      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+    </svg>
+  </a>
+  <a href="https://x.com" target="_blank" rel="noopener noreferrer"
+    class="hover:-translate-y-1 hover:scale-110 transition-all duration-300" aria-label="X (Twitter)"
+    style="color: #d4af37;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"
+      style="filter: drop-shadow(0px 4px 6px rgba(212,175,55,0.4));">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+    </svg>
+  </a>
+  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+    class="hover:-translate-y-1 hover:scale-110 transition-all duration-300" aria-label="LinkedIn"
+    style="color: #d4af37;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      style="filter: drop-shadow(0px 4px 6px rgba(212,175,55,0.4));">
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect width="4" height="12" x="2" y="9" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  </a>
+</div>
+        </div>
+
+        <div class="lg:col-span-2">
+          <h4 class="font-heading font-bold text-sm uppercase tracking-wider text-[#d4af37] mb-6">Navigation</h4>
+          <ul class="space-y-4 text-sm font-semibold">
+            <li><a href="about.html"
+                class="text-slate-500 dark:text-slate-400 hover:text-[#d4af37] hover:translate-x-1 inline-block transition-all">About
+                Us</a></li>
+            <li><a href="services.html"
+                class="text-slate-500 dark:text-slate-400 hover:text-[#d4af37] hover:translate-x-1 inline-block transition-all">Vault
+                Services</a></li>
+            <li><a href="pricing.html"
+                class="text-slate-500 dark:text-slate-400 hover:text-[#d4af37] hover:translate-x-1 inline-block transition-all">Pricing
+                & Plans</a></li>
+            <li><a href="blog.html"
+                class="text-slate-500 dark:text-slate-400 hover:text-[#d4af37] hover:translate-x-1 inline-block transition-all">Journals
+                & News</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-2">
+          <h4 class="font-heading font-bold text-sm uppercase tracking-wider text-[#d4af37] mb-6">Portals</h4>
+          <ul class="space-y-4 text-sm font-semibold">
+            <li><a href="coming-soon.html"
+                class="text-slate-500 dark:text-slate-400 hover:text-[#d4af37] hover:translate-x-1 inline-block transition-all">Customer
+                Portal</a></li>
+            <li><a href="contact.html"
+                class="text-slate-500 dark:text-slate-400 hover:text-[#d4af37] hover:translate-x-1 inline-block transition-all">Concierge</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-4">
+          <h4 class="font-heading font-bold text-sm uppercase tracking-wider text-[#d4af37] mb-6">VIP Dispatch</h4>
+          <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-6">Receive notifications when founder
+            vaults become available.</p>
+          <form id="newsletterForm" class="flex flex-col gap-4">
+            <input type="email" required placeholder="Private email address..."
+              class="neu-input py-4 text-base bg-white dark:bg-[#121212] border-slate-200 dark:border-white/10" />
+            <button type="submit" class="neu-btn neu-btn-primary py-4 font-bold justify-center w-full">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" x2="11" y1="2" y2="13" />
+                <polygon points="22 2 15 22 11 13 2 9 22 2" />
+              </svg>
+              <span>Join Registry</span>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div
+        class="pt-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm font-semibold text-slate-500 dark:text-slate-500">
+        <div>© 2026 VELOCE LUXE. Designed for Ultra-Luxury Automotives.</div>
+        <div class="flex items-center gap-8">
+          <a href="#" class="hover:text-[#d4af37] transition-colors">Privacy</a>
+          <a href="#" class="hover:text-[#d4af37] transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core Javascript Interactions -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      const html = document.documentElement;
+
+      // Theme Toggle Logic
+      const themeToggleBtns = document.querySelectorAll('.themeToggleBtn');
+      themeToggleBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const isDark = html.getAttribute('data-theme') === 'dark';
+          html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+          document.querySelectorAll('.icon-sun').forEach(el => isDark ? el.classList.remove('hidden') : el.classList.add('hidden'));
+          document.querySelectorAll('.icon-moon').forEach(el => isDark ? el.classList.add('hidden') : el.classList.remove('hidden'));
+        });
+      });
+
+      // RTL Toggle Logic
+      const rtlToggleBtns = document.querySelectorAll('.rtlToggleBtn');
+      rtlToggleBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          html.setAttribute('dir', html.getAttribute('dir') === 'ltr' ? 'rtl' : 'ltr');
+        });
+      });
+
+      // Mobile Menu Offcanvas Drawer Logic
+      const mobileMenuWrapper = document.getElementById('mobileMenuWrapper');
+      const mobileDrawer = document.getElementById('mobileDrawer');
+      const mobileMenuOpen = document.getElementById('mobileMenuOpen');
+      const mobileMenuClose = document.getElementById('mobileMenuClose');
+      const mobileMenuBackdrop = document.getElementById('mobileMenuBackdrop');
+
+      function openMobileMenu() {
+        mobileMenuWrapper.classList.remove('opacity-0', 'pointer-events-none');
+        mobileDrawer.classList.remove('translate-x-full');
+        html.style.overflow = 'hidden';
+      }
+
+      function closeMobileMenu() {
+        mobileMenuWrapper.classList.add('opacity-0', 'pointer-events-none');
+        mobileDrawer.classList.add('translate-x-full');
+        html.style.overflow = '';
+      }
+
+      if (mobileMenuOpen && mobileMenuClose && mobileMenuBackdrop) {
+        mobileMenuOpen.addEventListener('click', openMobileMenu);
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        mobileMenuBackdrop.addEventListener('click', closeMobileMenu);
+      }
+
+      // Sticky Header
+      const header = document.getElementById('header');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+      });
+
+      // Toast Logic
+      const newsletterForm = document.getElementById('newsletterForm');
+      const toastContainer = document.getElementById('toast-container');
+
+      function showToast(title, desc) {
+        const toast = document.createElement('div');
+        toast.className = 'toast-message toast-success';
+        toast.innerHTML = `
+          <div class="toast-icon-wrap"><i data-lucide="check" class="w-5 h-5"></i></div>
+          <div class="toast-body">
+            <div class="toast-title">${title}</div>
+            <div class="toast-desc">${desc}</div>
+          </div>
+        `;
+        toastContainer.appendChild(toast);
+        lucide.createIcons();
+        setTimeout(() => toast.classList.add('toast-visible'), 100);
+        setTimeout(() => {
+          toast.classList.remove('toast-visible');
+          setTimeout(() => toast.remove(), 500);
+        }, 4000);
+      }
+
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          showToast('Registry Confirmed', 'You have been securely added to the VIP dispatch list.');
+          newsletterForm.reset();
+        });
+      }
+
+      // Testimonial Carousel Logic
+      const testimonials = [
+        {
+          quote: '"Veloce Luxe is the only facility on earth where I would trust my 1963 250 GTO. The biometric vault and climate stabilization are without equal."',
+          author: 'Lord Nicholas Sterling',
+          role: 'Heritage Automobile Trust, London'
+        },
+        {
+          quote: '"Having on-demand robotic retrieval means I can decide to take my Koenigsegg Jesko out on a Sunday morning and have it staged in 90 seconds."',
+          author: 'Sébastien Laurent',
+          role: 'Venture Capitalist & Collector, Monaco'
+        },
+        {
+          quote: '"The EV SuperPod keeps my Rimac at exact factory storage charge and 20°C ambient. The mobile app telemetry gives me complete transparency."',
+          author: 'Maya Al-Mansoor',
+          role: 'Automotive Investor, Dubai'
+        }
+      ];
+
+      let currentIdx = 0;
+      const quoteEl = document.getElementById('testimonial-quote');
+      const authorEl = document.getElementById('testimonial-author');
+      const roleEl = document.getElementById('testimonial-role');
+      const dots = document.querySelectorAll('#testimonial-dots span');
+
+      function updateTestimonial(idx) {
+        currentIdx = idx;
+
+        // Add a small fade effect during change
+        quoteEl.style.opacity = 0;
+        setTimeout(() => {
+          quoteEl.textContent = testimonials[idx].quote;
+          authorEl.textContent = testimonials[idx].author;
+          roleEl.textContent = testimonials[idx].role;
+          quoteEl.style.opacity = 1;
+        }, 200);
+
+        dots.forEach((dot, i) => {
+          if (i === idx) {
+            dot.className = 'w-3 h-3 rounded-full bg-gold-500 cursor-pointer shadow-[0_0_10px_rgba(212,175,55,0.8)] transition-all';
+          } else {
+            dot.className = 'w-3 h-3 rounded-full bg-slate-300 dark:bg-slate-700 cursor-pointer transition-all';
+          }
+        });
+      }
+
+      document.getElementById('prev-testimonial')?.addEventListener('click', () => {
+        let next = currentIdx - 1;
+        if (next < 0) next = testimonials.length - 1;
+        updateTestimonial(next);
+      });
+
+      document.getElementById('next-testimonial')?.addEventListener('click', () => {
+        let next = (currentIdx + 1) % testimonials.length;
+        updateTestimonial(next);
+      });
+
+      dots.forEach((dot, idx) => {
+        dot.addEventListener('click', () => updateTestimonial(idx));
+      });
+    });
+  </script>
+</body>
+
+</html>

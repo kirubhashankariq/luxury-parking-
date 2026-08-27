@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d4af37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z'/><path d='m9 12 2 2 4-4'/></svg>">
+  <title>Get Started // VELOCE LUXE Encrypted Dashboard</title>
+  <meta name="description"
+    content="Manage your private vehicle vault bays, live atmospheric telemetry, robotic retrieval requests, and generate biometric entry passes." />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: ['class', '[data-theme="dark"]'],
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              50: '#fdfbf4', 100: '#fbf5e4', 200: '#f5e8c4', 300: '#ecd397', 400: '#e5c057',
+              500: '#d4af37', 600: '#bf992e', 700: '#a17c22', 800: '#856420', 900: '#71541b', 950: '#412e0b'
+            },
+            obsidian: { 800: '#1f1f1f', 900: '#121212', 950: '#0a0a0a' }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            heading: ['"Space Grotesk"', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Unified Ultra-Luxury CSS & Hover Rules -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+    :root {
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-heading: 'Space Grotesk', sans-serif;
+      --bg-primary: #F5F5F7;
+      --bg-secondary: #EBEBEF;
+      --bg-card: #F5F5F7;
+      --text-primary: #1A1A1A;
+      --text-secondary: #4A4A4A;
+      --text-muted: #8F8F8F;
+      --border-light: rgba(255, 255, 255, 0.9);
+      --border-subtle: rgba(180, 180, 180, 0.2);
+      --accent-primary: #d4af37;
+      --accent-glow: rgba(212, 175, 55, 0.4);
+      --neu-flat: 9px 9px 18px #d5d5d7, -9px -9px 18px #ffffff;
+      --neu-flat-sm: 5px 5px 10px #d9d9db, -5px -5px 10px #ffffff;
+      --neu-flat-lg: 15px 15px 30px #cecece, -15px -15px 30px #ffffff;
+      --neu-pressed: inset 5px 5px 10px #d5d5d7, inset -5px -5px 10px #ffffff;
+      --neu-pressed-sm: inset 2px 2px 5px #d5d5d7, inset -2px -2px 5px #ffffff;
+      --nav-bg: rgba(245, 245, 247, 0.92);
+      --toast-bg: rgba(255, 255, 255, 0.95);
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #121212;
+      --bg-secondary: #1A1A1A;
+      --bg-card: #121212;
+      --text-primary: #F5F5F7;
+      --text-secondary: #A3A3A3;
+      --text-muted: #666666;
+      --border-light: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.02);
+      --accent-primary: #d4af37;
+      --accent-glow: rgba(212, 175, 55, 0.25);
+      --neu-flat: 8px 8px 16px #0b0b0b, -8px -8px 16px #191919;
+      --neu-flat-sm: 4px 4px 8px #0d0d0d, -4px -4px 8px #171717;
+      --neu-flat-lg: 12px 12px 24px #090909, -12px -12px 24px #1b1b1b;
+      --neu-pressed: inset 4px 4px 8px #0b0b0b, inset -4px -4px 8px #16233a;
+      --nav-bg: rgba(18, 18, 18, 0.92);
+      --toast-bg: rgba(26, 26, 26, 0.98);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: var(--font-heading);
+      color: var(--text-primary);
+    }
+
+    .ambient-background {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .ambient-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.15;
+    }
+
+    [data-theme="dark"] .ambient-orb {
+      opacity: 0.08;
+    }
+
+    .ambient-orb-1 {
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, #d4af37 0%, transparent 70%);
+      top: -10%;
+      left: -5%;
+    }
+
+    .ambient-grid {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(var(--border-subtle) 1px, transparent 1px);
+      background-size: 40px 40px;
+      opacity: 0.8;
+    }
+
+    /* Interactive Hover & Glow Effects for Dashboard Cards */
+    .neu-card,
+    .neu-card-lg {
+      background: var(--bg-card);
+      box-shadow: var(--neu-flat);
+      border-radius: 20px;
+      border: 1px solid var(--border-light);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .neu-card-lg {
+      border-radius: 28px;
+    }
+
+    .neu-card::before,
+    .neu-card-lg::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 50% 0%, var(--accent-glow), transparent 45%);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .neu-card>*,
+    .neu-card-lg>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    .neu-card:hover,
+    .neu-card-lg:hover {
+      transform: translateY(-5px) scale(1.005);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px var(--accent-glow);
+      border-color: rgba(212, 175, 55, 0.4);
+    }
+
+    .neu-card:hover::before,
+    .neu-card-lg:hover::before {
+      opacity: 1;
+    }
+
+    .neu-inset {
+      background: var(--bg-card);
+      box-shadow: var(--neu-pressed);
+      border-radius: 16px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .neu-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      background: var(--bg-card);
+      color: var(--text-primary);
+      box-shadow: var(--neu-flat-sm);
+      border-radius: 12px;
+      border: 1px solid var(--border-light);
+      font-weight: 700;
+      padding: 0.75rem 1.6rem;
+      cursor: pointer;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      transition: all 0.2s ease;
+    }
+
+    .neu-btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -150%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transform: skewX(-25deg);
+      transition: all 0.6s ease;
+      z-index: -1;
+    }
+
+    .neu-btn:hover {
+      box-shadow: var(--neu-flat);
+      transform: translateY(-2px);
+      color: var(--accent-primary);
+      border-color: var(--accent-primary);
+    }
+
+    .neu-btn:hover::after {
+      left: 150%;
+    }
+
+    .neu-btn-primary {
+      background: linear-gradient(135deg, #d4af37, #a17c22);
+      color: #121212 !important;
+      box-shadow: 0 6px 18px var(--accent-glow), var(--neu-flat-sm);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .neu-btn-primary:hover {
+      background: linear-gradient(135deg, #e5c057, #d4af37);
+      box-shadow: 0 10px 24px var(--accent-glow), var(--neu-flat);
+      border-color: #fff;
+    }
+
+    .neu-icon-btn {
+      width: 44px;
+      height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--bg-card);
+      box-shadow: var(--neu-flat-sm);
+      border: 1px solid var(--border-light);
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .neu-icon-btn:hover {
+      box-shadow: var(--neu-flat);
+      color: var(--accent-primary);
+      border-color: var(--accent-primary);
+      transform: translateY(-2px);
+    }
+
+    .metallic-text {
+      background: linear-gradient(135deg, #71541b 0%, #d4af37 50%, #412e0b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    [data-theme="dark"] .metallic-text {
+      background: linear-gradient(135deg, #f5e8c4 0%, #d4af37 50%, #a17c22 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .metallic-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      background: var(--bg-card);
+      box-shadow: var(--neu-flat-sm);
+      border: 1px solid var(--border-light);
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-primary);
+    }
+
+    #toast-container {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 99999;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      max-width: 400px;
+      width: calc(100vw - 3rem);
+      pointer-events: none;
+    }
+
+    .toast-message {
+      pointer-events: auto;
+      background: var(--toast-bg);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      border: 1px solid var(--accent-primary);
+      box-shadow: 0 10px 30px var(--accent-glow);
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      transform: translateX(120%);
+      opacity: 0;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+
+    .toast-message.toast-visible {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .toast-icon-wrap {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: var(--accent-primary);
+      color: #121212;
+    }
+  </style>
+</head>
+
+<body class="selection:bg-gold-500 selection:text-black">
+
+  <div class="ambient-background" aria-hidden="true">
+    <div class="ambient-orb ambient-orb-1"></div>
+    <div class="ambient-grid"></div>
+  </div>
+
+  <div id="toast-container"></div>
+
+  <!-- Dashboard Layout Wrapper -->
+  <div class="min-h-screen flex flex-col lg:flex-row">
+
+    <!-- ===================================================================
+         CONTAINER 1: SIDEBAR NAVIGATION
+         =================================================================== -->
+    <aside
+      class="w-full lg:w-72 bg-[var(--nav-bg)] backdrop-blur-xl border-r border-slate-200 dark:border-white/5 p-6 flex flex-col justify-between flex-shrink-0">
+      <div>
+        <a href="index.html" class="flex items-center gap-3 mb-10 group focus:outline-none">
+          <div
+            class="w-10 h-10 rounded-2xl flex items-center justify-center neu-card group-hover:scale-105 transition-transform">
+            <i data-lucide="shield-check" class="w-5 h-5 text-gold-500"></i>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-heading font-extrabold text-lg tracking-wider metallic-text">VELOCE LUXE</span>
+            <span class="text-[9px] tracking-widest text-gold-500 uppercase font-semibold -mt-1">Member Vault
+              Portal</span>
+          </div>
+        </a>
+
+        <nav class="space-y-2 font-semibold text-sm">
+          <a href="#overview"
+            class="flex items-center gap-3 px-4 py-3 rounded-xl text-gold-600 dark:text-gold-500 bg-[var(--bg-card)] shadow-[var(--neu-pressed-sm)] border border-gold-500/20">
+            <i data-lucide="layout-dashboard" class="w-4 h-4"></i>
+            <span>Vault Overview</span>
+          </a>
+          <a href="#active-bays"
+            class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 hover:bg-[var(--bg-card)] transition-colors">
+            <i data-lucide="car" class="w-4 h-4"></i>
+            <span>My Active Vehicles</span>
+          </a>
+          <a href="#book-slot"
+            class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 hover:bg-[var(--bg-card)] transition-colors">
+            <i data-lucide="calendar-plus" class="w-4 h-4"></i>
+            <span>Book New Bay</span>
+          </a>
+          <a href="#billing"
+            class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 hover:bg-[var(--bg-card)] transition-colors">
+            <i data-lucide="credit-card" class="w-4 h-4"></i>
+            <span>Invoices & Billing</span>
+          </a>
+          <a href="admin.html"
+            class="flex items-center gap-3 px-4 py-3 rounded-xl text-amber-600 dark:text-amber-400 hover:bg-[var(--bg-card)] transition-colors">
+            <i data-lucide="terminal" class="w-4 h-4"></i>
+            <span>Switch to Admin View</span>
+          </a>
+        </nav>
+      </div>
+
+      <div class="pt-6 mt-8 border-t border-slate-200 dark:border-white/5 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div
+            class="w-10 h-10 rounded-xl neu-inset flex items-center justify-center font-heading font-bold text-gold-600 dark:text-gold-500 text-sm">
+            AS</div>
+          <div>
+            <div class="text-xs font-bold text-slate-800 dark:text-slate-200">Lord Arthur S.</div>
+            <div class="text-[10px] text-gold-600 dark:text-gold-500 font-mono">FOUNDER #042</div>
+          </div>
+        </div>
+        <a href="login.html" class="neu-icon-btn w-8 h-8 text-slate-400 hover:text-red-400" title="Log Out"
+          aria-label="Log Out">
+          <i data-lucide="log-out" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+    </aside>
+
+    <!-- Main Get Started Area -->
+    <main class="flex-1 p-4 sm:p-8 lg:p-10 max-w-7xl mx-auto w-full overflow-y-auto space-y-10" id="overview">
+
+      <!-- CONTAINER 2: TOP COMMAND HEADER -->
+      <div
+        class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-slate-200 dark:border-white/5">
+        <div>
+          <h1 class="text-2xl sm:text-3xl font-extrabold font-heading text-slate-900 dark:text-white">Client Vault
+            Command</h1>
+          <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">Subterranean Facility Level -3 • Sector
+            Alpha Active</p>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <button class="rtlToggleBtn neu-icon-btn" title="Toggle RTL"><span
+              class="text-xs font-bold font-mono">RTL</span></button>
+          <button class="themeToggleBtn neu-icon-btn" title="Toggle Theme">
+            <i data-lucide="sun" class="icon-sun w-5 h-5 text-gold-500 hidden"></i>
+            <i data-lucide="moon" class="icon-moon w-5 h-5 text-gold-500"></i>
+          </button>
+          <button onclick="openPassModal('Ferrari Daytona SP3', 'Bay B-02', 'EXP-2026-08-30')"
+            class="neu-btn neu-btn-primary py-2.5 px-4 text-xs font-bold shadow-md">
+            <i data-lucide="qr-code" class="w-4 h-4"></i> <span>Entry Pass</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- CONTAINER 3: QUICK METRICS GRID -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="neu-card p-5 flex items-center justify-between">
+          <div>
+            <div class="text-xs uppercase font-bold text-slate-500 dark:text-slate-400">Active Bays</div>
+            <div class="text-2xl font-extrabold font-heading text-slate-900 dark:text-white mt-1">2 Vehicles</div>
+            <div class="text-[10px] text-emerald-600 dark:text-emerald-400 flex items-center gap-1 mt-1 font-semibold">
+              <i data-lucide="check-circle" class="w-3 h-3"></i> Fully Secured</div>
+          </div>
+          <div class="w-12 h-12 rounded-xl neu-inset flex items-center justify-center text-gold-600 dark:text-gold-500">
+            <i data-lucide="shield" class="w-6 h-6"></i></div>
+        </div>
+
+        <div class="neu-card p-5 flex items-center justify-between">
+          <div>
+            <div class="text-xs uppercase font-bold text-slate-500 dark:text-slate-400">Climate Health</div>
+            <div class="text-2xl font-extrabold font-heading text-cyan-600 dark:text-cyan-400 mt-1">20.0°C / 50%</div>
+            <div class="text-[10px] text-slate-500 dark:text-slate-400 mt-1">Nitrogen Purity 98.4%</div>
+          </div>
+          <div class="w-12 h-12 rounded-xl neu-inset flex items-center justify-center text-cyan-600 dark:text-cyan-400">
+            <i data-lucide="wind" class="w-6 h-6"></i></div>
+        </div>
+
+        <div class="neu-card p-5 flex items-center justify-between">
+          <div>
+            <div class="text-xs uppercase font-bold text-slate-500 dark:text-slate-400">Battery Care</div>
+            <div class="text-2xl font-extrabold font-heading text-emerald-600 dark:text-emerald-400 mt-1">100% Float
+            </div>
+            <div class="text-[10px] text-emerald-600 dark:text-emerald-400 mt-1">CTEK Conditioning On</div>
+          </div>
+          <div
+            class="w-12 h-12 rounded-xl neu-inset flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+            <i data-lucide="battery-charging" class="w-6 h-6"></i></div>
+        </div>
+
+        <div class="neu-card p-5 flex items-center justify-between">
+          <div>
+            <div class="text-xs uppercase font-bold text-slate-500 dark:text-slate-400">Next Billing</div>
+            <div class="text-2xl font-extrabold font-heading text-slate-900 dark:text-white mt-1">$3,700</div>
+            <div class="text-[10px] text-slate-500 dark:text-slate-400 mt-1">Auto-Charge: Sep 01</div>
+          </div>
+          <div class="w-12 h-12 rounded-xl neu-inset flex items-center justify-center text-gold-600 dark:text-gold-500">
+            <i data-lucide="receipt" class="w-6 h-6"></i></div>
+        </div>
+      </div>
+
+      <!-- CONTAINER 4: ACTIVE VEHICLES IN VAULT -->
+      <section id="active-bays" class="space-y-4">
+        <div class="flex items-center justify-between">
+          <h2 class="text-xl font-bold font-heading text-slate-900 dark:text-white flex items-center gap-2">
+            <i data-lucide="key" class="w-5 h-5 text-gold-500"></i> <span>Currently Stored Vehicles (2 Active)</span>
+          </h2>
+          <span class="text-xs text-slate-500 dark:text-slate-400 font-mono">LIVE AGV SYNC ACTIVE</span>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+          <!-- Vehicle 1 -->
+          <div class="neu-card-lg p-6 sm:p-8 flex flex-col justify-between">
+            <div>
+              <div class="flex items-start justify-between mb-4">
+                <div>
+                  <span
+                    class="text-[10px] font-bold uppercase tracking-wider bg-gold-500/20 text-gold-600 dark:text-gold-500 px-2.5 py-1 rounded border border-gold-500/30">BAY
+                    B-02 • NITROGEN VAULT</span>
+                  <h3 class="text-xl font-bold font-heading text-slate-900 dark:text-white mt-2">2024 Ferrari Daytona
+                    SP3</h3>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">Rosso Corsa • Chassis #088/599</p>
+                </div>
+                <div
+                  class="w-10 h-10 rounded-xl neu-inset flex items-center justify-center text-gold-600 dark:text-gold-500">
+                  <i data-lucide="car" class="w-5 h-5"></i></div>
+              </div>
+
+              <div class="grid grid-cols-3 gap-3 my-4">
+                <div class="neu-inset p-3 rounded-xl text-center">
+                  <div class="text-xs text-slate-500 dark:text-slate-400">Temp</div>
+                  <div class="text-sm font-bold text-slate-800 dark:text-white mt-0.5 font-mono">19.8°C</div>
+                </div>
+                <div class="neu-inset p-3 rounded-xl text-center">
+                  <div class="text-xs text-slate-500 dark:text-slate-400">Humidity</div>
+                  <div class="text-sm font-bold text-cyan-600 dark:text-cyan-400 mt-0.5 font-mono">49.6% RH</div>
+                </div>
+                <div class="neu-inset p-3 rounded-xl text-center">
+                  <div class="text-xs text-slate-500 dark:text-slate-400">Battery</div>
+                  <div class="text-sm font-bold text-emerald-600 dark:text-emerald-400 mt-0.5 font-mono">13.6V</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-200 dark:border-white/5 flex flex-wrap items-center gap-3">
+              <button onclick="requestRetrieval('Ferrari Daytona SP3', 'Bay B-02')"
+                class="neu-btn neu-btn-primary text-xs py-2.5 px-4 font-bold flex-1 justify-center shadow-md">
+                <i data-lucide="arrow-up-circle" class="w-4 h-4"></i> <span>Request 90s Staging</span>
+              </button>
+              <button onclick="openPassModal('Ferrari Daytona SP3', 'Bay B-02', 'EXP-2026-08-30')"
+                class="neu-btn text-xs py-2.5 px-3"><i data-lucide="qr-code" class="w-4 h-4 text-gold-500"></i></button>
+              <button onclick="showToast('Live Camera Connected', 'Streaming Bay B-02 4K feed.', 'info')"
+                class="neu-btn text-xs py-2.5 px-3" title="Live Camera"><i data-lucide="video"
+                  class="w-4 h-4 text-gold-500"></i></button>
+            </div>
+          </div>
+
+          <!-- Vehicle 2 -->
+          <div class="neu-card-lg p-6 sm:p-8 flex flex-col justify-between">
+            <div>
+              <div class="flex items-start justify-between mb-4">
+                <div>
+                  <span
+                    class="text-[10px] font-bold uppercase tracking-wider bg-gold-500/20 text-gold-600 dark:text-gold-500 px-2.5 py-1 rounded border border-gold-500/30">BAY
+                    E-07 • EV SUPERPOD</span>
+                  <h3 class="text-xl font-bold font-heading text-slate-900 dark:text-white mt-2">2025 Porsche Taycan
+                    Turbo GT</h3>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">Weissach Package • Pale Blue Metallic</p>
+                </div>
+                <div
+                  class="w-10 h-10 rounded-xl neu-inset flex items-center justify-center text-gold-600 dark:text-gold-500">
+                  <i data-lucide="zap" class="w-5 h-5"></i></div>
+              </div>
+
+              <div class="grid grid-cols-3 gap-3 my-4">
+                <div class="neu-inset p-3 rounded-xl text-center">
+                  <div class="text-xs text-slate-500 dark:text-slate-400">High-Volt SoC</div>
+                  <div class="text-sm font-bold text-gold-600 dark:text-gold-500 mt-0.5 font-mono">52% (Ideal)</div>
+                </div>
+                <div class="neu-inset p-3 rounded-xl text-center">
+                  <div class="text-xs text-slate-500 dark:text-slate-400">Thermal Pack</div>
+                  <div class="text-sm font-bold text-emerald-600 dark:text-emerald-400 mt-0.5 font-mono">21.2°C</div>
+                </div>
+                <div class="neu-inset p-3 rounded-xl text-center">
+                  <div class="text-xs text-slate-500 dark:text-slate-400">Fire Aerosol</div>
+                  <div class="text-sm font-bold text-emerald-600 dark:text-emerald-400 mt-0.5 font-mono">Armed</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-200 dark:border-white/5 flex flex-wrap items-center gap-3">
+              <button onclick="requestRetrieval('Porsche Taycan Turbo GT', 'Bay E-07')"
+                class="neu-btn neu-btn-primary text-xs py-2.5 px-4 font-bold flex-1 justify-center shadow-md">
+                <i data-lucide="arrow-up-circle" class="w-4 h-4"></i> <span>Request 90s Staging</span>
+              </button>
+              <button onclick="openPassModal('Porsche Taycan Turbo GT', 'Bay E-07', 'EXP-2026-08-30')"
+                class="neu-btn text-xs py-2.5 px-3"><i data-lucide="qr-code" class="w-4 h-4 text-gold-500"></i></button>
+              <button onclick="showToast('Live Camera Connected', 'Streaming Bay E-07 4K feed.', 'info')"
+                class="neu-btn text-xs py-2.5 px-3" title="Live Camera"><i data-lucide="video"
+                  class="w-4 h-4 text-gold-500"></i></button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- CONTAINER 5: BOOK NEW BAY WIDGET -->
+      <section id="book-slot" class="neu-card-lg p-6 sm:p-8">
+        <div class="max-w-3xl">
+          <div class="metallic-badge mb-3">Add Vehicle to Vault</div>
+          <h2 class="text-2xl font-extrabold font-heading text-slate-900 dark:text-white mb-2">Book an Additional Vault
+            Bay</h2>
+          <p class="text-slate-500 dark:text-slate-400 text-xs sm:text-sm mb-6 font-medium">Select your bay allocation,
+            generate an authorized cryptographic entry pass, and dispatch your transporter.</p>
+
+          <form id="new-slot-form" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label
+                  class="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">Vehicle
+                  Details</label>
+                <input type="text" id="slot-car-name" required placeholder="e.g. 2023 Bugatti Chiron Profilée"
+                  class="neu-input text-xs" />
+              </div>
+              <div>
+                <label
+                  class="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">Desired
+                  Bay Type</label>
+                <div class="neu-inset p-1">
+                  <select id="slot-type-select"
+                    class="w-full bg-transparent text-xs py-2 px-3 text-slate-800 dark:text-slate-200 outline-none">
+                    <option class="bg-white dark:bg-obsidian-900" value="Bay C-04 (Nitrogen Vault)">Bay C-04 •
+                      Subterranean Nitrogen Vault ($1,850/mo)</option>
+                    <option class="bg-white dark:bg-obsidian-900" value="Bay E-12 (EV SuperPod)">Bay E-12 • High-Voltage
+                      EV SuperPod ($1,600/mo)</option>
+                    <option class="bg-white dark:bg-obsidian-900" value="Bay D-01 (Daily Concierge)">Bay D-01 •
+                      Executive Daily Valet ($120/day)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between pt-2">
+              <div class="text-xs text-slate-500 dark:text-slate-400">Immediate biometric key generation with instant
+                staging clearance.</div>
+              <button type="submit" class="neu-btn neu-btn-primary py-3 px-6 text-xs font-bold shadow-md">
+                <i data-lucide="plus-circle" class="w-4 h-4"></i> <span>Confirm & Generate Pass</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- CONTAINER 6: LIVE BAY TELEMETRY SIMULATOR -->
+      <section id="telemetry" class="neu-card p-6">
+        <h2 class="text-lg font-bold font-heading text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+          <i data-lucide="activity" class="w-5 h-5 text-gold-500"></i> Real-Time Atmospheric Feed (Sub-Level 3)
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs font-mono">
+          <div class="neu-inset p-4 rounded-xl">
+            <span class="text-slate-500 dark:text-slate-400">CHAMBER OXYGEN SENSOR</span>
+            <div class="text-lg font-bold text-gold-600 dark:text-gold-500 mt-1">1.2% (Safe Inactive)</div>
+          </div>
+          <div class="neu-inset p-4 rounded-xl">
+            <span class="text-slate-500 dark:text-slate-400">SEISMIC ISOLATION CRADLE</span>
+            <div class="text-lg font-bold text-emerald-600 dark:text-emerald-400 mt-1">Locked (0.00G)</div>
+          </div>
+          <div class="neu-inset p-4 rounded-xl">
+            <span class="text-slate-500 dark:text-slate-400">FIRE SUPPRESSION PRESSURE</span>
+            <div class="text-lg font-bold text-cyan-600 dark:text-cyan-400 mt-1">220 Bar (Nominal)</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTAINER 7: INVOICES & BILLING -->
+      <section id="billing" class="neu-card p-6">
+        <div class="flex items-center justify-between mb-6">
+          <h2 class="text-lg font-bold font-heading text-slate-900 dark:text-white">Recent Statements & Invoices</h2>
+          <button onclick="showToast('Exporting Statement', 'Full PDF financial statement downloaded.', 'info')"
+            class="neu-btn text-xs py-2 px-4 font-bold shadow-md">
+            <i data-lucide="download" class="w-3.5 h-3.5"></i> <span>Export PDF</span>
+          </button>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-xs">
+            <thead>
+              <tr
+                class="border-b border-slate-200 dark:border-white/10 text-slate-500 dark:text-slate-400 uppercase font-semibold">
+                <th class="pb-3">Invoice ID</th>
+                <th class="pb-3">Service Allocation</th>
+                <th class="pb-3">Date</th>
+                <th class="pb-3">Amount</th>
+                <th class="pb-3">Status</th>
+                <th class="pb-3 text-right">Action</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-200 dark:divide-white/5 text-slate-700 dark:text-slate-300 font-medium">
+              <tr>
+                <td class="py-3 font-mono text-gold-600 dark:text-gold-500 font-bold">#INV-2026-8891</td>
+                <td class="py-3">Bay B-02 (Nitrogen) + Bay E-07 (EV)</td>
+                <td class="py-3">Aug 01, 2026</td>
+                <td class="py-3 font-bold">$3,450.00</td>
+                <td class="py-3"><span
+                    class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold">PAID</span>
+                </td>
+                <td class="py-3 text-right"><button
+                    onclick="showToast('Invoice #INV-2026-8891', 'Receipt downloaded.', 'success')"
+                    class="text-gold-600 dark:text-gold-500 hover:underline font-bold">Download</button></td>
+              </tr>
+              <tr>
+                <td class="py-3 font-mono text-gold-600 dark:text-gold-500 font-bold">#INV-2026-7412</td>
+                <td class="py-3">Swissvax Concours Detailing Package</td>
+                <td class="py-3">Jul 18, 2026</td>
+                <td class="py-3 font-bold">$750.00</td>
+                <td class="py-3"><span
+                    class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold">PAID</span>
+                </td>
+                <td class="py-3 text-right"><button
+                    onclick="showToast('Invoice #INV-2026-7412', 'Receipt downloaded.', 'success')"
+                    class="text-gold-600 dark:text-gold-500 hover:underline font-bold">Download</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- CONTAINER 8: PORTAL FOOTER -->
+      <section class="neu-card p-6 text-center text-xs text-slate-500 dark:text-slate-400 font-medium">
+        VELOCE LUXE Encrypted Member Portal v4.8 • Direct Hardware Link Established.
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- ===================================================================
+       MOCK BIOMETRIC ENTRY PASS MODAL
+       =================================================================== -->
+  <div id="pass-modal"
+    class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+    <div class="neu-card-lg p-8 max-w-md w-full relative border border-gold-500/40 shadow-2xl">
+      <button onclick="closePassModal()" class="absolute top-4 right-4 neu-icon-btn w-8 h-8" aria-label="Close Modal"><i
+          data-lucide="x" class="w-4 h-4"></i></button>
+
+      <div class="text-center mb-6">
+        <div class="inline-flex p-3 rounded-2xl neu-inset text-gold-500 mb-3"><i data-lucide="shield-check"
+            class="w-8 h-8"></i></div>
+        <h3 class="text-xl font-extrabold font-heading text-slate-900 dark:text-white">Cryptographic Entry Pass</h3>
+        <p class="text-xs text-slate-500 dark:text-slate-400">Present to gate scanner or mobile terminal</p>
+      </div>
+
+      <div class="neu-inset p-6 rounded-2xl flex flex-col items-center justify-center text-center space-y-4 mb-6">
+        <div class="w-44 h-44 bg-white p-3 rounded-xl flex items-center justify-center shadow-lg">
+          <div class="w-full h-full border-4 border-slate-900 grid grid-cols-5 grid-rows-5 gap-1 p-1 bg-slate-950">
+            <div class="bg-white col-span-2 row-span-2"></div>
+            <div class="bg-white col-span-1"></div>
+            <div class="bg-white col-span-2 row-span-2"></div>
+            <div class="bg-white col-span-1"></div>
+            <div class="bg-white col-span-1"></div>
+            <div class="bg-white col-span-2 row-span-2"></div>
+            <div class="bg-white col-span-1"></div>
+            <div class="bg-white col-span-2 row-span-2"></div>
+          </div>
+        </div>
+        <div>
+          <div class="text-xs font-mono font-bold text-gold-600 dark:text-gold-500" id="pass-vehicle">Ferrari Daytona
+            SP3</div>
+          <div class="text-sm font-extrabold font-heading text-slate-900 dark:text-white" id="pass-bay">BAY B-02</div>
+          <div class="text-[10px] text-slate-500 dark:text-slate-400 font-mono mt-1" id="pass-expiry">AUTH CODE:
+            8F99-XQ71-2026</div>
+        </div>
+      </div>
+
+      <div class="flex gap-3">
+        <button onclick="window.print()" class="neu-btn w-full text-xs font-bold justify-center py-2.5 shadow-md"><i
+            data-lucide="printer" class="w-3.5 h-3.5 text-gold-500"></i> Print Pass</button>
+        <button onclick="showToast('Pass Downloaded', 'Digital key added to Apple Wallet / Google Wallet.', 'success')"
+          class="neu-btn neu-btn-primary w-full text-xs font-bold justify-center py-2.5 shadow-md"><i
+            data-lucide="smartphone" class="w-3.5 h-3.5"></i> Add to Wallet</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Core Javascript Interactions -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      const html = document.documentElement;
+
+      // Theme Toggle Logic
+      const themeToggleBtns = document.querySelectorAll('.themeToggleBtn');
+      themeToggleBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const isDark = html.getAttribute('data-theme') === 'dark';
+          html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+          document.querySelectorAll('.icon-sun').forEach(el => isDark ? el.classList.remove('hidden') : el.classList.add('hidden'));
+          document.querySelectorAll('.icon-moon').forEach(el => isDark ? el.classList.add('hidden') : el.classList.remove('hidden'));
+        });
+      });
+
+      // RTL Toggle Logic
+      const rtlToggleBtns = document.querySelectorAll('.rtlToggleBtn');
+      rtlToggleBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          html.setAttribute('dir', html.getAttribute('dir') === 'ltr' ? 'rtl' : 'ltr');
+        });
+      });
+
+      // Toast System
+      window.showToast = function (title, desc, type = 'success') {
+        const container = document.getElementById('toast-container');
+        const toast = document.createElement('div');
+        toast.className = 'toast-message toast-visible';
+        toast.innerHTML = `<div class="toast-icon-wrap"><i data-lucide="check" class="w-5 h-5"></i></div><div><div class="font-bold text-sm">${title}</div><div class="text-xs opacity-80">${desc}</div></div>`;
+        container.appendChild(toast);
+        lucide.createIcons();
+        setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 500); }, 4000);
+      };
+
+      window.requestRetrieval = function (car, bay) {
+        showToast('Robotic Staging Triggered', `AGV shuttle dispatched to ${bay}. Your ${car} will be staged in 88 seconds.`, 'success');
+      };
+
+      window.openPassModal = function (car, bay, code) {
+        document.getElementById('pass-vehicle').textContent = car;
+        document.getElementById('pass-bay').textContent = bay;
+        document.getElementById('pass-expiry').textContent = 'AUTH HASH: ' + (code || 'AUTH-2026-VLX');
+        document.getElementById('pass-modal').classList.remove('hidden');
+      };
+
+      window.closePassModal = function () {
+        document.getElementById('pass-modal').classList.add('hidden');
+      };
+
+      const slotForm = document.getElementById('new-slot-form');
+      if (slotForm) {
+        slotForm.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const car = document.getElementById('slot-car-name').value;
+          const bay = document.getElementById('slot-type-select').value;
+          showToast('Bay Reserved Successfully', `New allocation confirmed for ${car}. Digital pass generated.`, 'success');
+          openPassModal(car, bay, 'NEW-PASS-' + Math.floor(1000 + Math.random() * 9000));
+          this.reset();
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d4af37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z'/><path d='m9 12 2 2 4-4'/></svg>">
+  <title>Request Membership Allocation // VELOCE LUXE</title>
+  <meta name="description" content="Apply for private vehicle vault bay allocations and concierge onboarding." />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: ['class', '[data-theme="dark"]'],
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              400: '#60a5fa',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+              950: '#0a0f1d'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            heading: ['"Space Grotesk"', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Neumorphic Styling & Ambient Animations -->
+  <link rel="stylesheet" href="assets/css/neumorphism.css" />
+</head>
+<body class="selection:bg-blue-600 selection:text-white flex items-center justify-center min-h-screen p-4">
+
+  <!-- Autonomous CSS Ambient Moving Background -->
+  <div class="ambient-background" aria-hidden="true">
+    <div class="ambient-orb ambient-orb-1"></div>
+    <div class="ambient-orb ambient-orb-2"></div>
+    <div class="ambient-orb ambient-orb-3"></div>
+    <div class="ambient-grid"></div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container"></div>
+
+  <!-- Main Register Card -->
+  <div class="neu-card-lg p-8 sm:p-12 max-w-lg w-full relative">
+    
+    <div class="text-center mb-8">
+      <a href="index.html" class="inline-flex items-center gap-3 mb-3">
+        <div class="w-12 h-12 rounded-2xl flex items-center justify-center neu-card">
+          <i data-lucide="shield-check" class="w-6 h-6 text-blue-500"></i>
+        </div>
+      </a>
+      <h1 class="text-2xl font-extrabold font-heading text-white">Private Member Application</h1>
+      <p class="text-xs text-slate-400 mt-1">Limited Bay Allocations • Vetting & Onboarding</p>
+    </div>
+
+    <form class="space-y-4" onsubmit="event.preventDefault(); showToast('Application Transmitted', 'Your dossier has been securely passed to the Membership Committee.', 'success'); setTimeout(() => window.location.href='dashboard.html', 1800);">
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">First & Last Name</label>
+          <input type="text" required placeholder="e.g. Nicholas Sterling" class="neu-input text-xs" />
+        </div>
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Direct Phone</label>
+          <input type="tel" required placeholder="+1 (310) 555-0188" class="neu-input text-xs" />
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Confidential Email</label>
+        <input type="email" required placeholder="name@domain.com" class="neu-input text-xs" />
+      </div>
+
+      <div>
+        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Primary Vehicle To Store</label>
+        <input type="text" required placeholder="e.g. 2024 Pagani Utopia / 1971 Lamborghini Miura SV" class="neu-input text-xs" />
+      </div>
+
+      <div>
+        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1.5">Preferred Facility Tier</label>
+        <div class="neu-inset p-1">
+          <select class="w-full bg-transparent text-xs py-2 px-3 text-slate-200 outline-none">
+            <option class="bg-slate-900">Subterranean Nitrogen Climate Vault ($1,850/mo)</option>
+            <option class="bg-slate-900">EV High-Voltage SuperPod ($1,600/mo)</option>
+            <option class="bg-slate-900">Founder Private 5-Car Salon ($6,500/mo)</option>
+            <option class="bg-slate-900">Executive Daily Concierge Valet ($120/day)</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="submit" class="neu-btn neu-btn-primary w-full py-3.5 text-sm font-bold mt-2">
+        <i data-lucide="send" class="w-4 h-4"></i>
+        <span>Submit Private Application</span>
+      </button>
+    </form>
+
+    <div class="mt-8 text-center text-xs text-slate-400">
+      <span>Already have an active key? </span>
+      <a href="login.html" class="text-blue-400 hover:text-blue-300 font-bold">Client Login</a>
+    </div>
+
+    <div class="mt-4 text-center">
+      <a href="index.html" class="text-[11px] text-slate-500 hover:text-slate-300 flex items-center justify-center gap-1">
+        <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Back to Public Overview
+      </a>
+    </div>
+
+  </div>
+
+  <script src="assets/js/main.js"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

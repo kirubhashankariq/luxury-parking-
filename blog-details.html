@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">Intelligence Journals // VELOCE LUXE</title>
+  <meta name="description"
+    content="A scientific study on atmospheric oxygen displacement, moisture elimination, and high-value supercar preservation." />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: ['class', '[data-theme="dark"]'],
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              50: '#fdfbf4',
+              100: '#fbf5e4',
+              200: '#f5e8c4',
+              300: '#ecd397',
+              400: '#e5c057',
+              500: '#d4af37',
+              600: '#bf992e',
+              700: '#a17c22',
+              800: '#856420',
+              900: '#71541b',
+              950: '#412e0b'
+            },
+            obsidian: {
+              100: '#e6e6e6',
+              200: '#cccccc',
+              800: '#1f1f1f',
+              900: '#121212',
+              950: '#0a0a0a'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            heading: ['"Space Grotesk"', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Unified Ultra-Luxury CSS -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+    :root {
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-heading: 'Space Grotesk', sans-serif;
+
+      /* Light Theme */
+      --bg-primary: #F5F5F7;
+      --bg-secondary: #EBEBEF;
+      --bg-card: #F5F5F7;
+      --text-primary: #1A1A1A;
+      --text-secondary: #4A4A4A;
+      --text-muted: #8F8F8F;
+      --border-light: rgba(255, 255, 255, 0.9);
+      --border-subtle: rgba(180, 180, 180, 0.2);
+      --accent-primary: #d4af37;
+      --accent-glow: rgba(212, 175, 55, 0.4);
+
+      --neu-flat: 9px 9px 18px #d5d5d7, -9px -9px 18px #ffffff;
+      --neu-flat-sm: 5px 5px 10px #d9d9db, -5px -5px 10px #ffffff;
+      --neu-flat-lg: 15px 15px 30px #cecece, -15px -15px 30px #ffffff;
+      --neu-pressed: inset 5px 5px 10px #d5d5d7, inset -5px -5px 10px #ffffff;
+      --neu-pressed-sm: inset 2px 2px 5px #d5d5d7, inset -2px -2px 5px #ffffff;
+      --neu-elevated: 12px 12px 24px #cecece, -12px -12px 24px #ffffff;
+      --nav-bg: rgba(245, 245, 247, 0.92);
+      --toast-bg: rgba(255, 255, 255, 0.95);
+    }
+
+    /* Dark Theme */
+    [data-theme="dark"] {
+      --bg-primary: #121212;
+      --bg-secondary: #1A1A1A;
+      --bg-card: #121212;
+      --text-primary: #F5F5F7;
+      --text-secondary: #A3A3A3;
+      --text-muted: #666666;
+      --border-light: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.02);
+      --accent-primary: #d4af37;
+      --accent-glow: rgba(212, 175, 55, 0.25);
+      --neu-flat: 8px 8px 16px #0b0b0b, -8px -8px 16px #191919;
+      --neu-flat-sm: 4px 4px 8px #0d0d0d, -4px -4px 8px #171717;
+      --neu-flat-lg: 12px 12px 24px #090909, -12px -12px 24px #1b1b1b;
+      --neu-pressed: inset 4px 4px 8px #0b0b0b, inset -4px -4px 8px #191919;
+      --neu-pressed-sm: inset 2px 2px 5px #0d0d0d, inset -2px -2px 5px #171717;
+      --neu-elevated: 10px 10px 20px #090909, -10px -10px 20px #1b1b1b;
+      --nav-bg: rgba(18, 18, 18, 0.92);
+      --toast-bg: rgba(26, 26, 26, 0.98);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: var(--font-heading);
+      letter-spacing: -0.025em;
+      color: var(--text-primary);
+    }
+
+    /* Cinematic Slow Pan Animation for Hero Background */
+    @keyframes kenBurns {
+      0% {
+        transform: scale(1.05) translate(0, 0);
+      }
+
+      100% {
+        transform: scale(1.15) translate(-1%, -2%);
+      }
+    }
+
+    .animate-cinematic {
+      animation: kenBurns 25s ease-in-out infinite alternate;
+    }
+
+    .ambient-background {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .ambient-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.15;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+    }
+
+    [data-theme="dark"] .ambient-orb {
+      opacity: 0.08;
+      filter: blur(120px);
+    }
+
+    .ambient-orb-1 {
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, #d4af37 0%, transparent 70%);
+      top: -10%;
+      left: -5%;
+      animation: floatOrb1 24s infinite alternate;
+    }
+
+    .ambient-grid {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(var(--border-subtle) 1px, transparent 1px);
+      background-size: 40px 40px;
+      opacity: 0.8;
+    }
+
+    @keyframes floatOrb1 {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      50% {
+        transform: translate(120px, 80px) scale(1.15);
+      }
+
+      100% {
+        transform: translate(60px, 160px) scale(0.95);
+      }
+    }
+
+    /* Interactive Card Effects */
+    .neu-card,
+    .neu-card-lg {
+      background: var(--bg-card);
+      box-shadow: var(--neu-flat);
+      border-radius: 20px;
+      border: 1px solid var(--border-light);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .neu-card-lg {
+      border-radius: 28px;
+    }
+
+    .neu-card::before,
+    .neu-card-lg::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 50% 0%, var(--accent-glow), transparent 45%);
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .neu-card>*,
+    .neu-card-lg>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    .neu-card:hover,
+    .neu-card-lg:hover {
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 25px var(--accent-glow);
+      border-color: rgba(212, 175, 55, 0.5);
+    }
+
+    .neu-card:hover::before,
+    .neu-card-lg:hover::before {
+      opacity: 1;
+    }
+
+    .neu-inset {
+      background: var(--bg-card);
+      box-shadow: var(--neu-pressed);
+      border-radius: 16px;
+      border: 1px solid var(--border-subtle);
+      transition: all 0.4s ease;
+    }
+
+    .group:hover .neu-inset {
+      box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.15);
+      border-color: rgba(212, 175, 55, 0.4);
+    }
+
+    /* Interactive Button Effects */
+    .neu-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      background: var(--bg-card);
+      color: var(--text-primary);
+      box-shadow: var(--neu-flat-sm);
+      border-radius: 12px;
+      border: 1px solid var(--border-light);
+      font-weight: 700;
+      padding: 0.75rem 1.6rem;
+      cursor: pointer;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .neu-btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -150%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transform: skewX(-25deg);
+      transition: all 0.6s ease;
+      z-index: -1;
+    }
+
+    .neu-btn:hover {
+      box-shadow: var(--neu-flat);
+      transform: translateY(-3px);
+      color: var(--accent-primary);
+      border-color: var(--accent-primary);
+    }
+
+    .neu-btn:hover::after {
+      left: 150%;
+    }
+
+    .neu-btn:active {
+      box-shadow: var(--neu-pressed-sm);
+      transform: translateY(1px);
+    }
+
+    .neu-btn-primary {
+      background: linear-gradient(135deg, #d4af37, #a17c22);
+      color: #121212 !important;
+      box-shadow: 0 6px 18px var(--accent-glow), var(--neu-flat-sm);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .neu-btn-primary:hover {
+      background: linear-gradient(135deg, #e5c057, #d4af37);
+      box-shadow: 0 15px 30px var(--accent-glow), var(--neu-flat);
+      border-color: #fff;
+    }
+
+    .neu-icon-btn {
+      width: 44px;
+      height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--bg-card);
+      box-shadow: var(--neu-flat-sm);
+      border: 1px solid var(--border-light);
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .neu-icon-btn:hover {
+      box-shadow: var(--neu-flat);
+      color: var(--accent-primary);
+      border-color: var(--accent-primary);
+      transform: translateY(-4px) scale(1.05);
+    }
+
+    /* Inputs */
+    .neu-input {
+      width: 100%;
+      background: var(--bg-card);
+      box-shadow: var(--neu-pressed-sm);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 0.85rem 1.2rem;
+      color: var(--text-primary);
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .neu-input:focus {
+      border-color: var(--accent-primary);
+      box-shadow: var(--neu-pressed), 0 0 0 3px var(--accent-glow);
+      transform: translateY(-1px);
+    }
+
+    /* Text Effects */
+    .metallic-text {
+      background: linear-gradient(135deg, #71541b 0%, #d4af37 50%, #412e0b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    [data-theme="dark"] .metallic-text {
+      background: linear-gradient(135deg, #f5e8c4 0%, #d4af37 50%, #a17c22 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .metallic-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      background: var(--bg-card);
+      box-shadow: var(--neu-flat-sm);
+      border: 1px solid var(--border-light);
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-primary);
+      transition: transform 0.3s ease;
+    }
+
+    /* Navigation */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--nav-bg);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: all 0.4s ease;
+    }
+
+    .site-header.scrolled {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+
+    [data-theme="dark"] .site-header.scrolled {
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+      border-bottom-color: rgba(212, 175, 55, 0.2);
+    }
+
+    .nav-link {
+      color: var(--text-secondary);
+      font-weight: 600;
+      font-size: 0.92rem;
+      padding: 0.5rem 0.9rem;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--accent-primary);
+      background: var(--bg-card);
+      box-shadow: var(--neu-pressed-sm);
+      transform: translateY(-1px);
+    }
+
+    /* Dropdowns */
+    .nav-dropdown-group {
+      position: relative;
+    }
+
+    .nav-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 220px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--neu-flat-lg);
+      border-radius: 16px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 50;
+      padding: 0.5rem;
+    }
+
+    .nav-dropdown-group:hover .nav-dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-item {
+      display: block;
+      padding: 0.75rem 1rem;
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 0.9rem;
+      border-radius: 10px;
+      transition: all 0.2s ease;
+    }
+
+    .dropdown-item:hover {
+      background: var(--bg-secondary);
+      color: var(--accent-primary);
+      transform: translateX(4px);
+    }
+
+    /* Toast */
+    #toast-container {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 99999;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      max-width: 400px;
+      width: calc(100vw - 3rem);
+      pointer-events: none;
+    }
+
+    .toast-message {
+      pointer-events: auto;
+      background: var(--toast-bg);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      border: 1px solid var(--accent-primary);
+      box-shadow: 0 10px 30px var(--accent-glow), var(--neu-flat-lg);
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      transform: translateX(120%);
+      opacity: 0;
+      transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.5s ease;
+    }
+
+    .toast-message.toast-visible {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .toast-icon-wrap {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: var(--accent-primary);
+      color: #121212;
+      box-shadow: var(--neu-flat-sm);
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-primary);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent-primary);
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body class="selection:bg-gold-500 selection:text-black">
+
+  <!-- Ambient Background -->
+  <div class="ambient-background" aria-hidden="true">
+    <div class="ambient-orb ambient-orb-1"></div>
+    <div class="ambient-grid"></div>
+  </div>
+
+  <div id="toast-container"></div>
+
+  <!-- ===================================================================
+       1. MAIN NAVIGATION HEADER (SYNCED)
+       =================================================================== -->
+  <header class="site-header" id="header">
+    <div
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between transition-all duration-300">
+
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3 group focus:outline-none z-10">
+        <div class="w-12 h-12 rounded-2xl flex items-center justify-center neu-card">
+          <i data-lucide="shield-check"
+            class="w-6 h-6 text-gold-500 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12"></i>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-heading font-extrabold text-2xl tracking-wider metallic-text uppercase">VELOCE LUXE</span>
+          <span class="text-[10px] tracking-widest text-gold-500 uppercase font-bold -mt-1">Automated Vaults</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden lg:flex items-center gap-1.5 neu-inset px-3 py-1.5 z-10">
+        <div class="nav-dropdown-group relative py-2">
+          <button class="nav-link flex items-center gap-1.5 outline-none">
+            Home <i data-lucide="chevron-down" class="w-4 h-4"></i>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="index.html" class="dropdown-item flex items-center gap-2">
+              <i data-lucide="shield" class="w-4 h-4 text-gold-500"></i> Classic Vaults
+            </a>
+            <a href="home-niche.html" class="dropdown-item flex items-center gap-2">
+              <i data-lucide="zap" class="w-4 h-4 text-gold-500"></i> EV SaaS Facilities
+            </a>
+          </div>
+        </div>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+        <a href="blog.html" class="nav-link active">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Desktop Action Area -->
+      <div class="hidden lg:flex items-center gap-4 z-10">
+        <button class="rtlToggleBtn neu-icon-btn" title="Toggle RTL">
+          <span class="text-xs font-bold font-mono">RTL</span>
+        </button>
+
+        <button class="themeToggleBtn neu-icon-btn" title="Toggle Theme">
+          <i data-lucide="sun" class="icon-sun w-5 h-5 text-gold-500 hidden"></i>
+          <i data-lucide="moon" class="icon-moon w-5 h-5 text-gold-500"></i>
+        </button>
+
+        <a href="login.html" class="neu-btn neu-btn-primary py-3 px-6">
+          <i data-lucide="key-round" class="w-4 h-4"></i>
+          <span>Get Started</span>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobileMenuOpen" class="neu-icon-btn lg:hidden z-10" aria-label="Open Mobile Menu">
+        <i data-lucide="menu" class="w-5 h-5 text-gold-500"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===================================================================
+       MOBILE OFFCANVAS DRAWER MENU
+       =================================================================== -->
+  <div id="mobileMenuWrapper"
+    class="fixed inset-0 z-[1050] opacity-0 pointer-events-none transition-opacity duration-300">
+    <div id="mobileMenuBackdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+    <div id="mobileDrawer"
+      class="absolute top-0 right-0 w-72 max-w-full h-full bg-[var(--bg-primary)] shadow-2xl transform translate-x-full transition-transform duration-400 ease-out flex flex-col">
+      <div class="p-6 flex items-center justify-between border-b border-[var(--border-subtle)]">
+        <span class="font-heading font-extrabold text-xl metallic-text tracking-wide">MENU</span>
+        <button id="mobileMenuClose" class="neu-icon-btn !w-10 !h-10" aria-label="Close Menu">
+          <i data-lucide="x" class="w-5 h-5 text-[var(--text-secondary)]"></i>
+        </button>
+      </div>
+      <div class="p-6 flex-grow overflow-y-auto flex flex-col gap-5">
+        <div class="flex flex-col gap-4 text-lg font-bold">
+          <a href="index.html"
+            class="text-[var(--text-secondary)] hover:text-gold-500 transition-colors flex items-center gap-3"><i
+              data-lucide="shield" class="w-5 h-5"></i> Classic Vaults</a>
+          <a href="home-niche.html"
+            class="text-[var(--text-secondary)] hover:text-gold-500 transition-colors flex items-center gap-3"><i
+              data-lucide="zap" class="w-5 h-5"></i> EV SaaS Facilities</a>
+          <a href="about.html" class="text-[var(--text-primary)] hover:text-gold-500 transition-colors">About Us</a>
+          <a href="services.html" class="text-[var(--text-primary)] hover:text-gold-500 transition-colors">Services</a>
+          <a href="pricing.html" class="text-[var(--text-primary)] hover:text-gold-500 transition-colors">Pricing</a>
+          <a href="blog.html" class="text-gold-500 transition-colors">Blog</a>
+          <a href="contact.html" class="text-[var(--text-primary)] hover:text-gold-500 transition-colors">Contact</a>
+        </div>
+        <hr class="border-[var(--border-subtle)] my-2" />
+        <div class="flex flex-col gap-4">
+          <div class="flex items-center justify-between">
+            <span class="text-sm font-bold text-[var(--text-secondary)] uppercase tracking-wider">Direction</span>
+            <button class="rtlToggleBtn neu-btn !py-2 !px-4 text-xs">RTL/LTR</button>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-sm font-bold text-[var(--text-secondary)] uppercase tracking-wider">App Theme</span>
+            <button class="themeToggleBtn neu-icon-btn !w-10 !h-10">
+              <i data-lucide="sun" class="icon-sun w-4 h-4 text-gold-500 hidden"></i>
+              <i data-lucide="moon" class="icon-moon w-4 h-4 text-gold-500"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="p-6 border-t border-[var(--border-subtle)] bg-[var(--bg-card)]">
+        <a href="coming-soon.html" class="neu-btn neu-btn-primary w-full text-base font-bold justify-center py-4">
+          <i data-lucide="key-round" class="w-5 h-5"></i> Get Started
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTAINER 1: BREADCRUMB BANNER -->
+  <div class="border-b border-slate-200 dark:border-white/5 py-3 relative z-10 bg-[var(--bg-primary)]">
+    <div
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 font-semibold">
+      <a href="index.html" class="hover:text-gold-500 transition-colors">Home</a>
+      <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+      <a href="blog.html" class="hover:text-gold-500 transition-colors">Journals</a>
+      <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+      <span class="text-gold-600 dark:text-gold-500 truncate max-w-xs sm:max-w-md" id="dyn-breadcrumb">Why Nitrogen
+        Storage Prevents Carbon Fiber Oxidation</span>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       CONTAINER 2: ARTICLE HERO (DYNAMIC)
+       =================================================================== -->
+  <section
+    class="relative pt-20 pb-24 md:pt-28 md:pb-32 overflow-hidden flex items-center border-b border-slate-200 dark:border-white/5 min-h-[50vh]">
+    <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+      <!-- Dynamic Background Image -->
+      <div id="dyn-bg"
+        class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?q=80&w=2069&auto=format&fit=crop')] bg-cover bg-center opacity-30 dark:opacity-40 animate-cinematic mix-blend-luminosity">
+      </div>
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-[var(--bg-primary)]/40 via-[var(--bg-primary)]/80 to-[var(--bg-primary)]">
+      </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center w-full">
+      <div class="metallic-badge mb-6 backdrop-blur-md bg-opacity-80 inline-flex">
+        <i data-lucide="microscope" class="w-4 h-4 text-gold-500"></i>
+        <span id="dyn-category">Atmospheric Science Report</span>
+      </div>
+      <h1
+        class="text-4xl sm:text-5xl md:text-6xl font-extrabold font-heading mb-8 leading-tight drop-shadow-md text-slate-900 dark:text-white"
+        id="dyn-title">
+        Why Nitrogen Storage Prevents Carbon Fiber & Paint Oxidation
+      </h1>
+      <div class="flex items-center justify-center gap-4 text-xs font-bold text-slate-600 dark:text-slate-400">
+        <span id="dyn-date">August 18, 2026</span>
+        <span>•</span>
+        <span id="dyn-readtime">8 Min Read</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       CONTAINER 3, 4, 5, 6: ARTICLE BODY & SIDEBAR
+       =================================================================== -->
+  <section class="py-16 md:py-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+
+        <!-- Left Column: Main Content -->
+        <article class="lg:col-span-8 space-y-10">
+
+          <!-- CONTAINER 3: LEAD QUOTE (DYNAMIC) -->
+          <div
+            class="neu-card p-6 sm:p-10 italic text-slate-700 dark:text-slate-200 text-lg sm:text-xl leading-relaxed border-l-4 border-gold-500 shadow-md">
+            <span id="dyn-quote">"When high-value exotics sit in ambient air, invisible chemical degradation never
+              stops. Humidity acts as an electrolyte while oxygen breaks molecular bonds in lacquers, clear coats, and
+              epoxy resin matrices."</span>
+          </div>
+
+          <!-- CONTAINER 4: MAIN CONTENT (DYNAMIC) -->
+          <div class="space-y-6 text-slate-600 dark:text-slate-300 text-base sm:text-lg leading-relaxed font-medium"
+            id="dyn-content">
+            <p id="dyn-p1">
+              In conventional garage environments, relative humidity (RH) fluctuates between 30% and 85% with diurnal
+              temperature swings. This causes micro-expansion and contraction of automotive panels. For carbon-fiber
+              monocoques with clear-coat finishes, oxygen diffusion slowly weakens the interface between the topcoat
+              polyurethane and epoxy resins.
+            </p>
+            <p id="dyn-p2">
+              By displacing atmospheric oxygen down to trace levels and sustaining high-purity gaseous nitrogen (N2)
+              within a sealed subterranean chamber, oxidation ceases entirely. Nitrogen is a chemically inert,
+              non-corrosive diatomic gas that cannot chemically react with cured lacquers, magnesium wheels, Connolly
+              leathers, or vulcanized suspension bushings.
+            </p>
+          </div>
+
+          <!-- CONTAINER 5: TECHNICAL SUMMARY BOX (DYNAMIC) -->
+          <div class="neu-inset p-8 rounded-3xl my-10 border border-gold-500/20 shadow-inner">
+            <h3 class="font-heading font-bold text-slate-900 dark:text-white text-xl mb-6 flex items-center gap-3">
+              <i data-lucide="check-circle-2" class="w-6 h-6 text-gold-500"></i>
+              <span id="dyn-list-title">Key Laboratory Findings (10-Year Accelerated Model)</span>
+            </h3>
+            <ul class="space-y-4 text-sm sm:text-base text-slate-600 dark:text-slate-300 font-medium">
+              <li class="flex items-start gap-3">
+                <span class="text-gold-500 font-bold mt-1">•</span>
+                <span id="dyn-l1"><strong>Zero Paint Yellowing:</strong> Polyurethane clear coats retained 99.8%
+                  spectrophotometric transparency.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-gold-500 font-bold mt-1">•</span>
+                <span id="dyn-l2"><strong>Elastomer Preservation:</strong> Suspension bushings and door weatherstripping
+                  retained 96.4% original Shore durometer flexibility.</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-gold-500 font-bold mt-1">•</span>
+                <span id="dyn-l3"><strong>Fuel System Passivation:</strong> Reduced varnish precipitation in heritage
+                  carburetors by over 80%.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- CONTAINER 6: INQUIRY / COMMENTS FORM -->
+          <div class="pt-10 border-t border-slate-200 dark:border-white/10">
+            <h3 class="font-heading font-bold text-2xl text-slate-900 dark:text-white mb-6">Member Inquiries &
+              Discussion</h3>
+
+            <form id="commentForm" class="space-y-5 mb-8">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <input type="text" required placeholder="Your Full Name" class="neu-input" />
+                <input type="email" required placeholder="Private Email Address" class="neu-input" />
+              </div>
+              <textarea rows="4" required placeholder="Add your perspective or technical inquiry..."
+                class="neu-input"></textarea>
+              <button type="submit" class="neu-btn neu-btn-primary py-4 px-8 text-sm font-bold shadow-xl">
+                Submit Inquiry to Editor
+              </button>
+            </form>
+          </div>
+
+        </article>
+
+        <!-- Right Column: Sticky Sidebar -->
+        <aside class="lg:col-span-4 sticky top-28 space-y-8 z-20">
+
+          <!-- AUTHOR PROFILE -->
+          <div class="neu-card p-8 text-center border border-gold-500/20 group cursor-default">
+            <div
+              class="w-24 h-24 rounded-full neu-inset flex items-center justify-center font-heading font-extrabold text-3xl text-gold-500 mx-auto mb-6 shadow-inner group-hover:bg-gold-500 group-hover:text-obsidian-900 transition-colors duration-500"
+              id="dyn-author-initials">
+              CV
+            </div>
+            <h3 class="font-heading font-bold text-xl text-slate-900 dark:text-white mb-1" id="dyn-author-name">Claire
+              Vance</h3>
+            <div class="text-xs text-gold-600 dark:text-gold-500 font-bold uppercase tracking-wider mb-4"
+              id="dyn-author-role">Head of Conservation Science</div>
+            <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
+              Specializing in composite resin durability, high-voltage battery preservation, and museum-grade automotive
+              curation.
+            </p>
+          </div>
+
+          <!-- Vault Reservation CTA Widget -->
+          <div class="neu-card-lg p-8 border border-gold-500/30 shadow-[0_0_30px_rgba(212,175,55,0.1)] bg-gold-500/5">
+            <div class="text-xs uppercase font-bold text-gold-600 dark:text-gold-500 mb-2">Facility Availability</div>
+            <h3 class="font-heading font-bold text-2xl text-slate-900 dark:text-white mb-3">Reserve a Nitrogen Pod</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-6 font-medium">
+              Safeguard your hypercar or historic vehicle in our sealed subterranean cleanrooms.
+            </p>
+            <a href="services.html"
+              class="neu-btn neu-btn-primary w-full text-sm font-bold justify-center py-4 shadow-lg">
+              <span>View Technical Specs</span>
+              <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       CONTAINER 7: RELATED INTELLIGENCE (CROSS-SELL)
+       =================================================================== -->
+  <section class="py-24 bg-black/5 relative border-y border-slate-200 dark:border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div>
+          <div class="metallic-badge mb-4">Further Reading</div>
+          <h2 class="text-3xl md:text-4xl font-extrabold font-heading">Related Intelligence</h2>
+        </div>
+        <a href="blog.html" class="neu-btn neu-btn-silver text-sm mt-6 md:mt-0 w-full sm:w-auto">
+          <span>Return to Library</span><i data-lucide="book-open" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl">
+        <!-- Static Suggestion 1 -->
+        <article class="neu-card overflow-hidden flex flex-col justify-between group cursor-pointer shadow-xl"
+          onclick="window.location.href='blog-details.html?id=lithium'">
+          <div
+            class="h-48 relative overflow-hidden neu-inset m-4 rounded-xl flex items-center justify-center border border-transparent group-hover:border-gold-500/30 transition-all duration-500">
+            <div
+              class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1560958089-b8a1929cea89?q=80&w=2071&auto=format&fit=crop')] bg-cover bg-center transition-transform duration-1000 group-hover:scale-110">
+            </div>
+            <div
+              class="absolute inset-0 bg-obsidian-900/80 group-hover:bg-obsidian-900/50 transition-colors duration-500">
+            </div>
+            <i data-lucide="battery-charging"
+              class="relative z-10 w-16 h-16 text-gold-500/40 group-hover:text-gold-500 group-hover:scale-125 transition-all duration-700"></i>
+          </div>
+          <div class="p-6 pt-0 flex-grow flex flex-col">
+            <h3
+              class="font-heading font-bold text-xl mb-2 text-slate-900 dark:text-white group-hover:text-gold-600 dark:group-hover:text-gold-500 transition-colors">
+              Managing Lithium Health in Extended Storage</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400">Optimal charge thresholds and temperature cycles for
+              EV hypercars.</p>
+          </div>
+        </article>
+        <!-- Static Suggestion 2 -->
+        <article class="neu-card overflow-hidden flex flex-col justify-between group cursor-pointer shadow-xl"
+          onclick="window.location.href='blog-details.html?id=insurance'">
+          <div
+            class="h-48 relative overflow-hidden neu-inset m-4 rounded-xl flex items-center justify-center border border-transparent group-hover:border-gold-500/30 transition-all duration-500">
+            <div
+              class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center transition-transform duration-1000 group-hover:scale-110">
+            </div>
+            <div
+              class="absolute inset-0 bg-obsidian-900/80 group-hover:bg-obsidian-900/50 transition-colors duration-500">
+            </div>
+            <i data-lucide="shield-alert"
+              class="relative z-10 w-16 h-16 text-gold-500/40 group-hover:text-gold-500 group-hover:scale-125 transition-all duration-700"></i>
+          </div>
+          <div class="p-6 pt-0 flex-grow flex flex-col">
+            <h3
+              class="font-heading font-bold text-xl mb-2 text-slate-900 dark:text-white group-hover:text-gold-600 dark:group-hover:text-gold-500 transition-colors">
+              The 2026 Collector Vehicle Security Audit</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400">How military-grade facilities reduce insurance
+              premiums by up to 40%.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       CONTAINER 8: DOWNLOAD MARKET REPORT CTA
+       =================================================================== -->
+  <section class="py-24 relative border-b border-slate-200 dark:border-white/5 bg-gold-500/5">
+    <div class="absolute inset-0 opacity-10 mix-blend-overlay"
+      style="background-image: radial-gradient(#d4af37 1.5px, transparent 1.5px); background-size: 30px 30px;"></div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      <div class="w-20 h-20 rounded-2xl neu-card flex items-center justify-center text-gold-500 mx-auto mb-8 shadow-xl">
+        <i data-lucide="bar-chart-3" class="w-10 h-10"></i>
+      </div>
+      <h2 class="text-4xl md:text-5xl font-extrabold font-heading mb-6">2026 Collector Vehicle Valuation Report</h2>
+      <p class="text-slate-500 dark:text-slate-400 text-lg sm:text-xl mb-10 font-medium">
+        Download our exclusive 45-page analysis on how climate-controlled storage facilities directly impact the auction
+        hammer prices of vintage and modern hypercars.
+      </p>
+      <form id="reportForm" class="flex flex-col sm:flex-row items-center justify-center gap-4 max-w-lg mx-auto">
+        <input type="email" required placeholder="Enter private email..."
+          class="neu-input py-4 text-base w-full sm:w-2/3 border-gold-500/30" />
+        <button type="submit" class="neu-btn neu-btn-primary py-4 font-bold justify-center w-full sm:w-1/3 shadow-xl">
+          <i data-lucide="download" class="w-5 h-5"></i>
+          <span>Download</span>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       MASTER FOOTER
+       =================================================================== -->
+  <footer class="pt-20 pb-12 bg-black/5 dark:bg-black/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-slate-200 dark:border-white/10">
+
+        <div class="lg:col-span-4 flex flex-col justify-between">
+          <div>
+            <a href="index.html" class="flex items-center gap-3 mb-6 group w-max">
+              <div
+                class="w-12 h-12 rounded-xl flex items-center justify-center border border-[#d4af37]/40 bg-[#121212] shadow-[0_0_15px_rgba(212,175,55,0.2)] group-hover:shadow-[0_0_25px_rgba(212,175,55,0.5)] transition-all duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12">
+                  <path
+                    d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+                  <path d="m9 12 2 2 4-4" />
+                </svg>
+              </div>
+              <span class="font-heading font-extrabold text-2xl tracking-wider metallic-text">VELOCE LUXE</span>
+            </a>
+            <p class="text-base text-slate-500 dark:text-slate-400 leading-relaxed mb-8">The premier automated vehicle
+              vault. Engineered for hypercars and electric mobility.</p>
+          </div>
+
+          <!-- FIXED SOCIAL LINKS: Raw SVGs with hardcoded gold colors -->
+          <div class="flex items-center gap-6">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+              class="hover:-translate-y-1 hover:scale-110 transition-all duration-300" aria-label="Instagram"
+              style="color: #d4af37;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                style="filter: drop-shadow(0px 4px 6px rgba(212,175,55,0.4));">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+              </svg>
+            </a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer"
+              class="hover:-translate-y-1 hover:scale-110 transition-all duration-300" aria-label="X (Twitter)"
+              style="color: #d4af37;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"
+                style="filter: drop-shadow(0px 4px 6px rgba(212,175,55,0.4));">
+                <path
+                  d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+              class="hover:-translate-y-1 hover:scale-110 transition-all duration-300" aria-label="LinkedIn"
+              style="color: #d4af37;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                style="filter: drop-shadow(0px 4px 6px rgba(212,175,55,0.4));">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect width="4" height="12" x="2" y="9" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+            </a>
+          </div>
+
+        </div>
+
+        <div class="lg:col-span-2">
+          <h4 class="font-heading font-bold text-sm uppercase tracking-wider text-[#d4af37] mb-6">Navigation</h4>
+          <ul class="space-y-4 text-sm font-semibold">
+            <li><a href="about.html"
+                class="text-slate-500 dark:text-slate-400 hover:text-[#d4af37] hover:translate-x-1 inline-block transition-all">About
+                Us</a></li>
+            <li><a href="services.html"
+                class="text-slate-500 dark:text-slate-400 hover:text-[#d4af37] hover:translate-x-1 inline-block transition-all">Vault
+                Services</a></li>
+            <li><a href="pricing.html"
+                class="text-slate-500 dark:text-slate-400 hover:text-[#d4af37] hover:translate-x-1 inline-block transition-all">Pricing
+                & Plans</a></li>
+            <li><a href="blog.html"
+                class="text-slate-500 dark:text-slate-400 hover:text-[#d4af37] hover:translate-x-1 inline-block transition-all">Journals
+                & News</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-2">
+          <h4 class="font-heading font-bold text-sm uppercase tracking-wider text-[#d4af37] mb-6">Portals</h4>
+          <ul class="space-y-4 text-sm font-semibold">
+            <li><a href="coming-soon.html"
+                class="text-slate-500 dark:text-slate-400 hover:text-[#d4af37] hover:translate-x-1 inline-block transition-all">Customer
+                Portal</a></li>
+            <li><a href="contact.html"
+                class="text-slate-500 dark:text-slate-400 hover:text-[#d4af37] hover:translate-x-1 inline-block transition-all">Concierge</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-4">
+          <h4 class="font-heading font-bold text-sm uppercase tracking-wider text-[#d4af37] mb-6">VIP Dispatch</h4>
+          <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-6">Receive notifications when founder
+            vaults become available.</p>
+          <form id="newsletterForm" class="flex flex-col gap-4">
+            <input type="email" required placeholder="Private email address..."
+              class="neu-input py-4 text-base bg-white dark:bg-[#121212] border-slate-200 dark:border-white/10" />
+            <button type="submit" class="neu-btn neu-btn-primary py-4 font-bold justify-center w-full">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" x2="11" y1="2" y2="13" />
+                <polygon points="22 2 15 22 11 13 2 9 22 2" />
+              </svg>
+              <span>Join Registry</span>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div
+        class="pt-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm font-semibold text-slate-500 dark:text-slate-500">
+        <div>© 2026 VELOCE LUXE. Designed for Ultra-Luxury Automotives.</div>
+        <div class="flex items-center gap-8">
+          <a href="#" class="hover:text-[#d4af37] transition-colors">Privacy</a>
+          <a href="#" class="hover:text-[#d4af37] transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core Javascript Interactions -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      const html = document.documentElement;
+
+      // ==========================================
+      // DYNAMIC BLOG DATA ENGINE
+      // ==========================================
+      const blogData = {
+        nitrogen: {
+          title: "Why Nitrogen Storage Prevents Carbon Fiber & Paint Oxidation",
+          category: "Atmospheric Science Report",
+          date: "August 18, 2026",
+          readTime: "8 Min Read",
+          authorInitials: "CV",
+          authorName: "Claire Vance",
+          authorRole: "Head of Conservation Science",
+          bgImage: "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?q=80&w=2069&auto=format&fit=crop",
+          quote: "\"When high-value exotics sit in ambient air, invisible chemical degradation never stops. Humidity acts as an electrolyte while oxygen breaks molecular bonds in lacquers, clear coats, and epoxy resin matrices.\"",
+          p1: "In conventional garage environments, relative humidity (RH) fluctuates between 30% and 85% with diurnal temperature swings. This causes micro-expansion and contraction of automotive panels. For carbon-fiber monocoques with clear-coat finishes, oxygen diffusion slowly weakens the interface between the topcoat polyurethane and epoxy resins.",
+          p2: "By displacing atmospheric oxygen down to trace levels and sustaining high-purity gaseous nitrogen (N2) within a sealed subterranean chamber, oxidation ceases entirely. Nitrogen is a chemically inert, non-corrosive diatomic gas that cannot chemically react with cured lacquers, magnesium wheels, Connolly leathers, or vulcanized suspension bushings.",
+          listTitle: "Key Laboratory Findings (10-Year Accelerated Model)",
+          l1: "<strong>Zero Paint Yellowing:</strong> Polyurethane clear coats retained 99.8% spectrophotometric transparency.",
+          l2: "<strong>Elastomer Preservation:</strong> Suspension bushings and door weatherstripping retained 96.4% original Shore durometer flexibility.",
+          l3: "<strong>Fuel System Passivation:</strong> Reduced varnish precipitation in heritage carburetors by over 80%."
+        },
+        lithium: {
+          title: "Managing Solid-State & Lithium Battery Health in Extended Storage",
+          category: "EV Technology",
+          date: "August 14, 2026",
+          readTime: "6 Min Read",
+          authorInitials: "HM",
+          authorName: "Dr. Henrik Meyer",
+          authorRole: "Chief Engineer",
+          bgImage: "https://images.unsplash.com/photo-1560958089-b8a1929cea89?q=80&w=2071&auto=format&fit=crop",
+          quote: "\"Leaving an EV plugged into a standard wall charger at 100% for six months is catastrophic for cell chemistry. The stress on the lithium matrix drastically reduces long-term range and power output.\"",
+          p1: "Next-generation electric hypercars require precise thermal and electrical management. When left idle, lithium-ion and early solid-state batteries experience internal resistance changes and dendrite formation if not cycled correctly.",
+          p2: "Veloce's EV SuperPods utilize a micro-float cycling algorithm. We drain the battery to precisely 50% State of Charge (SoC)—the most stable state for lithium chemistry—and maintain it with ultra-low amperage pulses. Combined with our 20°C thermal isolation, this prevents practically all standby degradation.",
+          listTitle: "EV Storage Protocols",
+          l1: "<strong>Optimal State of Charge:</strong> Maintained permanently at 50% ±1% via bidirectional grid hardware.",
+          l2: "<strong>Thermal Equilibrium:</strong> Ambient pod temperatures locked at 20°C to prevent cold-soaking or heat stress.",
+          l3: "<strong>Pre-Flight Sequence:</strong> App-triggered 100% charge sequence initiates exactly 4 hours prior to client arrival."
+        },
+        insurance: {
+          title: "The 2026 Collector Vehicle Security Audit: What Underwriters Require",
+          category: "Security & Insurance",
+          date: "August 08, 2026",
+          readTime: "10 Min Read",
+          authorInitials: "DS",
+          authorName: "Darius Sterling",
+          authorRole: "VP of Physical Security",
+          bgImage: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=2070&auto=format&fit=crop",
+          quote: "\"The physical security of $50M+ automotive assets has moved beyond gated communities and alarm systems. Underwriters now demand defense-in-depth architecture.\"",
+          p1: "As the valuation of rare, matching-numbers heritage vehicles continues to break auction records, specialty insurance syndicates like Lloyd's of London have drastically rewritten their underwriting requirements for off-site storage.",
+          p2: "Veloce Luxe facilities were designed from the concrete up to exceed these new mandates. By implementing subterranean blast protection, dual-factor biometric airlocks, and zero-human-contact robotic AGV staging, we remove the primary vectors of risk: fire, theft, and human error during parking.",
+          listTitle: "Underwriting Impact of Veloce Architecture",
+          l1: "<strong>Premium Reduction:</strong> Clients report an average 40% reduction in annual comprehensive premiums when assets are relocated to Veloce.",
+          l2: "<strong>Agreed Value Lifts:</strong> Underwriters are willing to lift maximum agreed-value caps due to the total elimination of flood and wildfire risk.",
+          l3: "<strong>Zero-Deductible Approvals:</strong> Strict access protocols allow for specialized zero-deductible static storage endorsements."
+        },
+        cryogenic: {
+          title: "Dry-Ice Cryogenic Blasting for Heritage Undercarriages",
+          category: "Detailing Chemistry",
+          date: "July 29, 2026",
+          readTime: "7 Min Read",
+          authorInitials: "CV",
+          authorName: "Claire Vance",
+          authorRole: "Head of Conservation Science",
+          bgImage: "https://images.unsplash.com/photo-1601362840469-51e4d8d58785?q=80&w=2070&auto=format&fit=crop",
+          quote: "\"Traditional water and chemical degreasers push moisture into unsealed chassis cavities, initiating rust. Cryogenic blasting sublimates on impact, leaving nothing behind but original factory perfection.\"",
+          p1: "Preserving the underside of a vintage Porsche or air-cooled classic is often more critical than the exterior paint. Decades of road grime, cosmoline, and leaking fluids create a corrosive paste that hides original factory markings—which are crucial for Concours d'Elegance judging.",
+          p2: "Our Restoration Spa utilizes advanced dry-ice (CO2) cryogenic blasting. Fired at supersonic speeds, the dry ice pellets freeze and shatter grime upon impact, instantly reverting to a gas. This totally dry, non-abrasive process cleans down to the bare metal or original plating without damaging rubber lines, wiring harnesses, or irreplaceable factory chalk marks.",
+          listTitle: "Cryogenic Process Benefits",
+          l1: "<strong>Zero Moisture:</strong> The entirely dry process guarantees no water gets trapped in box sections or frame rails.",
+          l2: "<strong>Non-Abrasive:</strong> Safe for use on delicate magnesium engine cases, original cadmium plating, and fragile wiring.",
+          l3: "<strong>Concours Preparation:</strong> Reveals hidden factory assembly line marks that drastically increase vehicle provenance and value."
+        },
+        agv: {
+          title: "Autonomous Guided Vehicles vs Traditional Automated Parking Systems",
+          category: "Robotics Engineering",
+          date: "July 15, 2026",
+          readTime: "9 Min Read",
+          authorInitials: "HM",
+          authorName: "Dr. Henrik Meyer",
+          authorRole: "Chief Engineer",
+          bgImage: "https://images.unsplash.com/photo-1553440569-bcc63803a83d?q=80&w=2025&auto=format&fit=crop",
+          quote: "\"Legacy automated parking garages rely on massive, centralized pallet systems. If one gear jams, 100 cars are trapped. AGVs decentralize that risk entirely.\"",
+          p1: "Traditional automated parking systems (APS) utilize enormous elevators and sliding pallets. While efficient for high-density public parking, they introduce unacceptable mechanical failure risks for ultra-luxury collections. A single motor failure in a legacy APS can trap a multi-million dollar asset for days.",
+          p2: "Veloce abandoned pallets entirely. Instead, we utilize independent, low-profile Autonomous Guided Vehicles (AGVs) that slide under the car, lift it by the tires, and carry it to its bay. Because the system is decentralized, a failure in one AGV simply summons another. There is no single point of failure.",
+          listTitle: "The AGV Advantage",
+          l1: "<strong>Decentralized Redundancy:</strong> Fleet of 20+ AGVs ensures constant operational readiness. If one errors, another takes over.",
+          l2: "<strong>Zero Chassis Stress:</strong> Vehicles are lifted exclusively by their tires using laser-aligned cradles, putting zero stress on suspension components.",
+          l3: "<strong>Ultra-Fast Staging:</strong> Swarm logic allows multiple AGVs to operate simultaneously, guaranteeing a &lt; 90 second retrieval time."
+        },
+        tires: {
+          title: "Tire Flat-Spotting & Elastomer Plasticizer Migration Prevention",
+          category: "Preservation",
+          date: "July 02, 2026",
+          readTime: "5 Min Read",
+          authorInitials: "CV",
+          authorName: "Claire Vance",
+          authorRole: "Head of Conservation Science",
+          bgImage: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=2070&auto=format&fit=crop",
+          quote: "\"A tire is not a static object; it is a complex, semi-liquid chemical compound. When left stationary under load, the plasticizers migrate out of the rubber, causing permanent structural damage.\"",
+          p1: "When a vehicle sits for extended periods, the tires experience 'flat-spotting'—a physical deformation of the steel belts and nylon cords. More insidiously, the chemical plasticizers that keep the rubber compound flexible begin to migrate out of the casing, accelerating dry-rot and leading to catastrophic blowout risks at high speeds.",
+          p2: "Veloce prevents this via two methods. First, our AGV robots utilize curved, pneumatic tire cradles that distribute the vehicle's weight across a larger surface area rather than a flat concrete floor. Second, our system automatically rotates the vehicle's resting position by a few degrees every 14 days, keeping the internal tire structure healthy.",
+          listTitle: "Elastomer Preservation Techniques",
+          l1: "<strong>Pneumatic Cradling:</strong> Weight distribution prevents steel belt deformation in low-profile hypercar tires.",
+          l2: "<strong>Automated Rotation:</strong> Programmed micro-movements ensure the tire casing never takes a permanent set.",
+          l3: "<strong>Ozone Elimination:</strong> The nitrogen-rich, UV-free environment prevents the off-gassing of crucial rubber plasticizers."
+        },
+        "solid-state": {
+          title: "The Future of Solid-State Batteries in High-Performance Exotics",
+          category: "EV Technology",
+          date: "August 28, 2026",
+          readTime: "12 Min Read",
+          authorInitials: "HM",
+          authorName: "Dr. Henrik Meyer",
+          authorRole: "Chief Engineer",
+          bgImage: "https://images.unsplash.com/photo-1560958089-b8a1929cea89?q=80&w=2071&auto=format&fit=crop",
+          quote: "\"The transition from liquid electrolytes to solid-state architecture will rewrite the rules of hypercar performance—and require entirely new paradigms for long-term storage.\"",
+          p1: "As manufacturers pivot to solid-state batteries (SSBs), we are seeing energy densities previously thought impossible. SSBs eliminate the flammable liquid electrolytes found in traditional lithium-ion packs, drastically reducing thermal runaway risks while dropping curb weight by up to 30%.",
+          p2: "However, SSBs come with unique storage challenges. They require precise thermal conditioning to prevent internal mechanical stress and micro-cracking of the solid electrolyte during long-term static states. At Veloce, we are actively retrofitting our EV SuperPods to interface directly with next-gen SSB BMS (Battery Management Systems) to ensure these future classics remain pristine.",
+          listTitle: "Solid-State Implications",
+          l1: "<strong>Increased Safety:</strong> Elimination of liquid electrolytes severely reduces the risk of spontaneous combustion.",
+          l2: "<strong>Thermal Sensitivity:</strong> Requires highly stabilized ambient temperatures to prevent mechanical degradation of the solid matrix.",
+          l3: "<strong>Veloce Integration:</strong> New 1000V DC smart telemetry protocols are currently being deployed to support upcoming 2027 SSB models."
+        }
+      };
+
+      // Detect URL Parameter
+      const urlParams = new URLSearchParams(window.location.search);
+      let articleId = urlParams.get('id');
+
+      // If no valid ID, default to nitrogen
+      if (!articleId || !blogData[articleId]) {
+        articleId = 'nitrogen';
+      }
+
+      // Inject Dynamic Data
+      const data = blogData[articleId];
+
+      document.title = `${data.title} // VELOCE LUXE Journals`;
+      document.getElementById('page-title').textContent = `${data.title} // VELOCE LUXE Journals`;
+      document.getElementById('dyn-breadcrumb').textContent = data.title;
+      document.getElementById('dyn-title').textContent = data.title;
+      document.getElementById('dyn-category').textContent = data.category;
+      document.getElementById('dyn-date').textContent = data.date;
+      document.getElementById('dyn-readtime').textContent = data.readTime;
+      document.getElementById('dyn-bg').style.backgroundImage = `url('${data.bgImage}')`;
+      document.getElementById('dyn-quote').textContent = data.quote;
+      document.getElementById('dyn-p1').innerHTML = data.p1;
+      document.getElementById('dyn-p2').innerHTML = data.p2;
+      document.getElementById('dyn-list-title').textContent = data.listTitle;
+      document.getElementById('dyn-l1').innerHTML = data.l1;
+      document.getElementById('dyn-l2').innerHTML = data.l2;
+      document.getElementById('dyn-l3').innerHTML = data.l3;
+
+      document.getElementById('dyn-author-initials').textContent = data.authorInitials;
+      document.getElementById('dyn-author-name').textContent = data.authorName;
+      document.getElementById('dyn-author-role').textContent = data.authorRole;
+
+      // ==========================================
+      // STANDARD INTERACTIONS
+      // ==========================================
+
+      // Theme Toggle Logic
+      const themeToggleBtns = document.querySelectorAll('.themeToggleBtn');
+      themeToggleBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const isDark = html.getAttribute('data-theme') === 'dark';
+          html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+          document.querySelectorAll('.icon-sun').forEach(el => isDark ? el.classList.remove('hidden') : el.classList.add('hidden'));
+          document.querySelectorAll('.icon-moon').forEach(el => isDark ? el.classList.add('hidden') : el.classList.remove('hidden'));
+        });
+      });
+
+      // RTL Toggle Logic
+      const rtlToggleBtns = document.querySelectorAll('.rtlToggleBtn');
+      rtlToggleBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          html.setAttribute('dir', html.getAttribute('dir') === 'ltr' ? 'rtl' : 'ltr');
+        });
+      });
+
+      // Mobile Menu Offcanvas Drawer Logic
+      const mobileMenuWrapper = document.getElementById('mobileMenuWrapper');
+      const mobileDrawer = document.getElementById('mobileDrawer');
+      const mobileMenuOpen = document.getElementById('mobileMenuOpen');
+      const mobileMenuClose = document.getElementById('mobileMenuClose');
+      const mobileMenuBackdrop = document.getElementById('mobileMenuBackdrop');
+
+      function openMobileMenu() {
+        mobileMenuWrapper.classList.remove('opacity-0', 'pointer-events-none');
+        mobileDrawer.classList.remove('translate-x-full');
+        html.style.overflow = 'hidden';
+      }
+
+      function closeMobileMenu() {
+        mobileMenuWrapper.classList.add('opacity-0', 'pointer-events-none');
+        mobileDrawer.classList.add('translate-x-full');
+        html.style.overflow = '';
+      }
+
+      if (mobileMenuOpen && mobileMenuClose && mobileMenuBackdrop) {
+        mobileMenuOpen.addEventListener('click', openMobileMenu);
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        mobileMenuBackdrop.addEventListener('click', closeMobileMenu);
+      }
+
+      // Sticky Header Scroll Effect
+      const header = document.getElementById('header');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+      });
+
+      // Form Submissions & Custom Toast Notification Logic
+      const commentForm = document.getElementById('commentForm');
+      const newsletterForm = document.getElementById('newsletterForm');
+      const reportForm = document.getElementById('reportForm');
+      const toastContainer = document.getElementById('toast-container');
+
+      function showToast(title, desc) {
+        const toast = document.createElement('div');
+        toast.className = 'toast-message toast-success';
+        toast.innerHTML = `
+          <div class="toast-icon-wrap"><i data-lucide="check" class="w-5 h-5"></i></div>
+          <div class="toast-body">
+            <div class="toast-title">${title}</div>
+            <div class="toast-desc">${desc}</div>
+          </div>
+        `;
+        toastContainer.appendChild(toast);
+        lucide.createIcons();
+        setTimeout(() => toast.classList.add('toast-visible'), 100);
+        setTimeout(() => {
+          toast.classList.remove('toast-visible');
+          setTimeout(() => toast.remove(), 500);
+        }, 4000);
+      }
+
+      if (commentForm) {
+        commentForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          showToast('Inquiry Submitted', 'Your comment has been submitted to the curation editor for review.');
+          commentForm.reset();
+        });
+      }
+
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          showToast('Registry Confirmed', 'You have been securely added to the VIP dispatch list.');
+          newsletterForm.reset();
+        });
+      }
+
+      if (reportForm) {
+        reportForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          showToast('Report Dispatched', 'Check your inbox for the secure PDF download link.');
+          reportForm.reset();
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,1640 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d4af37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z'/><path d='m9 12 2 2 4-4'/></svg>">
+  <title>Pricing & Membership Tiers // VELOCE LUXE</title>
+  <meta name="description"
+    content="Transparent, bespoke storage membership tiers for high-value collector vehicles, hypercars, and electric performance vehicles." />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: ['class', '[data-theme="dark"]'],
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              50: '#fdfbf4',
+              100: '#fbf5e4',
+              200: '#f5e8c4',
+              300: '#ecd397',
+              400: '#e5c057',
+              500: '#d4af37', // Pure Champagne Gold
+              600: '#bf992e',
+              700: '#a17c22',
+              800: '#856420',
+              900: '#71541b',
+              950: '#412e0b'
+            },
+            obsidian: {
+              100: '#e6e6e6',
+              200: '#cccccc',
+              800: '#1f1f1f',
+              900: '#121212',
+              950: '#0a0a0a'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            heading: ['"Space Grotesk"', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Unified Ultra-Luxury CSS -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+    :root {
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-heading: 'Space Grotesk', sans-serif;
+
+      /* Light Theme */
+      --bg-primary: #F5F5F7;
+      --bg-secondary: #EBEBEF;
+      --bg-card: #F5F5F7;
+      --text-primary: #1A1A1A;
+      --text-secondary: #4A4A4A;
+      --text-muted: #8F8F8F;
+      --border-light: rgba(255, 255, 255, 0.9);
+      --border-subtle: rgba(180, 180, 180, 0.2);
+      --accent-primary: #d4af37;
+      --accent-glow: rgba(212, 175, 55, 0.4);
+
+      --neu-flat: 9px 9px 18px #d5d5d7, -9px -9px 18px #ffffff;
+      --neu-flat-sm: 5px 5px 10px #d9d9db, -5px -5px 10px #ffffff;
+      --neu-flat-lg: 15px 15px 30px #cecece, -15px -15px 30px #ffffff;
+      --neu-pressed: inset 5px 5px 10px #d5d5d7, inset -5px -5px 10px #ffffff;
+      --neu-pressed-sm: inset 2px 2px 5px #d5d5d7, inset -2px -2px 5px #ffffff;
+      --neu-elevated: 12px 12px 24px #cecece, -12px -12px 24px #ffffff;
+      --nav-bg: rgba(245, 245, 247, 0.92);
+      --toast-bg: rgba(255, 255, 255, 0.95);
+    }
+
+    /* Dark Theme */
+    [data-theme="dark"] {
+      --bg-primary: #121212;
+      --bg-secondary: #1A1A1A;
+      --bg-card: #121212;
+      --text-primary: #F5F5F7;
+      --text-secondary: #A3A3A3;
+      --text-muted: #666666;
+      --border-light: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.02);
+      --accent-primary: #d4af37;
+      --accent-glow: rgba(212, 175, 55, 0.25);
+
+      --neu-flat: 8px 8px 16px #0b0b0b, -8px -8px 16px #191919;
+      --neu-flat-sm: 4px 4px 8px #0d0d0d, -4px -4px 8px #171717;
+      --neu-flat-lg: 12px 12px 24px #090909, -12px -12px 24px #1b1b1b;
+      --neu-pressed: inset 4px 4px 8px #0b0b0b, inset -4px -4px 8px #191919;
+      --neu-pressed-sm: inset 2px 2px 5px #0d0d0d, inset -2px -2px 5px #171717;
+      --neu-elevated: 10px 10px 20px #090909, -10px -10px 20px #1b1b1b;
+      --nav-bg: rgba(18, 18, 18, 0.92);
+      --toast-bg: rgba(26, 26, 26, 0.98);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: var(--font-heading);
+      letter-spacing: -0.025em;
+      color: var(--text-primary);
+    }
+
+    /* Cinematic Slow Pan Animation */
+    @keyframes kenBurns {
+      0% {
+        transform: scale(1.05) translate(0, 0);
+      }
+
+      100% {
+        transform: scale(1.15) translate(-1%, -2%);
+      }
+    }
+
+    .animate-cinematic {
+      animation: kenBurns 25s ease-in-out infinite alternate;
+    }
+
+    /* Ambient Background Elements */
+    .ambient-background {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .ambient-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.15;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+    }
+
+    [data-theme="dark"] .ambient-orb {
+      opacity: 0.08;
+      filter: blur(120px);
+    }
+
+    .ambient-orb-1 {
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, #d4af37 0%, transparent 70%);
+      top: -10%;
+      left: -5%;
+      animation: floatOrb1 24s infinite alternate;
+    }
+
+    .ambient-orb-2 {
+      width: 480px;
+      height: 480px;
+      background: radial-gradient(circle, #ffffff 0%, transparent 70%);
+      bottom: 10%;
+      right: -10%;
+      animation: floatOrb2 28s infinite alternate-reverse;
+    }
+
+    .ambient-grid {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(var(--border-subtle) 1px, transparent 1px);
+      background-size: 40px 40px;
+      opacity: 0.8;
+    }
+
+    @keyframes floatOrb1 {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      50% {
+        transform: translate(120px, 80px) scale(1.15);
+      }
+
+      100% {
+        transform: translate(60px, 160px) scale(0.95);
+      }
+    }
+
+    @keyframes floatOrb2 {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      50% {
+        transform: translate(-100px, -90px) scale(1.1);
+      }
+
+      100% {
+        transform: translate(-160px, -40px) scale(0.9);
+      }
+    }
+
+    /* Interactive Card Effects */
+    .neu-card,
+    .neu-card-lg {
+      background: var(--bg-card);
+      box-shadow: var(--neu-flat);
+      border-radius: 20px;
+      border: 1px solid var(--border-light);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .neu-card-lg {
+      border-radius: 28px;
+    }
+
+    .neu-card::before,
+    .neu-card-lg::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 50% 0%, var(--accent-glow), transparent 45%);
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .neu-card>*,
+    .neu-card-lg>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    .neu-card:hover,
+    .neu-card-lg:hover {
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 25px var(--accent-glow);
+      border-color: rgba(212, 175, 55, 0.5);
+    }
+
+    .neu-card:hover::before,
+    .neu-card-lg:hover::before {
+      opacity: 1;
+    }
+
+    .neu-card-sm {
+      background: var(--bg-card);
+      box-shadow: var(--neu-flat-sm);
+      border-radius: 14px;
+      border: 1px solid var(--border-light);
+    }
+
+    .neu-inset {
+      background: var(--bg-card);
+      box-shadow: var(--neu-pressed);
+      border-radius: 16px;
+      border: 1px solid var(--border-subtle);
+      transition: all 0.4s ease;
+    }
+
+    .group:hover .neu-inset {
+      box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.15);
+      border-color: rgba(212, 175, 55, 0.4);
+    }
+
+    /* Interactive Button Effects */
+    .neu-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      background: var(--bg-card);
+      color: var(--text-primary);
+      box-shadow: var(--neu-flat-sm);
+      border-radius: 12px;
+      border: 1px solid var(--border-light);
+      font-weight: 700;
+      padding: 0.75rem 1.6rem;
+      cursor: pointer;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .neu-btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -150%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transform: skewX(-25deg);
+      transition: all 0.6s ease;
+      z-index: -1;
+    }
+
+    .neu-btn:hover {
+      box-shadow: var(--neu-flat);
+      transform: translateY(-3px);
+      color: var(--accent-primary);
+      border-color: var(--accent-primary);
+    }
+
+    .neu-btn:hover::after {
+      left: 150%;
+    }
+
+    .neu-btn:active {
+      box-shadow: var(--neu-pressed-sm);
+      transform: translateY(1px);
+    }
+
+    .neu-btn i {
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .neu-btn:hover i {
+      transform: scale(1.25) rotate(5deg);
+    }
+
+    .neu-btn-primary {
+      background: linear-gradient(135deg, #d4af37, #a17c22);
+      color: #121212 !important;
+      box-shadow: 0 6px 18px var(--accent-glow), var(--neu-flat-sm);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .neu-btn-primary:hover {
+      background: linear-gradient(135deg, #e5c057, #d4af37);
+      box-shadow: 0 15px 30px var(--accent-glow), var(--neu-flat);
+      border-color: #fff;
+    }
+
+    .neu-btn-primary::after {
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+    }
+
+    .neu-btn-silver {
+      background: linear-gradient(135deg, #e6e6e6, #cccccc);
+      color: #121212 !important;
+      box-shadow: var(--neu-flat-sm);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+    }
+
+    [data-theme="dark"] .neu-btn-silver {
+      background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+      color: #F5F5F7 !important;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .neu-btn-silver:hover {
+      box-shadow: var(--neu-flat);
+      border-color: var(--accent-primary);
+      color: var(--accent-primary) !important;
+    }
+
+    .neu-icon-btn {
+      width: 44px;
+      height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--bg-card);
+      box-shadow: var(--neu-flat-sm);
+      border: 1px solid var(--border-light);
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .neu-icon-btn:hover {
+      box-shadow: var(--neu-flat);
+      color: var(--accent-primary);
+      border-color: var(--accent-primary);
+      transform: translateY(-4px) scale(1.05);
+    }
+
+    .neu-icon-btn:active {
+      box-shadow: var(--neu-pressed-sm);
+      transform: translateY(1px) scale(0.95);
+    }
+
+    /* Inputs */
+    .neu-input {
+      width: 100%;
+      background: var(--bg-card);
+      box-shadow: var(--neu-pressed-sm);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 0.85rem 1.2rem;
+      color: var(--text-primary);
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .neu-input:focus {
+      border-color: var(--accent-primary);
+      box-shadow: var(--neu-pressed), 0 0 0 3px var(--accent-glow);
+      transform: translateY(-1px);
+    }
+
+    /* Text Effects */
+    .metallic-text {
+      background: linear-gradient(135deg, #71541b 0%, #d4af37 50%, #412e0b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    [data-theme="dark"] .metallic-text {
+      background: linear-gradient(135deg, #f5e8c4 0%, #d4af37 50%, #a17c22 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .metallic-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      background: var(--bg-card);
+      box-shadow: var(--neu-flat-sm);
+      border: 1px solid var(--border-light);
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-primary);
+      transition: transform 0.3s ease;
+    }
+
+    .metallic-badge:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px var(--accent-glow);
+    }
+
+    /* Navigation */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--nav-bg);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: all 0.4s ease;
+    }
+
+    .site-header.scrolled {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+
+    [data-theme="dark"] .site-header.scrolled {
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+      border-bottom-color: rgba(212, 175, 55, 0.2);
+    }
+
+    .nav-link {
+      color: var(--text-secondary);
+      font-weight: 600;
+      font-size: 0.92rem;
+      padding: 0.5rem 0.9rem;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--accent-primary);
+      background: var(--bg-card);
+      box-shadow: var(--neu-pressed-sm);
+      transform: translateY(-1px);
+    }
+
+    /* Dropdowns */
+    .nav-dropdown-group {
+      position: relative;
+    }
+
+    .nav-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 220px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--neu-flat-lg);
+      border-radius: 16px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 50;
+      padding: 0.5rem;
+    }
+
+    .nav-dropdown-group:hover .nav-dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-item {
+      display: block;
+      padding: 0.75rem 1rem;
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 0.9rem;
+      border-radius: 10px;
+      transition: all 0.2s ease;
+    }
+
+    .dropdown-item:hover {
+      background: var(--bg-secondary);
+      color: var(--accent-primary);
+      transform: translateX(4px);
+    }
+
+    /* Accordion */
+    .accordion-item {
+      border-radius: 16px;
+      background: var(--bg-card);
+      box-shadow: var(--neu-flat-sm);
+      border: 1px solid var(--border-light);
+      overflow: hidden;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .accordion-header {
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--text-primary);
+      user-select: none;
+    }
+
+    .accordion-icon {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .accordion-item.active .accordion-icon {
+      transform: rotate(180deg);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+      padding: 0 1.5rem;
+      color: var(--text-secondary);
+    }
+
+    .accordion-item.active .accordion-content {
+      padding: 0 1.5rem 1.25rem 1.5rem;
+    }
+
+    /* Toast */
+    #toast-container {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 99999;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      max-width: 400px;
+      width: calc(100vw - 3rem);
+      pointer-events: none;
+    }
+
+    .toast-message {
+      pointer-events: auto;
+      background: var(--toast-bg);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      border: 1px solid var(--accent-primary);
+      box-shadow: 0 10px 30px var(--accent-glow), var(--neu-flat-lg);
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      transform: translateX(120%);
+      opacity: 0;
+      transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.5s ease;
+    }
+
+    .toast-message.toast-visible {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .toast-icon-wrap {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: var(--accent-primary);
+      color: #121212;
+      box-shadow: var(--neu-flat-sm);
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-primary);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent-primary);
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body class="selection:bg-gold-500 selection:text-black">
+
+  <!-- Ambient Background -->
+  <div class="ambient-background" aria-hidden="true">
+    <div class="ambient-orb ambient-orb-1"></div>
+    <div class="ambient-grid"></div>
+  </div>
+
+  <div id="toast-container"></div>
+
+  <!-- ===================================================================
+       1. MAIN NAVIGATION HEADER (SYNCED)
+       =================================================================== -->
+  <header class="site-header" id="header">
+    <div
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between transition-all duration-300">
+
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3 group focus:outline-none z-10">
+        <div class="w-12 h-12 rounded-2xl flex items-center justify-center neu-card">
+          <i data-lucide="shield-check"
+            class="w-6 h-6 text-gold-500 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12"></i>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-heading font-extrabold text-2xl tracking-wider metallic-text uppercase">VELOCE LUXE</span>
+          <span class="text-[10px] tracking-widest text-gold-500 uppercase font-bold -mt-1">Automated Vaults</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden lg:flex items-center gap-1.5 neu-inset px-3 py-1.5 z-10">
+        <div class="nav-dropdown-group relative py-2">
+          <button class="nav-link flex items-center gap-1.5 outline-none">
+            Home <i data-lucide="chevron-down" class="w-4 h-4"></i>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="index.html" class="dropdown-item flex items-center gap-2">
+              <i data-lucide="shield" class="w-4 h-4 text-gold-500"></i> Classic Vaults
+            </a>
+            <a href="home-2.html" class="dropdown-item flex items-center gap-2">
+              <i data-lucide="zap" class="w-4 h-4 text-gold-500"></i> EV SaaS Facilities
+            </a>
+          </div>
+        </div>
+
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="pricing.html" class="nav-link active">Pricing</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Desktop Action Area -->
+      <div class="hidden lg:flex items-center gap-4 z-10">
+        <button class="rtlToggleBtn neu-icon-btn" title="Toggle RTL">
+          <span class="text-xs font-bold font-mono">RTL</span>
+        </button>
+
+        <button class="themeToggleBtn neu-icon-btn" title="Toggle Theme">
+          <i data-lucide="sun" class="icon-sun w-5 h-5 text-gold-500 hidden"></i>
+          <i data-lucide="moon" class="icon-moon w-5 h-5 text-gold-500"></i>
+        </button>
+
+        <a href="coming-soon.html" class="neu-btn neu-btn-primary py-3 px-6">
+          <i data-lucide="key-round" class="w-4 h-4"></i>
+          <span>Client Portal</span>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobileMenuOpen" class="neu-icon-btn lg:hidden z-10" aria-label="Open Mobile Menu">
+        <i data-lucide="menu" class="w-5 h-5 text-gold-500"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===================================================================
+       MOBILE OFFCANVAS DRAWER MENU
+       =================================================================== -->
+  <div id="mobileMenuWrapper"
+    class="fixed inset-0 z-[1050] opacity-0 pointer-events-none transition-opacity duration-300">
+    <div id="mobileMenuBackdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+    <div id="mobileDrawer"
+      class="absolute top-0 right-0 w-72 max-w-full h-full bg-[var(--bg-primary)] shadow-2xl transform translate-x-full transition-transform duration-400 ease-out flex flex-col">
+      <div class="p-6 flex items-center justify-between border-b border-[var(--border-subtle)]">
+        <span class="font-heading font-extrabold text-xl metallic-text tracking-wide">MENU</span>
+        <button id="mobileMenuClose" class="neu-icon-btn !w-10 !h-10" aria-label="Close Menu">
+          <i data-lucide="x" class="w-5 h-5 text-[var(--text-secondary)]"></i>
+        </button>
+      </div>
+      <div class="p-6 flex-grow overflow-y-auto flex flex-col gap-5">
+        <div class="flex flex-col gap-4 text-lg font-bold">
+          <a href="index.html"
+            class="text-[var(--text-secondary)] hover:text-gold-500 transition-colors flex items-center gap-3"><i
+              data-lucide="shield" class="w-5 h-5"></i> Classic Vaults</a>
+          <a href="home-2.html"
+            class="text-[var(--text-secondary)] hover:text-gold-500 transition-colors flex items-center gap-3"><i
+              data-lucide="zap" class="w-5 h-5"></i> EV SaaS Facilities</a>
+          <a href="about.html" class="text-[var(--text-primary)] hover:text-gold-500 transition-colors">About Us</a>
+          <a href="services.html" class="text-[var(--text-primary)] hover:text-gold-500 transition-colors">Services</a>
+          <a href="pricing.html" class="text-gold-500 transition-colors">Pricing</a>
+          <a href="blog.html" class="text-[var(--text-primary)] hover:text-gold-500 transition-colors">Blog</a>
+          <a href="contact.html" class="text-[var(--text-primary)] hover:text-gold-500 transition-colors">Contact</a>
+        </div>
+        <hr class="border-[var(--border-subtle)] my-2" />
+        <div class="flex flex-col gap-4">
+          <div class="flex items-center justify-between">
+            <span class="text-sm font-bold text-[var(--text-secondary)] uppercase tracking-wider">Direction</span>
+            <button class="rtlToggleBtn neu-btn !py-2 !px-4 text-xs">RTL/LTR</button>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-sm font-bold text-[var(--text-secondary)] uppercase tracking-wider">App Theme</span>
+            <button class="themeToggleBtn neu-icon-btn !w-10 !h-10">
+              <i data-lucide="sun" class="icon-sun w-4 h-4 text-gold-500 hidden"></i>
+              <i data-lucide="moon" class="icon-moon w-4 h-4 text-gold-500"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="p-6 border-t border-[var(--border-subtle)] bg-[var(--bg-card)]">
+        <a href="coming-soon.html" class="neu-btn neu-btn-primary w-full text-base font-bold justify-center py-4">
+          <i data-lucide="key-round" class="w-5 h-5"></i> Client Portal
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       2. CONTAINER 1: HERO BANNER
+       =================================================================== -->
+  <section
+    class="relative pt-20 pb-24 md:pt-32 md:pb-32 overflow-hidden flex items-center border-b border-slate-200 dark:border-white/5">
+    <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+      <div
+        class="absolute inset-0 bg-[url('https://images.pexels.com/photos/30550072/pexels-photo-30550072.jpeg')] bg-cover bg-center opacity-30 dark:opacity-40 animate-cinematic mix-blend-luminosity">
+      </div>
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-[var(--bg-primary)]/40 via-[var(--bg-primary)]/80 to-[var(--bg-primary)]">
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center w-full">
+      <div class="metallic-badge mb-6 backdrop-blur-md bg-opacity-80 inline-flex">
+        <i data-lucide="gem" class="w-4 h-4 text-gold-500"></i>
+        <span>Transparent Allocations</span>
+      </div>
+      <h1
+        class="text-4xl sm:text-5xl md:text-6xl font-extrabold font-heading mb-6 max-w-4xl mx-auto leading-tight drop-shadow-md">
+        Curated Vault Plans For <br class="hidden md:inline" />
+        <span class="metallic-text">Discerning Collectors</span>
+      </h1>
+      <p
+        class="text-lg text-slate-700 dark:text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed font-semibold drop-shadow-sm">
+        All plans include our 256-bit encrypted telemetry mobile pass, Lloyd’s primary bailment insurance, and on-demand
+        robotic AGV staging.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       3. CONTAINER 2: PRICING TIERS (4 CARDS WITH FIXED BADGE & MODAL TRIGGER)
+       =================================================================== -->
+  <section class="py-24 relative border-b border-slate-200 dark:border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+        <!-- Tier 1: Executive Daily -->
+        <div class="neu-card p-6 sm:p-8 flex flex-col justify-between group">
+          <div>
+            <div class="text-xs uppercase font-bold tracking-wider text-slate-500 dark:text-slate-400 mb-2">Short Stay &
+              Valet</div>
+            <h3
+              class="font-heading font-bold text-2xl mb-4 text-slate-800 dark:text-white group-hover:text-gold-500 transition-colors">
+              Daily Concierge</h3>
+            <div class="mb-6 pb-6 border-b border-slate-200 dark:border-white/10">
+              <span class="text-4xl font-extrabold font-heading text-slate-800 dark:text-white">$120</span>
+              <span class="text-xs text-slate-500 dark:text-slate-400">/ day</span>
+            </div>
+            <ul class="space-y-3 text-xs text-slate-600 dark:text-slate-300 mb-8 font-medium">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-500"></i> Covered
+                secure staging bay</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-500"></i> 24/7 robotic
+                key retrieval</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-500"></i>
+                Complimentary express wash</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-500"></i> Airport
+                transfer dispatch</li>
+            </ul>
+          </div>
+          <button onclick="openCheckoutModal('Daily Concierge Pass', '$120 / day')"
+            class="neu-btn neu-btn-silver w-full text-xs py-3.5 font-bold justify-center">
+            Select Daily Pass
+          </button>
+        </div>
+
+        <!-- Tier 2: EV SuperPod -->
+        <div class="neu-card p-6 sm:p-8 flex flex-col justify-between group">
+          <div>
+            <div class="text-xs uppercase font-bold tracking-wider text-gold-600 dark:text-gold-500 mb-2">High Voltage
+              Tech</div>
+            <h3
+              class="font-heading font-bold text-2xl mb-4 text-slate-800 dark:text-white group-hover:text-gold-500 transition-colors">
+              EV SuperPod</h3>
+            <div class="mb-6 pb-6 border-b border-slate-200 dark:border-white/10">
+              <span class="text-4xl font-extrabold font-heading text-gold-600 dark:text-gold-500">$1,600</span>
+              <span class="text-xs text-slate-500 dark:text-slate-400">/ month</span>
+            </div>
+            <ul class="space-y-3 text-xs text-slate-600 dark:text-slate-300 mb-8 font-medium">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-500"></i> Level 3 DC &
+                AC trickle cycles</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-500"></i> Thermal
+                runaway aerosol isolation</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-500"></i> Biometric
+                MFA portal app</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-500"></i> Monthly
+                battery health report</li>
+            </ul>
+          </div>
+          <button onclick="openCheckoutModal('EV SuperPod', '$1,600 / month')"
+            class="neu-btn neu-btn-silver w-full text-xs py-3.5 font-bold justify-center">
+            Reserve EV Pod
+          </button>
+        </div>
+
+        <!-- Tier 3: Subterranean Nitrogen Vault (Featured - Badge Padding Fixed) -->
+        <div
+          class="neu-card-lg pt-10 p-6 sm:p-8 flex flex-col justify-between relative border border-gold-500/50 shadow-[0_0_30px_rgba(212,175,55,0.15)] group">
+          <div
+            class="absolute top-3 left-1/2 -translate-x-1/2 bg-gold-500 text-obsidian-900 font-bold text-[10px] uppercase tracking-widest px-4 py-1 rounded-full shadow-lg z-20">
+            Most Popular
+          </div>
+          <div>
+            <div class="text-xs uppercase font-bold tracking-wider text-gold-600 dark:text-gold-500 mb-2">Preservation
+              Grade</div>
+            <h3
+              class="font-heading font-bold text-2xl mb-4 text-slate-800 dark:text-white group-hover:text-gold-500 transition-colors">
+              Nitrogen Vault</h3>
+            <div class="mb-6 pb-6 border-b border-slate-200 dark:border-white/10">
+              <span class="text-4xl font-extrabold font-heading text-gold-600 dark:text-gold-500">$1,850</span>
+              <span class="text-xs text-slate-500 dark:text-slate-400">/ month</span>
+            </div>
+            <ul class="space-y-3 text-xs text-slate-600 dark:text-slate-300 mb-8 font-medium">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-500"></i> 50% RH &
+                20°C atmospheric seal</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-500"></i> Subterranean
+                blast protection</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-500"></i> CTEK smart
+                battery upkeep</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-500"></i> 1 Free
+                Concours Detail / 6mo</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-500"></i> Robotic
+                retrieval &lt; 90s</li>
+            </ul>
+          </div>
+          <button onclick="openCheckoutModal('Nitrogen Vault', '$1,850 / month')"
+            class="neu-btn neu-btn-primary w-full text-xs py-4 font-bold justify-center shadow-lg">
+            Secure Vault Bay
+          </button>
+        </div>
+
+        <!-- Tier 4: Founder Private Salon -->
+        <div class="neu-card p-6 sm:p-8 flex flex-col justify-between group">
+          <div>
+            <div class="text-xs uppercase font-bold tracking-wider text-slate-500 dark:text-slate-400 mb-2">
+              Multi-Vehicle Suite</div>
+            <h3
+              class="font-heading font-bold text-2xl mb-4 text-slate-800 dark:text-white group-hover:text-gold-500 transition-colors">
+              Founder Salon</h3>
+            <div class="mb-6 pb-6 border-b border-slate-200 dark:border-white/10">
+              <span class="text-4xl font-extrabold font-heading text-slate-800 dark:text-white">$6,500</span>
+              <span class="text-xs text-slate-500 dark:text-slate-400">/ month</span>
+            </div>
+            <ul class="space-y-3 text-xs text-slate-600 dark:text-slate-300 mb-8 font-medium">
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-500"></i> Private
+                5-Vehicle Glass Room</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-500"></i> Private
+                lounge & wet bar access</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-500"></i> Dedicated 4K
+                live encrypted CCTV</li>
+              <li class="flex items-center gap-2"><i data-lucide="check" class="w-4 h-4 text-gold-500"></i> Unlimited
+                concierge dispatches</li>
+            </ul>
+          </div>
+          <button onclick="openCheckoutModal('Founder Salon Suite', '$6,500 / month')"
+            class="neu-btn neu-btn-silver w-full text-xs py-3.5 font-bold justify-center">
+            Inquire For Suite
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       4. CONTAINER 3: INTERACTIVE ADD-ON CALCULATOR
+       =================================================================== -->
+  <section class="py-24 bg-black/5 relative border-b border-slate-200 dark:border-white/5">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="neu-card-lg p-8 sm:p-12 border border-gold-500/20 shadow-[0_0_30px_rgba(212,175,55,0.05)]">
+        <div class="text-center mb-10">
+          <div class="metallic-badge mb-2">Dynamic Configurator</div>
+          <h2 class="text-2xl sm:text-4xl font-extrabold font-heading">Interactive Custom Calculator</h2>
+          <p class="text-slate-500 dark:text-slate-400 text-sm sm:text-base mt-2">Customize your preservation package
+            and calculate real-time monthly fees.</p>
+        </div>
+
+        <div class="space-y-8">
+
+          <!-- Base Plan Picker -->
+          <div>
+            <label
+              class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-3">Select
+              Primary Bay Type</label>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <label
+                class="neu-btn text-xs py-4 px-4 flex items-center justify-between cursor-pointer base-plan-option border-gold-500 bg-gold-500/10 transition-colors shadow-inner">
+                <input type="radio" name="calc-base" value="1850" checked class="hidden" />
+                <span class="font-bold text-slate-800 dark:text-white">Nitrogen Vault</span>
+                <span class="text-gold-600 dark:text-gold-500 font-mono font-bold">$1,850/mo</span>
+              </label>
+              <label
+                class="neu-btn text-xs py-4 px-4 flex items-center justify-between cursor-pointer base-plan-option transition-colors border-transparent">
+                <input type="radio" name="calc-base" value="1600" class="hidden" />
+                <span class="font-bold text-slate-800 dark:text-white">EV SuperPod</span>
+                <span class="text-gold-600 dark:text-gold-500 font-mono font-bold">$1,600/mo</span>
+              </label>
+              <label
+                class="neu-btn text-xs py-4 px-4 flex items-center justify-between cursor-pointer base-plan-option transition-colors border-transparent">
+                <input type="radio" name="calc-base" value="6500" class="hidden" />
+                <span class="font-bold text-slate-800 dark:text-white">Founder 5-Bay</span>
+                <span class="text-gold-600 dark:text-gold-500 font-mono font-bold">$6,500/mo</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Addon Checkboxes -->
+          <div>
+            <label
+              class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-3">Optional
+              White-Glove Add-ons</label>
+            <div class="space-y-4">
+
+              <label
+                class="neu-inset p-5 rounded-2xl flex items-center justify-between cursor-pointer group hover:border-gold-500/40 hover:bg-gold-500/5 transition-colors">
+                <div class="flex items-center gap-4">
+                  <input type="checkbox"
+                    class="calc-addon w-5 h-5 rounded border-slate-400 dark:border-slate-600 text-gold-500 focus:ring-gold-500 focus:ring-offset-obsidian-900 bg-transparent transition-all cursor-pointer"
+                    value="250" />
+                  <div>
+                    <div
+                      class="text-sm font-bold text-slate-800 dark:text-white group-hover:text-gold-500 transition-colors">
+                      Private 4K 24/7 CCTV Camera Stream</div>
+                    <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Encrypted live HD feed directly into
+                      your iOS/Android app</div>
+                  </div>
+                </div>
+                <span class="text-sm font-mono font-bold text-gold-600 dark:text-gold-500">+$250/mo</span>
+              </label>
+
+              <label
+                class="neu-inset p-5 rounded-2xl flex items-center justify-between cursor-pointer group hover:border-gold-500/40 hover:bg-gold-500/5 transition-colors">
+                <div class="flex items-center gap-4">
+                  <input type="checkbox"
+                    class="calc-addon w-5 h-5 rounded border-slate-400 dark:border-slate-600 text-gold-500 focus:ring-gold-500 focus:ring-offset-obsidian-900 bg-transparent transition-all cursor-pointer"
+                    value="450" />
+                  <div>
+                    <div
+                      class="text-sm font-bold text-slate-800 dark:text-white group-hover:text-gold-500 transition-colors">
+                      Bi-Weekly Concours Hand Wash & Detailing</div>
+                    <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">De-ionized water, Swissvax wax, and
+                      leather hydration</div>
+                  </div>
+                </div>
+                <span class="text-sm font-mono font-bold text-gold-600 dark:text-gold-500">+$450/mo</span>
+              </label>
+
+              <label
+                class="neu-inset p-5 rounded-2xl flex items-center justify-between cursor-pointer group hover:border-gold-500/40 hover:bg-gold-500/5 transition-colors">
+                <div class="flex items-center gap-4">
+                  <input type="checkbox"
+                    class="calc-addon w-5 h-5 rounded border-slate-400 dark:border-slate-600 text-gold-500 focus:ring-gold-500 focus:ring-offset-obsidian-900 bg-transparent transition-all cursor-pointer"
+                    value="300" />
+                  <div>
+                    <div
+                      class="text-sm font-bold text-slate-800 dark:text-white group-hover:text-gold-500 transition-colors">
+                      Executive Airport Valet Dispatches</div>
+                    <div class="text-xs text-slate-500 dark:text-slate-400 mt-1">Unlimited enclosed trailer tarmac
+                      transfers to aviation FBOs</div>
+                  </div>
+                </div>
+                <span class="text-sm font-mono font-bold text-gold-600 dark:text-gold-500">+$300/mo</span>
+              </label>
+
+            </div>
+          </div>
+
+          <!-- Total Calculation Display -->
+          <div
+            class="neu-card p-8 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-6 border border-gold-500/50 shadow-[0_0_20px_rgba(212,175,55,0.15)] bg-gold-500/5">
+            <div>
+              <div class="text-xs text-slate-500 dark:text-slate-400 uppercase font-bold tracking-wider mb-1">Total
+                Estimated Investment</div>
+              <div class="text-4xl font-extrabold font-heading text-slate-900 dark:text-white drop-shadow-md">
+                <span id="calc-total-display">$1,850</span> <span
+                  class="text-sm text-slate-500 dark:text-slate-400 font-normal">/ month</span>
+              </div>
+            </div>
+            <button
+              onclick="openCheckoutModal('Custom Configured Package', document.getElementById('calc-total-display').textContent + ' / month')"
+              class="neu-btn neu-btn-primary py-4 px-8 text-base font-bold w-full sm:w-auto shadow-xl">
+              <i data-lucide="check-circle" class="w-5 h-5"></i>
+              <span>Book Customized Plan</span>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       5. CONTAINER 4: INCLUDED UNIVERSAL AMENITIES
+       =================================================================== -->
+  <section class="py-24 relative border-b border-slate-200 dark:border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+
+        <div class="lg:col-span-5">
+          <div class="metallic-badge mb-4"><i data-lucide="check-circle-2" class="w-4 h-4 text-gold-500"></i> Included
+            Automatically</div>
+          <h2 class="text-3xl md:text-4xl font-extrabold font-heading mb-6">The Baseline of Perfection.</h2>
+          <p class="text-slate-500 dark:text-slate-400 text-lg leading-relaxed mb-8">
+            At Veloce Luxe, there is no "basic" tier. Every vehicle entrusted to our care receives a baseline suite of
+            amenities ensuring it remains pristine, charged, and ready for deployment.
+          </p>
+        </div>
+
+        <div class="lg:col-span-7">
+          <div class="neu-card-lg p-8 sm:p-12 relative overflow-hidden border border-gold-500/20">
+            <div
+              class="absolute -top-20 -right-20 w-64 h-64 bg-gold-500/5 blur-[80px] rounded-full pointer-events-none">
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-8 gap-x-12 relative z-10">
+              <div class="flex items-start gap-4 group">
+                <div
+                  class="w-12 h-12 rounded-full neu-inset flex items-center justify-center text-gold-500 shrink-0 group-hover:scale-110 transition-transform">
+                  <i data-lucide="shield" class="w-5 h-5"></i></div>
+                <div>
+                  <h4
+                    class="font-heading font-bold text-lg mb-1 text-slate-800 dark:text-white group-hover:text-gold-500 transition-colors">
+                    Lloyd's Primary Insurance</h4>
+                  <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">$10M comprehensive bailment
+                    facility policy covers every bay by default.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4 group">
+                <div
+                  class="w-12 h-12 rounded-full neu-inset flex items-center justify-center text-gold-500 shrink-0 group-hover:scale-110 transition-transform">
+                  <i data-lucide="battery-charging" class="w-5 h-5"></i></div>
+                <div>
+                  <h4
+                    class="font-heading font-bold text-lg mb-1 text-slate-800 dark:text-white group-hover:text-gold-500 transition-colors">
+                    Battery Tending</h4>
+                  <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Continuous CTEK or L2
+                    intelligent float charging tailored to your exact battery chemistry.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4 group">
+                <div
+                  class="w-12 h-12 rounded-full neu-inset flex items-center justify-center text-gold-500 shrink-0 group-hover:scale-110 transition-transform">
+                  <i data-lucide="martini" class="w-5 h-5"></i></div>
+                <div>
+                  <h4
+                    class="font-heading font-bold text-lg mb-1 text-slate-800 dark:text-white group-hover:text-gold-500 transition-colors">
+                    VIP Lounge Access</h4>
+                  <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">24/7 access to our private
+                    member lounge, cigar room, and complimentary espresso bar.</p>
+                </div>
+              </div>
+              <div class="flex items-start gap-4 group">
+                <div
+                  class="w-12 h-12 rounded-full neu-inset flex items-center justify-center text-gold-500 shrink-0 group-hover:scale-110 transition-transform">
+                  <i data-lucide="smartphone" class="w-5 h-5"></i></div>
+                <div>
+                  <h4
+                    class="font-heading font-bold text-lg mb-1 text-slate-800 dark:text-white group-hover:text-gold-500 transition-colors">
+                    Veloce OS App</h4>
+                  <p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">Encrypted digital management,
+                    billing, climate telemetry, and concierge communication.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       6. CONTAINER 5: VISUAL FACILITY SHOWCASE
+       =================================================================== -->
+  <section class="py-24 bg-black/5 relative border-b border-slate-200 dark:border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div
+        class="relative rounded-[40px] overflow-hidden shadow-[0_0_50px_rgba(212,175,55,0.15)] group h-[50vh] md:h-[60vh] border border-gold-500/20 cursor-pointer"
+        onclick="window.location.href='about.html'">
+        <div
+          class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center group-hover:scale-105 transition-transform duration-1000">
+        </div>
+        <div class="absolute inset-0 bg-obsidian-900/60 group-hover:bg-obsidian-900/40 transition-colors duration-500">
+        </div>
+
+        <div class="absolute bottom-10 left-10 right-10 md:bottom-16 md:left-16 text-center md:text-left">
+          <div class="bg-black/50 backdrop-blur-md border border-white/20 p-6 rounded-2xl inline-block">
+            <h3
+              class="font-display text-2xl md:text-4xl font-bold text-white mb-2 drop-shadow-lg group-hover:text-gold-500 transition-colors">
+              The Apex of Protection</h3>
+            <p class="text-slate-300 text-sm md:text-base drop-shadow-md">Tour the subterranean matrix that safeguards
+              $250M+ in automotive history.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       7. CONTAINER 6: PRICING FAQ ACCORDION
+       =================================================================== -->
+  <section class="py-24 relative border-b border-slate-200 dark:border-white/5">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <div class="metallic-badge mb-4"><i data-lucide="help-circle" class="w-4 h-4 text-gold-500"></i> Protocol
+          Queries</div>
+        <h2 class="text-3xl md:text-4xl font-extrabold font-heading">Membership FAQ</h2>
+      </div>
+
+      <div class="space-y-4" id="vault-accordion">
+        <div class="accordion-item active">
+          <div class="accordion-header">
+            <span>Are there minimum term commitments for vault storage?</span>
+            <i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-gold-500"></i>
+          </div>
+          <div class="accordion-content" style="max-height: 200px;">
+            <p class="text-sm md:text-base text-slate-500 dark:text-slate-400 leading-relaxed pt-2">
+              Yes. Due to the high demand and the specific ingestion protocols required to stabilize the nitrogen bays,
+              our Climate Vaults and EV SuperPods require a minimum 3-month commitment. However, we offer significant
+              rate reductions for 12-month founder agreements.
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <span>How does the insurance valuation work?</span>
+            <i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-gold-500"></i>
+          </div>
+          <div class="accordion-content">
+            <p class="text-sm md:text-base text-slate-500 dark:text-slate-400 leading-relaxed pt-2">
+              Every bay is covered by our primary $10M comprehensive bailment facility policy. For assets exceeding this
+              value, our in-house brokers arrange immediate, agreed-value endorsements up to $50M before your vehicle
+              enters the subterranean lift.
+            </p>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header">
+            <span>Can I switch a vehicle out of my dedicated bay?</span>
+            <i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-gold-500"></i>
+          </div>
+          <div class="accordion-content">
+            <p class="text-sm md:text-base text-slate-500 dark:text-slate-400 leading-relaxed pt-2">
+              Absolutely. Membership applies to the bay itself. You may swap vehicles in and out of your dedicated pod
+              at any time via the Veloce OS App, provided the new vehicle passes our standard ingestion wash and fluid
+              check protocol.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       8. CONTAINER 7: FINAL CTA
+       =================================================================== -->
+  <section class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div
+        class="neu-card-lg p-12 sm:p-20 text-center relative overflow-hidden border border-gold-500/30 shadow-[0_0_50px_rgba(212,175,55,0.1)]">
+        <div
+          class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-10 mix-blend-luminosity">
+        </div>
+        <div class="absolute inset-0 bg-gold-500/5"></div>
+        <div class="max-w-3xl mx-auto relative z-10">
+          <div class="metallic-badge mb-6">Exclusive Allocation</div>
+          <h2 class="text-4xl sm:text-6xl font-extrabold font-heading mb-8">Secure Your Vault Today</h2>
+          <p class="text-slate-500 dark:text-slate-400 text-lg sm:text-xl mb-10 font-medium">Due to strict atmospheric
+            constraints, our subterranean chambers maintain a waitlist. Request an immediate site tour or reserve an
+            active bay online.</p>
+          <div class="flex flex-wrap items-center justify-center gap-5">
+            <a href="coming-soon.html"
+              class="neu-btn neu-btn-primary py-4 sm:py-5 px-8 sm:px-10 text-base sm:text-lg shadow-2xl">
+              <i data-lucide="calendar" class="w-5 h-5 sm:w-6 sm:h-6"></i> <span>Apply For Membership</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       9. MASTER FOOTER (PERMANENT FIX - NO BOXES, INLINE SVGS)
+       =================================================================== -->
+  <footer class="pt-20 pb-12 border-t border-slate-200 dark:border-white/10 bg-black/5 dark:bg-black/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-slate-200 dark:border-white/10">
+
+        <div class="lg:col-span-4 flex flex-col justify-between">
+          <div>
+            <a href="index.html" class="flex items-center gap-3 mb-6 group w-max">
+              <div
+                class="w-12 h-12 rounded-xl flex items-center justify-center border border-[#d4af37]/40 bg-[#121212] shadow-[0_0_15px_rgba(212,175,55,0.2)] group-hover:shadow-[0_0_25px_rgba(212,175,55,0.5)] transition-all duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12">
+                  <path
+                    d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+                  <path d="m9 12 2 2 4-4" />
+                </svg>
+              </div>
+              <span class="font-heading font-extrabold text-2xl tracking-wider metallic-text">VELOCE LUXE</span>
+            </a>
+            <p class="text-base text-slate-500 dark:text-slate-400 leading-relaxed mb-8">The premier automated vehicle
+              vault. Engineered for hypercars and electric mobility.</p>
+          </div>
+
+          <!-- FIXED SOCIAL LINKS: Raw SVGs with hardcoded gold colors -->
+          <div class="flex items-center gap-6">
+  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+    class="hover:-translate-y-1 hover:scale-110 transition-all duration-300" aria-label="Instagram"
+    style="color: #d4af37;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      style="filter: drop-shadow(0px 4px 6px rgba(212,175,55,0.4));">
+      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+    </svg>
+  </a>
+  <a href="https://x.com" target="_blank" rel="noopener noreferrer"
+    class="hover:-translate-y-1 hover:scale-110 transition-all duration-300" aria-label="X (Twitter)"
+    style="color: #d4af37;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"
+      style="filter: drop-shadow(0px 4px 6px rgba(212,175,55,0.4));">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+    </svg>
+  </a>
+  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+    class="hover:-translate-y-1 hover:scale-110 transition-all duration-300" aria-label="LinkedIn"
+    style="color: #d4af37;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      style="filter: drop-shadow(0px 4px 6px rgba(212,175,55,0.4));">
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect width="4" height="12" x="2" y="9" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  </a>
+</div>
+        </div>
+
+        <div class="lg:col-span-2">
+          <h4 class="font-heading font-bold text-sm uppercase tracking-wider text-[#d4af37] mb-6">Navigation</h4>
+          <ul class="space-y-4 text-sm font-semibold">
+            <li><a href="about.html"
+                class="text-slate-500 dark:text-slate-400 hover:text-[#d4af37] hover:translate-x-1 inline-block transition-all">About
+                Us</a></li>
+            <li><a href="services.html"
+                class="text-slate-500 dark:text-slate-400 hover:text-[#d4af37] hover:translate-x-1 inline-block transition-all">Vault
+                Services</a></li>
+            <li><a href="pricing.html"
+                class="text-slate-500 dark:text-slate-400 hover:text-[#d4af37] hover:translate-x-1 inline-block transition-all">Pricing
+                & Plans</a></li>
+            <li><a href="blog.html"
+                class="text-slate-500 dark:text-slate-400 hover:text-[#d4af37] hover:translate-x-1 inline-block transition-all">Journals
+                & News</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-2">
+          <h4 class="font-heading font-bold text-sm uppercase tracking-wider text-[#d4af37] mb-6">Portals</h4>
+          <ul class="space-y-4 text-sm font-semibold">
+            <li><a href="coming-soon.html"
+                class="text-slate-500 dark:text-slate-400 hover:text-[#d4af37] hover:translate-x-1 inline-block transition-all">Customer
+                Portal</a></li>
+            <li><a href="contact.html"
+                class="text-slate-500 dark:text-slate-400 hover:text-[#d4af37] hover:translate-x-1 inline-block transition-all">Concierge</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-4">
+          <h4 class="font-heading font-bold text-sm uppercase tracking-wider text-[#d4af37] mb-6">VIP Dispatch</h4>
+          <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-6">Receive notifications when founder
+            vaults become available.</p>
+          <form id="newsletterForm" class="flex flex-col gap-4">
+            <input type="email" required placeholder="Private email address..."
+              class="neu-input py-4 text-base bg-white dark:bg-[#121212] border-slate-200 dark:border-white/10" />
+            <button type="submit" class="neu-btn neu-btn-primary py-4 font-bold justify-center w-full">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" x2="11" y1="2" y2="13" />
+                <polygon points="22 2 15 22 11 13 2 9 22 2" />
+              </svg>
+              <span>Join Registry</span>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div
+        class="pt-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm font-semibold text-slate-500 dark:text-slate-500">
+        <div>© 2026 VELOCE LUXE. Designed for Ultra-Luxury Automotives.</div>
+        <div class="flex items-center gap-8">
+          <a href="#" class="hover:text-[#d4af37] transition-colors">Privacy</a>
+          <a href="#" class="hover:text-[#d4af37] transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================================================================
+       CHECKOUT MODAL (CUSTOMER & CARD DETAILS POPUP)
+       =================================================================== -->
+  <div id="checkoutModal"
+    class="fixed inset-0 z-[1100] bg-black/70 backdrop-blur-md flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div
+      class="neu-card-lg p-6 sm:p-10 max-w-lg w-full relative border border-gold-500/30 shadow-2xl transform scale-95 transition-transform duration-300"
+      id="checkoutModalContent">
+
+      <!-- Close Button -->
+      <button onclick="closeCheckoutModal()" class="absolute top-4 right-4 neu-icon-btn !w-10 !h-10"
+        aria-label="Close Modal">
+        <i data-lucide="x" class="w-5 h-5 text-slate-400"></i>
+      </button>
+
+      <div class="mb-6">
+        <div class="metallic-badge mb-2">Secure Allocation</div>
+        <h3 class="text-2xl font-extrabold font-heading text-slate-900 dark:text-white" id="modalPlanTitle">Membership
+          Checkout</h3>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Selected Allocation: <span id="modalPlanPrice"
+            class="font-bold text-gold-600 dark:text-gold-500"></span></p>
+      </div>
+
+      <form id="checkoutForm" class="space-y-4" onsubmit="handleCheckoutSubmit(event)">
+        <div>
+          <label class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">Full
+            Legal Name</label>
+          <input type="text" required placeholder="Lord Arthur Sterling" class="neu-input text-xs" />
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label
+              class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">Private
+              Email</label>
+            <input type="email" required placeholder="sterling@apexcapital.co" class="neu-input text-xs" />
+          </div>
+          <div>
+            <label
+              class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">Secure
+              Phone</label>
+            <input type="tel" required placeholder="+1 (310) 555-0199" class="neu-input text-xs" />
+          </div>
+        </div>
+
+        <div class="pt-2 border-t border-slate-200 dark:border-white/10">
+          <label
+            class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">Encrypted
+            Card Number</label>
+          <div class="relative">
+            <input type="text" required placeholder="•••• •••• •••• •4242" class="neu-input text-xs pl-10" />
+            <i data-lucide="credit-card" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label
+              class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">Expiration
+              (MM/YY)</label>
+            <input type="text" required placeholder="12/28" class="neu-input text-xs" />
+          </div>
+          <div>
+            <label
+              class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-1.5">CVV
+              Code</label>
+            <input type="password" required placeholder="•••" maxlength="4" class="neu-input text-xs" />
+          </div>
+        </div>
+
+        <div class="pt-4">
+          <button type="submit" class="neu-btn neu-btn-primary w-full py-4 text-sm font-bold shadow-xl justify-center">
+            <i data-lucide="lock" class="w-4 h-4"></i>
+            <span>Submit Secure Payment & Reserve</span>
+          </button>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- Core Javascript Interactions -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      const html = document.documentElement;
+
+      // Theme Toggle Logic
+      const themeToggleBtns = document.querySelectorAll('.themeToggleBtn');
+      themeToggleBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const isDark = html.getAttribute('data-theme') === 'dark';
+          html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+          document.querySelectorAll('.icon-sun').forEach(el => isDark ? el.classList.remove('hidden') : el.classList.add('hidden'));
+          document.querySelectorAll('.icon-moon').forEach(el => isDark ? el.classList.add('hidden') : el.classList.remove('hidden'));
+        });
+      });
+
+      // RTL Toggle Logic
+      const rtlToggleBtns = document.querySelectorAll('.rtlToggleBtn');
+      rtlToggleBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          html.setAttribute('dir', html.getAttribute('dir') === 'ltr' ? 'rtl' : 'ltr');
+        });
+      });
+
+      // Mobile Menu Offcanvas Drawer Logic
+      const mobileMenuWrapper = document.getElementById('mobileMenuWrapper');
+      const mobileDrawer = document.getElementById('mobileDrawer');
+      const mobileMenuOpen = document.getElementById('mobileMenuOpen');
+      const mobileMenuClose = document.getElementById('mobileMenuClose');
+      const mobileMenuBackdrop = document.getElementById('mobileMenuBackdrop');
+
+      function openMobileMenu() {
+        mobileMenuWrapper.classList.remove('opacity-0', 'pointer-events-none');
+        mobileDrawer.classList.remove('translate-x-full');
+        html.style.overflow = 'hidden';
+      }
+
+      function closeMobileMenu() {
+        mobileMenuWrapper.classList.add('opacity-0', 'pointer-events-none');
+        mobileDrawer.classList.add('translate-x-full');
+        html.style.overflow = '';
+      }
+
+      if (mobileMenuOpen && mobileMenuClose && mobileMenuBackdrop) {
+        mobileMenuOpen.addEventListener('click', openMobileMenu);
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        mobileMenuBackdrop.addEventListener('click', closeMobileMenu);
+      }
+
+      // Sticky Header
+      const header = document.getElementById('header');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+      });
+
+      // Toast Logic
+      const newsletterForm = document.getElementById('newsletterForm');
+      const toastContainer = document.getElementById('toast-container');
+
+      window.showToast = function (title, desc) {
+        const toast = document.createElement('div');
+        toast.className = 'toast-message toast-success';
+        toast.innerHTML = `
+          <div class="toast-icon-wrap"><i data-lucide="check" class="w-5 h-5"></i></div>
+          <div class="toast-body">
+            <div class="toast-title">${title}</div>
+            <div class="toast-desc">${desc}</div>
+          </div>
+        `;
+        toastContainer.appendChild(toast);
+        lucide.createIcons();
+        setTimeout(() => toast.classList.add('toast-visible'), 100);
+        setTimeout(() => {
+          toast.classList.remove('toast-visible');
+          setTimeout(() => toast.remove(), 500);
+        }, 4000);
+      }
+
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          showToast('Registry Confirmed', 'You have been securely added to the VIP dispatch list.');
+          newsletterForm.reset();
+        });
+      }
+
+      // Checkout Modal Handlers
+      window.openCheckoutModal = function (planName, planPrice) {
+        document.getElementById('modalPlanTitle').textContent = planName;
+        document.getElementById('modalPlanPrice').textContent = planPrice;
+        const modal = document.getElementById('checkoutModal');
+        const content = document.getElementById('checkoutModalContent');
+        modal.classList.remove('opacity-0', 'pointer-events-none');
+        content.classList.remove('scale-95');
+        html.style.overflow = 'hidden';
+      };
+
+      window.closeCheckoutModal = function () {
+        const modal = document.getElementById('checkoutModal');
+        const content = document.getElementById('checkoutModalContent');
+        modal.classList.add('opacity-0', 'pointer-events-none');
+        content.classList.add('scale-95');
+        html.style.overflow = '';
+      };
+
+      window.handleCheckoutSubmit = function (e) {
+        e.preventDefault();
+        closeCheckoutModal();
+        showToast('Allocation Secured Successfully!', 'Your encrypted payment has been processed and your vault bay is reserved.');
+        document.getElementById('checkoutForm').reset();
+      };
+
+      // ==========================================
+      // INTERACTIVE CALCULATOR LOGIC (UPGRADED)
+      // ==========================================
+      let basePrice = 1850;
+      const baseOptions = document.querySelectorAll('.base-plan-option');
+      const totalDisplay = document.getElementById('calc-total-display');
+      const addonCheckboxes = document.querySelectorAll('.calc-addon');
+
+      function calculateTotal() {
+        let total = basePrice;
+        addonCheckboxes.forEach(cb => {
+          if (cb.checked) {
+            total += parseInt(cb.value, 10);
+          }
+        });
+        totalDisplay.textContent = '$' + total.toLocaleString();
+      }
+
+      baseOptions.forEach(opt => {
+        opt.addEventListener('click', () => {
+          baseOptions.forEach(o => {
+            o.classList.remove('border-gold-500', 'bg-gold-500/10');
+            o.classList.add('border-transparent');
+          });
+          opt.classList.remove('border-transparent');
+          opt.classList.add('border-gold-500', 'bg-gold-500/10');
+
+          const radio = opt.querySelector('input[type="radio"]');
+          if (radio) {
+            radio.checked = true;
+            basePrice = parseInt(radio.value, 10);
+            calculateTotal();
+          }
+        });
+      });
+
+      addonCheckboxes.forEach(cb => {
+        cb.addEventListener('change', calculateTotal);
+      });
+
+    });
+  </script>
+</body>
+
+</html>

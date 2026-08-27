@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d4af37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z'/><path d='m9 12 2 2 4-4'/></svg>">
+  <title id="page-title">Service Details // VELOCE LUXE</title>
+  <meta name="description" content="Technical specifications and reservation protocol for Veloce Luxe." />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: ['class', '[data-theme="dark"]'],
+      theme: {
+        extend: {
+          colors: {
+            gold: {
+              50: '#fdfbf4',
+              100: '#fbf5e4',
+              200: '#f5e8c4',
+              300: '#ecd397',
+              400: '#e5c057',
+              500: '#d4af37', // Pure Champagne Gold
+              600: '#bf992e',
+              700: '#a17c22',
+              800: '#856420',
+              900: '#71541b',
+              950: '#412e0b'
+            },
+            obsidian: {
+              100: '#e6e6e6',
+              200: '#cccccc',
+              800: '#1f1f1f',
+              900: '#121212',
+              950: '#0a0a0a'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            heading: ['"Space Grotesk"', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Unified Ultra-Luxury CSS -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+    :root {
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-heading: 'Space Grotesk', sans-serif;
+
+      /* Light Theme */
+      --bg-primary: #F5F5F7;
+      --bg-secondary: #EBEBEF;
+      --bg-card: #F5F5F7;
+      --text-primary: #1A1A1A;
+      --text-secondary: #4A4A4A;
+      --text-muted: #8F8F8F;
+      --border-light: rgba(255, 255, 255, 0.9);
+      --border-subtle: rgba(180, 180, 180, 0.2);
+      --accent-primary: #d4af37;
+      --accent-glow: rgba(212, 175, 55, 0.4);
+
+      --neu-flat: 9px 9px 18px #d5d5d7, -9px -9px 18px #ffffff;
+      --neu-flat-sm: 5px 5px 10px #d9d9db, -5px -5px 10px #ffffff;
+      --neu-flat-lg: 15px 15px 30px #cecece, -15px -15px 30px #ffffff;
+      --neu-pressed: inset 5px 5px 10px #d5d5d7, inset -5px -5px 10px #ffffff;
+      --neu-pressed-sm: inset 2px 2px 5px #d5d5d7, inset -2px -2px 5px #ffffff;
+      --neu-elevated: 12px 12px 24px #cecece, -12px -12px 24px #ffffff;
+
+      --nav-bg: rgba(245, 245, 247, 0.92);
+      --toast-bg: rgba(255, 255, 255, 0.95);
+    }
+
+    /* Dark Theme */
+    [data-theme="dark"] {
+      --bg-primary: #121212;
+      --bg-secondary: #1A1A1A;
+      --bg-card: #121212;
+      --text-primary: #F5F5F7;
+      --text-secondary: #A3A3A3;
+      --text-muted: #666666;
+      --border-light: rgba(255, 255, 255, 0.05);
+      --border-subtle: rgba(255, 255, 255, 0.02);
+      --accent-primary: #d4af37;
+      --accent-glow: rgba(212, 175, 55, 0.25);
+
+      --neu-flat: 8px 8px 16px #0b0b0b, -8px -8px 16px #191919;
+      --neu-flat-sm: 4px 4px 8px #0d0d0d, -4px -4px 8px #171717;
+      --neu-flat-lg: 12px 12px 24px #090909, -12px -12px 24px #1b1b1b;
+      --neu-pressed: inset 4px 4px 8px #0b0b0b, inset -4px -4px 8px #191919;
+      --neu-pressed-sm: inset 2px 2px 5px #0d0d0d, inset -2px -2px 5px #171717;
+      --neu-elevated: 10px 10px 20px #090909, -10px -10px 20px #1b1b1b;
+
+      --nav-bg: rgba(18, 18, 18, 0.92);
+      --toast-bg: rgba(26, 26, 26, 0.98);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: var(--font-heading);
+      letter-spacing: -0.025em;
+      color: var(--text-primary);
+    }
+
+    /* Cinematic Slow Pan Animation for Hero Background */
+    @keyframes kenBurns {
+      0% {
+        transform: scale(1.05) translate(0, 0);
+      }
+
+      100% {
+        transform: scale(1.15) translate(-1%, -2%);
+      }
+    }
+
+    .animate-cinematic {
+      animation: kenBurns 25s ease-in-out infinite alternate;
+    }
+
+    .ambient-background {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .ambient-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(90px);
+      opacity: 0.15;
+      animation-iteration-count: infinite;
+      animation-timing-function: ease-in-out;
+    }
+
+    [data-theme="dark"] .ambient-orb {
+      opacity: 0.08;
+      filter: blur(120px);
+    }
+
+    .ambient-orb-1 {
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, #d4af37 0%, transparent 70%);
+      top: -10%;
+      left: -5%;
+      animation: floatOrb1 24s infinite alternate;
+    }
+
+    .ambient-grid {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(var(--border-subtle) 1px, transparent 1px);
+      background-size: 40px 40px;
+      opacity: 0.8;
+    }
+
+    @keyframes floatOrb1 {
+      0% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      50% {
+        transform: translate(120px, 80px) scale(1.15);
+      }
+
+      100% {
+        transform: translate(60px, 160px) scale(0.95);
+      }
+    }
+
+    /* Interactive Card Effects */
+    .neu-card,
+    .neu-card-lg {
+      background: var(--bg-card);
+      box-shadow: var(--neu-flat);
+      border-radius: 20px;
+      border: 1px solid var(--border-light);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .neu-card-lg {
+      border-radius: 28px;
+    }
+
+    .neu-card::before,
+    .neu-card-lg::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 50% 0%, var(--accent-glow), transparent 45%);
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .neu-card>*,
+    .neu-card-lg>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    .neu-card:hover,
+    .neu-card-lg:hover {
+      transform: translateY(-8px) scale(1.01);
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 25px var(--accent-glow);
+      border-color: rgba(212, 175, 55, 0.5);
+    }
+
+    .neu-card:hover::before,
+    .neu-card-lg:hover::before {
+      opacity: 1;
+    }
+
+    .neu-inset {
+      background: var(--bg-card);
+      box-shadow: var(--neu-pressed);
+      border-radius: 16px;
+      border: 1px solid var(--border-subtle);
+      transition: all 0.4s ease;
+    }
+
+    .group:hover .neu-inset {
+      box-shadow: inset 0 0 20px rgba(212, 175, 55, 0.15);
+      border-color: rgba(212, 175, 55, 0.4);
+    }
+
+    /* Buttons */
+    .neu-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      background: var(--bg-card);
+      color: var(--text-primary);
+      box-shadow: var(--neu-flat-sm);
+      border-radius: 12px;
+      border: 1px solid var(--border-light);
+      font-weight: 700;
+      padding: 0.75rem 1.6rem;
+      cursor: pointer;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .neu-btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -150%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transform: skewX(-25deg);
+      transition: all 0.6s ease;
+      z-index: -1;
+    }
+
+    .neu-btn:hover {
+      box-shadow: var(--neu-flat);
+      transform: translateY(-3px);
+      color: var(--accent-primary);
+      border-color: var(--accent-primary);
+    }
+
+    .neu-btn:hover::after {
+      left: 150%;
+    }
+
+    .neu-btn:active {
+      box-shadow: var(--neu-pressed-sm);
+      transform: translateY(1px);
+    }
+
+    .neu-btn i {
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .neu-btn:hover i {
+      transform: scale(1.25) rotate(5deg);
+    }
+
+    .neu-btn-primary {
+      background: linear-gradient(135deg, #d4af37, #a17c22);
+      color: #121212 !important;
+      box-shadow: 0 6px 18px var(--accent-glow), var(--neu-flat-sm);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .neu-btn-primary:hover {
+      background: linear-gradient(135deg, #e5c057, #d4af37);
+      box-shadow: 0 15px 30px var(--accent-glow), var(--neu-flat);
+      border-color: #fff;
+    }
+
+    .neu-btn-silver {
+      background: linear-gradient(135deg, #e6e6e6, #cccccc);
+      color: #121212 !important;
+      box-shadow: var(--neu-flat-sm);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+    }
+
+    [data-theme="dark"] .neu-btn-silver {
+      background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+      color: #F5F5F7 !important;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .neu-btn-silver:hover {
+      box-shadow: var(--neu-flat);
+      border-color: var(--accent-primary);
+      color: var(--accent-primary) !important;
+    }
+
+    .neu-icon-btn {
+      width: 44px;
+      height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--bg-card);
+      box-shadow: var(--neu-flat-sm);
+      border: 1px solid var(--border-light);
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .neu-icon-btn:hover {
+      box-shadow: var(--neu-flat);
+      color: var(--accent-primary);
+      border-color: var(--accent-primary);
+      transform: translateY(-4px) scale(1.05);
+    }
+
+    .neu-icon-btn:active {
+      box-shadow: var(--neu-pressed-sm);
+      transform: translateY(1px) scale(0.95);
+    }
+
+    /* Inputs */
+    .neu-input {
+      width: 100%;
+      background: var(--bg-card);
+      box-shadow: var(--neu-pressed-sm);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 0.85rem 1.2rem;
+      color: var(--text-primary);
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .neu-input:focus {
+      border-color: var(--accent-primary);
+      box-shadow: var(--neu-pressed), 0 0 0 3px var(--accent-glow);
+      transform: translateY(-1px);
+    }
+
+    /* Text Effects */
+    .metallic-text {
+      background: linear-gradient(135deg, #71541b 0%, #d4af37 50%, #412e0b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    [data-theme="dark"] .metallic-text {
+      background: linear-gradient(135deg, #f5e8c4 0%, #d4af37 50%, #a17c22 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .metallic-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      background: var(--bg-card);
+      box-shadow: var(--neu-flat-sm);
+      border: 1px solid var(--border-light);
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-primary);
+      transition: transform 0.3s ease;
+    }
+
+    .metallic-badge:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px var(--accent-glow);
+    }
+
+    /* Navigation */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--nav-bg);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: all 0.4s ease;
+    }
+
+    .site-header.scrolled {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+
+    [data-theme="dark"] .site-header.scrolled {
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+      border-bottom-color: rgba(212, 175, 55, 0.2);
+    }
+
+    .nav-link {
+      color: var(--text-secondary);
+      font-weight: 600;
+      font-size: 0.92rem;
+      padding: 0.5rem 0.9rem;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: var(--accent-primary);
+      background: var(--bg-card);
+      box-shadow: var(--neu-pressed-sm);
+      transform: translateY(-1px);
+    }
+
+    /* Dropdowns */
+    .nav-dropdown-group {
+      position: relative;
+    }
+
+    .nav-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 220px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--neu-flat-lg);
+      border-radius: 16px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 50;
+      padding: 0.5rem;
+    }
+
+    .nav-dropdown-group:hover .nav-dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-item {
+      display: block;
+      padding: 0.75rem 1rem;
+      color: var(--text-primary);
+      font-weight: 600;
+      font-size: 0.9rem;
+      border-radius: 10px;
+      transition: all 0.2s ease;
+    }
+
+    .dropdown-item:hover {
+      background: var(--bg-secondary);
+      color: var(--accent-primary);
+      transform: translateX(4px);
+    }
+
+    /* Accordion */
+    .accordion-item {
+      border-radius: 16px;
+      background: var(--bg-card);
+      box-shadow: var(--neu-flat-sm);
+      border: 1px solid var(--border-light);
+      overflow: hidden;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .accordion-header {
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--text-primary);
+      user-select: none;
+    }
+
+    .accordion-icon {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .accordion-item.active .accordion-icon {
+      transform: rotate(180deg);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.4s ease;
+      padding: 0 1.5rem;
+      color: var(--text-secondary);
+    }
+
+    .accordion-item.active .accordion-content {
+      padding: 0 1.5rem 1.25rem 1.5rem;
+    }
+
+    /* Toast */
+    #toast-container {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 99999;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      max-width: 400px;
+      width: calc(100vw - 3rem);
+      pointer-events: none;
+    }
+
+    .toast-message {
+      pointer-events: auto;
+      background: var(--toast-bg);
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
+      border: 1px solid var(--accent-primary);
+      box-shadow: 0 10px 30px var(--accent-glow), var(--neu-flat-lg);
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      transform: translateX(120%);
+      opacity: 0;
+      transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.5s ease;
+    }
+
+    .toast-message.toast-visible {
+      transform: translateX(0);
+      opacity: 1;
+    }
+
+    .toast-icon-wrap {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: var(--accent-primary);
+      color: #121212;
+      box-shadow: var(--neu-flat-sm);
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-primary);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--accent-primary);
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body class="selection:bg-gold-500 selection:text-black">
+
+  <!-- Ambient Background -->
+  <div class="ambient-background" aria-hidden="true">
+    <div class="ambient-orb ambient-orb-1"></div>
+    <div class="ambient-grid"></div>
+  </div>
+
+  <div id="toast-container"></div>
+
+  <!-- ===================================================================
+       1. MAIN NAVIGATION HEADER (SYNCED)
+       =================================================================== -->
+  <header class="site-header" id="header">
+    <div
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between transition-all duration-300">
+
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3 group focus:outline-none z-10">
+        <div class="w-12 h-12 rounded-2xl flex items-center justify-center neu-card">
+          <i data-lucide="shield-check"
+            class="w-6 h-6 text-gold-500 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12"></i>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-heading font-extrabold text-2xl tracking-wider metallic-text uppercase">VELOCE LUXE</span>
+          <span class="text-[10px] tracking-widest text-gold-500 uppercase font-bold -mt-1">Automated Vaults</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden lg:flex items-center gap-1.5 neu-inset px-3 py-1.5 z-10">
+        <div class="nav-dropdown-group relative py-2">
+          <button class="nav-link flex items-center gap-1.5 outline-none">
+            Home <i data-lucide="chevron-down" class="w-4 h-4"></i>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="index.html" class="dropdown-item flex items-center gap-2">
+              <i data-lucide="shield" class="w-4 h-4 text-gold-500"></i> Classic Vaults
+            </a>
+            <a href="home-niche.html" class="dropdown-item flex items-center gap-2">
+              <i data-lucide="zap" class="w-4 h-4 text-gold-500"></i> EV SaaS Facilities
+            </a>
+          </div>
+        </div>
+        <a href="about.html" class="nav-link">About Us</a>
+        <a href="services.html" class="nav-link active">Services</a>
+        <a href="pricing.html" class="nav-link">Pricing</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Desktop Action Area -->
+      <div class="hidden lg:flex items-center gap-4 z-10">
+        <button class="rtlToggleBtn neu-icon-btn" title="Toggle RTL">
+          <span class="text-xs font-bold font-mono">RTL</span>
+        </button>
+
+        <button class="themeToggleBtn neu-icon-btn" title="Toggle Theme">
+          <i data-lucide="sun" class="icon-sun w-5 h-5 text-gold-500 hidden"></i>
+          <i data-lucide="moon" class="icon-moon w-5 h-5 text-gold-500"></i>
+        </button>
+
+        <a href="login.html" class="neu-btn neu-btn-primary py-3 px-6">
+          <i data-lucide="key-round" class="w-4 h-4"></i>
+          <span>Get Started</span>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobileMenuOpen" class="neu-icon-btn lg:hidden z-10" aria-label="Open Mobile Menu">
+        <i data-lucide="menu" class="w-5 h-5 text-gold-500"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===================================================================
+       MOBILE OFFCANVAS DRAWER MENU
+       =================================================================== -->
+  <div id="mobileMenuWrapper"
+    class="fixed inset-0 z-[1050] opacity-0 pointer-events-none transition-opacity duration-300">
+    <div id="mobileMenuBackdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+    <div id="mobileDrawer"
+      class="absolute top-0 right-0 w-72 max-w-full h-full bg-[var(--bg-primary)] shadow-2xl transform translate-x-full transition-transform duration-400 ease-out flex flex-col">
+      <div class="p-6 flex items-center justify-between border-b border-[var(--border-subtle)]">
+        <span class="font-heading font-extrabold text-xl metallic-text tracking-wide">MENU</span>
+        <button id="mobileMenuClose" class="neu-icon-btn !w-10 !h-10" aria-label="Close Menu">
+          <i data-lucide="x" class="w-5 h-5 text-[var(--text-secondary)]"></i>
+        </button>
+      </div>
+      <div class="p-6 flex-grow overflow-y-auto flex flex-col gap-5">
+        <div class="flex flex-col gap-4 text-lg font-bold">
+          <a href="index.html"
+            class="text-[var(--text-secondary)] hover:text-gold-500 transition-colors flex items-center gap-3"><i
+              data-lucide="shield" class="w-5 h-5"></i> Classic Vaults</a>
+          <a href="home-niche.html"
+            class="text-[var(--text-secondary)] hover:text-gold-500 transition-colors flex items-center gap-3"><i
+              data-lucide="zap" class="w-5 h-5"></i> EV SaaS Facilities</a>
+          <a href="about.html" class="text-[var(--text-primary)] hover:text-gold-500 transition-colors">About Us</a>
+          <a href="services.html" class="text-gold-500 transition-colors">Services</a>
+          <a href="pricing.html" class="text-[var(--text-primary)] hover:text-gold-500 transition-colors">Pricing</a>
+          <a href="blog.html" class="text-[var(--text-primary)] hover:text-gold-500 transition-colors">Blog</a>
+          <a href="contact.html" class="text-[var(--text-primary)] hover:text-gold-500 transition-colors">Contact</a>
+        </div>
+        <hr class="border-[var(--border-subtle)] my-2" />
+        <div class="flex flex-col gap-4">
+          <div class="flex items-center justify-between">
+            <span class="text-sm font-bold text-[var(--text-secondary)] uppercase tracking-wider">Direction</span>
+            <button class="rtlToggleBtn neu-btn !py-2 !px-4 text-xs">RTL/LTR</button>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-sm font-bold text-[var(--text-secondary)] uppercase tracking-wider">App Theme</span>
+            <button class="themeToggleBtn neu-icon-btn !w-10 !h-10">
+              <i data-lucide="sun" class="icon-sun w-4 h-4 text-gold-500 hidden"></i>
+              <i data-lucide="moon" class="icon-moon w-4 h-4 text-gold-500"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="p-6 border-t border-[var(--border-subtle)] bg-[var(--bg-card)]">
+        <a href="coming-soon.html" class="neu-btn neu-btn-primary w-full text-base font-bold justify-center py-4">
+          <i data-lucide="key-round" class="w-5 h-5"></i> Get Started
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Breadcrumbs -->
+  <div class="border-b border-slate-200 dark:border-white/5 py-3 relative z-10 bg-[var(--bg-primary)]">
+    <div
+      class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 font-semibold">
+      <a href="index.html" class="hover:text-gold-500 transition-colors">Home</a>
+      <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+      <a href="services.html" class="hover:text-gold-500 transition-colors">Services</a>
+      <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+      <span class="text-gold-600 dark:text-gold-500" id="dyn-breadcrumb">Nitrogen Climate Vault</span>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       2. CONTAINER 1: DYNAMIC CINEMATIC HERO
+       =================================================================== -->
+  <section
+    class="relative pt-20 pb-24 md:pt-32 md:pb-32 overflow-hidden flex items-center border-b border-slate-200 dark:border-white/5 min-h-[60vh]">
+    <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+      <!-- Dynamic Background Image driven by JS -->
+      <div id="dyn-bg"
+        class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?q=80&w=2069&auto=format&fit=crop')] bg-cover bg-center opacity-30 dark:opacity-40 animate-cinematic mix-blend-luminosity">
+      </div>
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-[var(--bg-primary)]/40 via-[var(--bg-primary)]/80 to-[var(--bg-primary)]">
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center w-full">
+      <div class="metallic-badge mb-6 backdrop-blur-md bg-opacity-80 inline-flex">
+        <i data-lucide="award" class="w-4 h-4 text-gold-500"></i>
+        <span id="dyn-badge">ISO Class 5 Cleanroom Standard</span>
+      </div>
+      <h1
+        class="text-4xl sm:text-5xl md:text-6xl font-extrabold font-heading mb-6 max-w-4xl mx-auto leading-tight drop-shadow-md">
+        <span class="metallic-text" id="dyn-title">Subterranean Nitrogen Climate Vault</span>
+      </h1>
+      <p id="dyn-desc"
+        class="text-lg text-slate-700 dark:text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed font-semibold drop-shadow-sm">
+        Engineered exclusively for blue-chip historic vehicles, museum-grade classics, and rare low-production
+        hypercars. Actively displaces moisture and reactive atmospheric oxygen to arrest oxidation and rubber
+        degradation.
+      </p>
+      <div class="flex justify-center">
+        <button onclick="document.getElementById('reservation-portal').scrollIntoView({behavior: 'smooth'})"
+          class="neu-btn neu-btn-primary py-4 px-8 text-base shadow-xl">
+          <i data-lucide="calendar" class="w-5 h-5"></i>
+          <span>Reserve Protocol</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       3. CONTAINER 2: DYNAMIC ATMOSPHERIC MATRIX & MAIN SPLIT
+       =================================================================== -->
+  <section class="py-24 relative border-b border-slate-200 dark:border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+
+        <!-- Left Column: Matrix & Features -->
+        <div class="lg:col-span-8 space-y-16">
+
+          <!-- Matrix Stats -->
+          <div>
+            <h2 class="font-heading font-bold text-3xl mb-8 flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl neu-card flex items-center justify-center text-gold-500"><i
+                  data-lucide="activity" class="w-5 h-5"></i></div>
+              Live Telemetry Matrix
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-6">
+              <div class="neu-inset p-6 rounded-2xl text-center flex flex-col items-center group">
+                <div id="stat1-val"
+                  class="text-3xl font-extrabold font-heading text-gold-500 mb-2 group-hover:scale-110 transition-transform duration-500 drop-shadow-[0_0_15px_rgba(212,175,55,0.4)]">
+                  50% ±2%</div>
+                <h3 id="stat1-label" class="font-bold text-xs uppercase tracking-wider text-slate-800 dark:text-white">
+                  Relative Humidity</h3>
+              </div>
+              <div class="neu-inset p-6 rounded-2xl text-center flex flex-col items-center group">
+                <div id="stat2-val"
+                  class="text-3xl font-extrabold font-heading text-gold-500 mb-2 group-hover:scale-110 transition-transform duration-500 drop-shadow-[0_0_15px_rgba(212,175,55,0.4)]">
+                  20.0°C</div>
+                <h3 id="stat2-label" class="font-bold text-xs uppercase tracking-wider text-slate-800 dark:text-white">
+                  Constant Temperature</h3>
+              </div>
+              <div class="neu-inset p-6 rounded-2xl text-center flex flex-col items-center group">
+                <div id="stat3-val"
+                  class="text-3xl font-extrabold font-heading text-gold-500 mb-2 group-hover:scale-110 transition-transform duration-500 drop-shadow-[0_0_15px_rgba(212,175,55,0.4)]">
+                  99.97%</div>
+                <h3 id="stat3-label" class="font-bold text-xs uppercase tracking-wider text-slate-800 dark:text-white">
+                  Particulate Rejection</h3>
+              </div>
+            </div>
+            <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed italic">
+              *Sensors record atmospheric stability at 10-second intervals and broadcast telemetry directly to your
+              private encrypted customer portal.
+            </p>
+          </div>
+
+          <!-- Technical Specs Table (Dynamically updated if needed) -->
+          <div>
+            <h2 class="font-heading font-bold text-3xl mb-8 flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl neu-card flex items-center justify-center text-gold-500"><i
+                  data-lucide="cpu" class="w-5 h-5"></i></div>
+              Technical Architecture
+            </h2>
+            <div class="neu-card overflow-hidden">
+              <div class="divide-y divide-slate-200 dark:divide-white/5 text-sm md:text-base">
+                <div
+                  class="p-6 grid grid-cols-1 sm:grid-cols-3 bg-black/5 dark:bg-black/40 font-bold text-slate-800 dark:text-white">
+                  <span>Parameter</span>
+                  <span class="sm:col-span-2 text-gold-600 dark:text-gold-500">Protocol Specification</span>
+                </div>
+                <!-- These rows can be hardcoded as they apply generally to the facility, or could be made dynamic. Keeping them static to follow your "don't alter/remove code" rule exactly as they were in the original. -->
+                <div
+                  class="p-6 grid grid-cols-1 sm:grid-cols-3 text-slate-700 dark:text-slate-300 hover:bg-gold-500/5 transition-colors">
+                  <span class="font-bold text-slate-900 dark:text-white mb-2 sm:mb-0">Depth & Enclosure</span>
+                  <span class="sm:col-span-2">Subterranean Level -3 (14 meters below grade), reinforced 400mm blast
+                    concrete</span>
+                </div>
+                <div
+                  class="p-6 grid grid-cols-1 sm:grid-cols-3 text-slate-700 dark:text-slate-300 hover:bg-gold-500/5 transition-colors">
+                  <span class="font-bold text-slate-900 dark:text-white mb-2 sm:mb-0">Air Filtration</span>
+                  <span class="sm:col-span-2">Dual HEPA H14 positive pressure airlock with continuous carbon
+                    scrubbing</span>
+                </div>
+                <div
+                  class="p-6 grid grid-cols-1 sm:grid-cols-3 text-slate-700 dark:text-slate-300 hover:bg-gold-500/5 transition-colors">
+                  <span class="font-bold text-slate-900 dark:text-white mb-2 sm:mb-0">Seismic Isolation</span>
+                  <span class="sm:col-span-2">Elastomeric base-isolated cradles certified up to Magnitude 8.5 seismic
+                    events</span>
+                </div>
+                <div
+                  class="p-6 grid grid-cols-1 sm:grid-cols-3 text-slate-700 dark:text-slate-300 hover:bg-gold-500/5 transition-colors">
+                  <span class="font-bold text-slate-900 dark:text-white mb-2 sm:mb-0">Battery Care</span>
+                  <span class="sm:col-span-2">CTEK multi-stage intelligent conditioning system with isolated ground
+                    loops</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Accordion (Kept exactly as requested) -->
+          <div>
+            <h2 class="font-heading font-bold text-3xl mb-8 flex items-center gap-3">
+              <div class="w-10 h-10 rounded-xl neu-card flex items-center justify-center text-gold-500"><i
+                  data-lucide="help-circle" class="w-5 h-5"></i></div>
+              Frequently Asked Questions
+            </h2>
+            <div class="space-y-4" id="vault-accordion">
+              <div class="accordion-item active">
+                <div class="accordion-header">
+                  <span>How does nitrogen storage protect classic rubber and leather?</span>
+                  <i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-gold-500"></i>
+                </div>
+                <div class="accordion-content" style="max-height: 200px;">
+                  <p class="text-sm md:text-base text-slate-500 dark:text-slate-400 leading-relaxed pt-2">
+                    Atmospheric oxygen and UV light cause cross-link breakdown in vulcanized rubber (tires,
+                    weatherstripping) and oxidize organic leather tanning oils. By displacing oxygen and eliminating UV
+                    rays entirely, degradation rates are slowed by over 900%.
+                  </p>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <div class="accordion-header">
+                  <span>Can I request spontaneous retrieval of my vehicle on weekends?</span>
+                  <i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-gold-500"></i>
+                </div>
+                <div class="accordion-content">
+                  <p class="text-sm md:text-base text-slate-500 dark:text-slate-400 leading-relaxed pt-2">
+                    Yes. Through our mobile customer portal, simply tap "Request Staging". Our automated robotic AGV
+                    will transport your vehicle from the nitrogen vault to the climate-controlled departure lounge
+                    within 90 seconds, 24/7/365.
+                  </p>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <div class="accordion-header">
+                  <span>Is comprehensive insurance coverage included in the monthly fee?</span>
+                  <i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-gold-500"></i>
+                </div>
+                <div class="accordion-content">
+                  <p class="text-sm md:text-base text-slate-500 dark:text-slate-400 leading-relaxed pt-2">
+                    All bays include our primary $10,000,000 comprehensive bailment facility policy underwritten by
+                    Lloyd’s of London. Individual agreed-value endorsements up to $50,000,000 can be arranged instantly
+                    via our concierge desk.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Sticky Booking Widget (Kept exactly as requested) -->
+        <div class="lg:col-span-4 sticky top-28 z-20" id="reservation-portal">
+          <div
+            class="neu-card-lg p-8 sm:p-10 border border-gold-500/30 shadow-[0_0_40px_rgba(212,175,55,0.15)] bg-white/90 dark:bg-obsidian-900/90 backdrop-blur-xl">
+
+            <div
+              class="flex flex-col items-start justify-between pb-6 mb-8 border-b border-slate-200 dark:border-white/10 gap-2">
+              <div>
+                <span
+                  class="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold block mb-1">Tier
+                  Allocation</span>
+                <div class="text-3xl font-extrabold font-heading text-slate-900 dark:text-white" id="dyn-price">$1,850
+                  <span id="dyn-period" class="text-sm text-slate-500 dark:text-slate-400 font-normal">/ month</span>
+                </div>
+              </div>
+              <span
+                class="text-xs bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 px-3 py-1.5 rounded-lg font-mono font-bold mt-2">ACTIVE
+                ACCEPTING</span>
+            </div>
+
+            <form id="vaultReservationForm" class="space-y-5">
+              <div>
+                <label
+                  class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">Vehicle
+                  Year, Make & Model</label>
+                <input type="text" required placeholder="e.g. 2024 Ferrari Daytona SP3" class="neu-input" />
+              </div>
+
+              <div>
+                <label
+                  class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">Estimated
+                  Asset Value (USD)</label>
+                <input type="text" required placeholder="e.g. $2,500,000" class="neu-input" />
+              </div>
+
+              <div>
+                <label
+                  class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">Contract
+                  Term</label>
+                <div class="neu-inset p-1.5">
+                  <select
+                    class="w-full bg-transparent text-sm py-2 px-3 text-slate-800 dark:text-slate-200 outline-none cursor-pointer">
+                    <option class="bg-white dark:bg-obsidian-900">3 Months Minimum Agreement</option>
+                    <option class="bg-white dark:bg-obsidian-900" selected>6 Months (Includes 1 Free Detail)</option>
+                    <option class="bg-white dark:bg-obsidian-900">12 Months (Founder Rate - 10% Off)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label
+                  class="block text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2">Preferred
+                  Ingestion Date</label>
+                <input type="date" required class="neu-input" value="2026-08-25" />
+              </div>
+
+              <div class="pt-4">
+                <button type="submit" class="neu-btn neu-btn-primary w-full py-4 text-base font-bold shadow-xl">
+                  <i data-lucide="shield-check" class="w-5 h-5"></i>
+                  <span>Secure Protocol</span>
+                </button>
+              </div>
+            </form>
+
+            <div
+              class="mt-8 pt-6 border-t border-slate-200 dark:border-white/10 text-xs text-slate-500 dark:text-slate-400 space-y-3 font-medium">
+              <div class="flex items-center gap-3">
+                <i data-lucide="lock" class="w-4 h-4 text-gold-500"></i>
+                <span>Strict Non-Disclosure Bailment Agreement</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <i data-lucide="check-circle-2" class="w-4 h-4 text-gold-500"></i>
+                <span>Biometric access pass ready within 24 hours</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       4. CONTAINER 4: INCLUDED AMENITIES (NEW)
+       =================================================================== -->
+  <section class="py-24 relative border-b border-slate-200 dark:border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl md:text-4xl font-extrabold font-heading mb-4">Standard Amenities</h2>
+        <p class="text-slate-500 dark:text-slate-400 text-lg">Every reservation includes our baseline concierge
+          preservation package.</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="neu-inset p-6 rounded-2xl text-center flex flex-col items-center group">
+          <div
+            class="w-14 h-14 rounded-full bg-gold-500/10 flex items-center justify-center text-gold-500 mb-4 group-hover:bg-gold-500 group-hover:text-obsidian-900 transition-colors">
+            <i data-lucide="droplets" class="w-6 h-6"></i>
+          </div>
+          <h4 class="font-bold text-sm text-slate-800 dark:text-white">De-ionized Wash</h4>
+        </div>
+        <div class="neu-inset p-6 rounded-2xl text-center flex flex-col items-center group">
+          <div
+            class="w-14 h-14 rounded-full bg-gold-500/10 flex items-center justify-center text-gold-500 mb-4 group-hover:bg-gold-500 group-hover:text-obsidian-900 transition-colors">
+            <i data-lucide="gauge" class="w-6 h-6"></i>
+          </div>
+          <h4 class="font-bold text-sm text-slate-800 dark:text-white">Tire Pressure Monitor</h4>
+        </div>
+        <div class="neu-inset p-6 rounded-2xl text-center flex flex-col items-center group">
+          <div
+            class="w-14 h-14 rounded-full bg-gold-500/10 flex items-center justify-center text-gold-500 mb-4 group-hover:bg-gold-500 group-hover:text-obsidian-900 transition-colors">
+            <i data-lucide="battery-charging" class="w-6 h-6"></i>
+          </div>
+          <h4 class="font-bold text-sm text-slate-800 dark:text-white">Fluid & Battery Check</h4>
+        </div>
+        <div class="neu-inset p-6 rounded-2xl text-center flex flex-col items-center group">
+          <div
+            class="w-14 h-14 rounded-full bg-gold-500/10 flex items-center justify-center text-gold-500 mb-4 group-hover:bg-gold-500 group-hover:text-obsidian-900 transition-colors">
+            <i data-lucide="video" class="w-6 h-6"></i>
+          </div>
+          <h4 class="font-bold text-sm text-slate-800 dark:text-white">24/7 Vault Camera</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       5. CONTAINER 5: VISUAL SHOWCASE
+       =================================================================== -->
+  <section class="py-24 bg-black/5 relative border-b border-slate-200 dark:border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div
+        class="relative rounded-[40px] overflow-hidden shadow-[0_0_50px_rgba(212,175,55,0.15)] group h-[50vh] border border-gold-500/20">
+        <div
+          class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center group-hover:scale-105 transition-transform duration-1000">
+        </div>
+        <div class="absolute inset-0 bg-obsidian-900/40 group-hover:bg-transparent transition-colors duration-500">
+        </div>
+
+        <div class="absolute bottom-10 left-10 right-10 md:bottom-16 md:left-16 text-left">
+          <div class="bg-black/50 backdrop-blur-md border border-white/20 p-6 rounded-2xl inline-block max-w-sm">
+            <h3 class="font-display text-2xl font-bold text-white mb-2 drop-shadow-lg">Vault Sector Alpha</h3>
+            <p class="text-slate-300 text-sm drop-shadow-md">Individual pods ensure absolute cross-contamination
+              protection and zero dust settling.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       6. CONTAINER 6: EXPLORE OTHER PROTOCOLS (CROSS-SELL)
+       =================================================================== -->
+  <section class="py-24 relative border-b border-slate-200 dark:border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+        <div>
+          <div class="metallic-badge mb-3">Expand Options</div>
+          <h2 class="text-3xl md:text-4xl font-extrabold font-heading">Explore Other Protocols</h2>
+        </div>
+        <a href="services.html" class="neu-btn neu-btn-silver text-sm mt-6 md:mt-0 w-full sm:w-auto">
+          <span>View All Categories</span><i data-lucide="external-link" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- EV Pod -->
+        <div class="neu-card overflow-hidden flex flex-col justify-between group cursor-pointer"
+          onclick="window.location.href='service-details.html?id=ev'">
+          <div
+            class="h-48 relative overflow-hidden neu-inset m-4 rounded-xl flex items-center justify-center border border-transparent group-hover:border-gold-500/30 transition-all duration-500">
+            <div
+              class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1560958089-b8a1929cea89?q=80&w=2071&auto=format&fit=crop')] bg-cover bg-center transition-transform duration-1000 group-hover:scale-110">
+            </div>
+            <div
+              class="absolute inset-0 bg-obsidian-900/80 group-hover:bg-obsidian-900/50 transition-colors duration-500">
+            </div>
+            <i data-lucide="zap"
+              class="relative z-10 w-16 h-16 text-gold-500/40 group-hover:text-gold-500 group-hover:scale-125 transition-all duration-700"></i>
+          </div>
+          <div class="p-6 pt-0 flex-grow flex flex-col">
+            <h3 class="font-heading font-bold text-xl mb-2 group-hover:text-gold-500 transition-colors">EV SuperPod</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400">800V DC smart trickle cycles & fire suppression.</p>
+          </div>
+        </div>
+
+        <!-- Concierge -->
+        <div class="neu-card overflow-hidden flex flex-col justify-between group cursor-pointer"
+          onclick="window.location.href='service-details.html?id=concierge'">
+          <div
+            class="h-48 relative overflow-hidden neu-inset m-4 rounded-xl flex items-center justify-center border border-transparent group-hover:border-gold-500/30 transition-all duration-500">
+            <div
+              class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1506606401543-2e73709cebfc?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center transition-transform duration-1000 group-hover:scale-110">
+            </div>
+            <div
+              class="absolute inset-0 bg-obsidian-900/80 group-hover:bg-obsidian-900/50 transition-colors duration-500">
+            </div>
+            <i data-lucide="clock"
+              class="relative z-10 w-16 h-16 text-gold-500/40 group-hover:text-gold-500 group-hover:scale-125 transition-all duration-700"></i>
+          </div>
+          <div class="p-6 pt-0 flex-grow flex flex-col">
+            <h3 class="font-heading font-bold text-xl mb-2 group-hover:text-gold-500 transition-colors">Daily Valet</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400">Short-term covered parking with direct tarmac
+              transfers.</p>
+          </div>
+        </div>
+
+        <!-- Restoration -->
+        <div class="neu-card overflow-hidden flex flex-col justify-between group cursor-pointer"
+          onclick="window.location.href='service-details.html?id=restoration'">
+          <div
+            class="h-48 relative overflow-hidden neu-inset m-4 rounded-xl flex items-center justify-center border border-transparent group-hover:border-gold-500/30 transition-all duration-500">
+            <div
+              class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1601362840469-51e4d8d58785?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center transition-transform duration-1000 group-hover:scale-110">
+            </div>
+            <div
+              class="absolute inset-0 bg-obsidian-900/80 group-hover:bg-obsidian-900/50 transition-colors duration-500">
+            </div>
+            <i data-lucide="sparkles"
+              class="relative z-10 w-16 h-16 text-gold-500/40 group-hover:text-gold-500 group-hover:scale-125 transition-all duration-700"></i>
+          </div>
+          <div class="p-6 pt-0 flex-grow flex flex-col">
+            <h3 class="font-heading font-bold text-xl mb-2 group-hover:text-gold-500 transition-colors">Concours
+              Detailing</h3>
+            <p class="text-sm text-slate-500 dark:text-slate-400">3-stage rotary paint correction and self-healing PPF.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       7. CONTAINER 7: VIP REVIEWS
+       =================================================================== -->
+  <section class="py-24 bg-black/5 relative border-b border-slate-200 dark:border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="metallic-badge mb-4">Collector Endorsements</div>
+        <h2 class="text-3xl md:text-4xl font-extrabold font-heading mb-4">Trusted By Legends</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div class="neu-card p-10 flex flex-col justify-between group">
+          <div>
+            <div
+              class="flex text-gold-500 gap-1.5 mb-6 group-hover:scale-105 origin-left transition-transform duration-500">
+              <i data-lucide="star" class="w-5 h-5 fill-gold-500"></i><i data-lucide="star"
+                class="w-5 h-5 fill-gold-500"></i><i data-lucide="star" class="w-5 h-5 fill-gold-500"></i><i
+                data-lucide="star" class="w-5 h-5 fill-gold-500"></i><i data-lucide="star"
+                class="w-5 h-5 fill-gold-500"></i>
+            </div>
+            <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed mb-8 italic">"Storing my Carrera GT
+              at Veloce has provided complete peace of mind. The climate control is unmatched globally."</p>
+          </div>
+          <div
+            class="flex items-center gap-4 pt-6 border-t border-slate-200 dark:border-white/5 group-hover:border-gold-500/20 transition-colors">
+            <div
+              class="w-12 h-12 rounded-full neu-inset flex items-center justify-center font-bold text-gold-600 dark:text-gold-500 font-heading text-lg group-hover:bg-gold-500/10 transition-colors shrink-0">
+              AS</div>
+            <div>
+              <div class="font-heading font-bold text-base text-slate-800 dark:text-white">Arthur Sterling</div>
+              <div class="text-sm text-gold-600 dark:text-gold-500 font-semibold">Private Collection</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="neu-card p-10 flex flex-col justify-between group">
+          <div>
+            <div
+              class="flex text-gold-500 gap-1.5 mb-6 group-hover:scale-105 origin-left transition-transform duration-500">
+              <i data-lucide="star" class="w-5 h-5 fill-gold-500"></i><i data-lucide="star"
+                class="w-5 h-5 fill-gold-500"></i><i data-lucide="star" class="w-5 h-5 fill-gold-500"></i><i
+                data-lucide="star" class="w-5 h-5 fill-gold-500"></i><i data-lucide="star"
+                class="w-5 h-5 fill-gold-500"></i>
+            </div>
+            <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed mb-8 italic">"Biometric access and
+              the encrypted dashboard give the ultimate security standard. Worth every dollar."</p>
+          </div>
+          <div
+            class="flex items-center gap-4 pt-6 border-t border-slate-200 dark:border-white/5 group-hover:border-gold-500/20 transition-colors">
+            <div
+              class="w-12 h-12 rounded-full neu-inset flex items-center justify-center font-bold text-gold-600 dark:text-gold-500 font-heading text-lg group-hover:bg-gold-500/10 transition-colors shrink-0">
+              MK</div>
+            <div>
+              <div class="font-heading font-bold text-base text-slate-800 dark:text-white">Marcus Chen</div>
+              <div class="text-sm text-gold-600 dark:text-gold-500 font-semibold">Apex Capital</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       8. CONTAINER 8: FINAL CTA
+       =================================================================== -->
+  <section class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div
+        class="neu-card-lg p-12 sm:p-20 text-center relative overflow-hidden border border-gold-500/30 shadow-[0_0_50px_rgba(212,175,55,0.1)]">
+        <div class="absolute inset-0 bg-gold-500/5"></div>
+        <div class="max-w-3xl mx-auto relative z-10">
+          <div class="metallic-badge mb-6">Master Curators</div>
+          <h2 class="text-4xl sm:text-6xl font-extrabold font-heading mb-8">Require a Bespoke Protocol?</h2>
+          <p class="text-slate-500 dark:text-slate-400 text-lg sm:text-xl mb-10 font-medium">Our automotive preservation
+            engineers can construct tailored humidity curves, specific atmospheric blends, or customized multi-vehicle
+            vaults.</p>
+          <div class="flex flex-wrap items-center justify-center gap-5">
+            <a href="contact.html"
+              class="neu-btn neu-btn-primary py-4 sm:py-5 px-8 sm:px-10 text-base sm:text-lg shadow-2xl">
+              <i data-lucide="message-square" class="w-5 h-5 sm:w-6 sm:h-6"></i> <span>Consult Chief Curator</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       9. MASTER FOOTER (PERMANENT FIX - NO BOXES, INLINE SVGS)
+       =================================================================== -->
+  <footer class="pt-20 pb-12 border-t border-slate-200 dark:border-white/10 bg-black/5 dark:bg-black/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-slate-200 dark:border-white/10">
+
+        <div class="lg:col-span-4 flex flex-col justify-between">
+          <div>
+            <a href="index.html" class="flex items-center gap-3 mb-6 group w-max">
+              <div
+                class="w-12 h-12 rounded-xl flex items-center justify-center border border-[#d4af37]/40 shadow-[0_0_15px_rgba(212,175,55,0.2)] group-hover:shadow-[0_0_25px_rgba(212,175,55,0.5)] transition-all duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                  stroke="#d4af37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                  class="transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12">
+                  <path
+                    d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
+                  <path d="m9 12 2 2 4-4" />
+                </svg>
+              </div>
+              <span class="font-heading font-extrabold text-2xl tracking-wider metallic-text">VELOCE LUXE</span>
+            </a>
+            <p class="text-base text-slate-500 dark:text-slate-400 leading-relaxed mb-8">The premier automated vehicle
+              vault. Engineered for hypercars and electric mobility.</p>
+          </div>
+
+          <!-- FIXED SOCIAL LINKS: Raw SVGs with hardcoded gold colors -->
+          <div class="flex items-center gap-6">
+  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+    class="hover:-translate-y-1 hover:scale-110 transition-all duration-300" aria-label="Instagram"
+    style="color: #d4af37;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      style="filter: drop-shadow(0px 4px 6px rgba(212,175,55,0.4));">
+      <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+    </svg>
+  </a>
+  <a href="https://x.com" target="_blank" rel="noopener noreferrer"
+    class="hover:-translate-y-1 hover:scale-110 transition-all duration-300" aria-label="X (Twitter)"
+    style="color: #d4af37;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"
+      style="filter: drop-shadow(0px 4px 6px rgba(212,175,55,0.4));">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+    </svg>
+  </a>
+  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+    class="hover:-translate-y-1 hover:scale-110 transition-all duration-300" aria-label="LinkedIn"
+    style="color: #d4af37;">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+      style="filter: drop-shadow(0px 4px 6px rgba(212,175,55,0.4));">
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect width="4" height="12" x="2" y="9" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  </a>
+</div>
+        </div>
+
+        <div class="lg:col-span-2">
+          <h4 class="font-heading font-bold text-sm uppercase tracking-wider text-[#d4af37] mb-6">Navigation</h4>
+          <ul class="space-y-4 text-sm font-semibold">
+            <li><a href="about.html"
+                class="text-slate-500 dark:text-slate-400 hover:text-[#d4af37] hover:translate-x-1 inline-block transition-all">About
+                Us</a></li>
+            <li><a href="services.html"
+                class="text-slate-500 dark:text-slate-400 hover:text-[#d4af37] hover:translate-x-1 inline-block transition-all">Vault
+                Services</a></li>
+            <li><a href="pricing.html"
+                class="text-slate-500 dark:text-slate-400 hover:text-[#d4af37] hover:translate-x-1 inline-block transition-all">Pricing
+                & Plans</a></li>
+            <li><a href="blog.html"
+                class="text-slate-500 dark:text-slate-400 hover:text-[#d4af37] hover:translate-x-1 inline-block transition-all">Journals
+                & News</a></li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-2">
+          <h4 class="font-heading font-bold text-sm uppercase tracking-wider text-[#d4af37] mb-6">Portals</h4>
+          <ul class="space-y-4 text-sm font-semibold">
+            <li><a href="coming-soon.html"
+                class="text-slate-500 dark:text-slate-400 hover:text-[#d4af37] hover:translate-x-1 inline-block transition-all">Customer
+                Portal</a></li>
+            <li><a href="contact.html"
+                class="text-slate-500 dark:text-slate-400 hover:text-[#d4af37] hover:translate-x-1 inline-block transition-all">Concierge</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="lg:col-span-4">
+          <h4 class="font-heading font-bold text-sm uppercase tracking-wider text-[#d4af37] mb-6">VIP Dispatch</h4>
+          <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-6">Receive notifications when founder
+            vaults become available.</p>
+          <form id="newsletterForm" class="flex flex-col gap-4">
+            <input type="email" required placeholder="Private email address..."
+              class="neu-input py-4 text-base bg-white dark:bg-[#121212] border-slate-200 dark:border-white/10" />
+            <button type="submit" class="neu-btn neu-btn-primary py-4 font-bold justify-center w-full">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" x2="11" y1="2" y2="13" />
+                <polygon points="22 2 15 22 11 13 2 9 22 2" />
+              </svg>
+              <span>Join Registry</span>
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div
+        class="pt-10 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm font-semibold text-slate-500 dark:text-slate-500">
+        <div>© 2026 VELOCE LUXE. Designed for Ultra-Luxury Automotives.</div>
+        <div class="flex items-center gap-8">
+          <a href="#" class="hover:text-[#d4af37] transition-colors">Privacy</a>
+          <a href="#" class="hover:text-[#d4af37] transition-colors">Terms</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Core Javascript Interactions -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      const html = document.documentElement;
+
+      // ==========================================
+      // DYNAMIC SERVICE DATA ENGINE
+      // ==========================================
+      const serviceData = {
+        vault: {
+          title: "Subterranean Nitrogen Climate Vault",
+          badge: "ISO Class 5 Cleanroom Standard",
+          desc: "Engineered exclusively for blue-chip historic vehicles, museum-grade classics, and rare low-production hypercars. Actively displaces moisture and reactive atmospheric oxygen to arrest oxidation and rubber degradation.",
+          price: "$1,850",
+          period: "/ month",
+          bg: "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?q=80&w=2069&auto=format&fit=crop",
+          stat1Val: "50% ±2%", stat1Label: "Relative Humidity",
+          stat2Val: "20.0°C", stat2Label: "Constant Temperature",
+          stat3Val: "99.97%", stat3Label: "Particulate Rejection"
+        },
+        ev: {
+          title: "High-Voltage EV SuperPod",
+          badge: "NFPA 855 Compliant",
+          desc: "Designed specifically for high-output electric exotics. Includes programmable battery conditioning, thermal runaway sensors, and Level 3 DC charging.",
+          price: "$1,600",
+          period: "/ month",
+          bg: "https://images.unsplash.com/photo-1560958089-b8a1929cea89?q=80&w=2071&auto=format&fit=crop",
+          stat1Val: "52.0%", stat1Label: "Target Storage Charge",
+          stat2Val: "±0.003V", stat2Label: "Cell Voltage Delta",
+          stat3Val: "20.4°C", stat3Label: "Pack Ambient Temp"
+        },
+        concierge: {
+          title: "Executive Daily & Airport Valet",
+          badge: "CONCIERGE PROTOCOL",
+          desc: "Short-term covered parking with direct tarmac vehicle transfers, flight-tracking vehicle pre-heating/cooling, and 90-second robotic retrieval.",
+          price: "$120",
+          period: "/ day",
+          bg: "https://images.unsplash.com/photo-1506606401543-2e73709cebfc?q=80&w=2070&auto=format&fit=crop",
+          stat1Val: "< 90s", stat1Label: "Robotic Retrieval",
+          stat2Val: "24/7", stat2Label: "Tarmac Access",
+          stat3Val: "100%", stat3Label: "Flight Tracking"
+        },
+        restoration: {
+          title: "Concours Detailing & PPF Spa",
+          badge: "RESTORATION & SPA",
+          desc: "Master craftsmen performing 3-stage rotary paint correction, self-healing Paint Protection Film (PPF) application, and ceramic glass coatings.",
+          price: "From $750",
+          period: "/ tier",
+          bg: "https://images.unsplash.com/photo-1601362840469-51e4d8d58785?q=80&w=2070&auto=format&fit=crop",
+          stat1Val: "3-Stage", stat1Label: "Paint Correction",
+          stat2Val: "10-Year", stat2Label: "Ceramic Warranty",
+          stat3Val: "0.1mm", stat3Label: "PPF Thickness"
+        }
+      };
+
+      // Detect URL Parameter
+      const urlParams = new URLSearchParams(window.location.search);
+      const serviceId = urlParams.get('id');
+
+      // If valid service ID exists in data, inject it
+      if (serviceId && serviceData[serviceId]) {
+        const data = serviceData[serviceId];
+
+        document.title = `${data.title} Details // VELOCE LUXE`;
+        document.getElementById('dyn-breadcrumb').textContent = data.title;
+        document.getElementById('dyn-title').textContent = data.title;
+        document.getElementById('dyn-badge').textContent = data.badge;
+        document.getElementById('dyn-desc').textContent = data.desc;
+        document.getElementById('dyn-price').innerHTML = `${data.price} <span id="dyn-period" class="text-sm text-slate-500 dark:text-slate-400 font-normal">${data.period}</span>`;
+        document.getElementById('dyn-bg').style.backgroundImage = `url('${data.bg}')`;
+
+        document.getElementById('stat1-val').textContent = data.stat1Val;
+        document.getElementById('stat1-label').textContent = data.stat1Label;
+        document.getElementById('stat2-val').textContent = data.stat2Val;
+        document.getElementById('stat2-label').textContent = data.stat2Label;
+        document.getElementById('stat3-val').textContent = data.stat3Val;
+        document.getElementById('stat3-label').textContent = data.stat3Label;
+      }
+
+      // ==========================================
+      // STANDARD INTERACTIONS
+      // ==========================================
+
+      // Theme Toggle Logic
+      const themeToggleBtns = document.querySelectorAll('.themeToggleBtn');
+      themeToggleBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const isDark = html.getAttribute('data-theme') === 'dark';
+          html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+          document.querySelectorAll('.icon-sun').forEach(el => isDark ? el.classList.remove('hidden') : el.classList.add('hidden'));
+          document.querySelectorAll('.icon-moon').forEach(el => isDark ? el.classList.add('hidden') : el.classList.remove('hidden'));
+        });
+      });
+
+      // RTL Toggle Logic
+      const rtlToggleBtns = document.querySelectorAll('.rtlToggleBtn');
+      rtlToggleBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          html.setAttribute('dir', html.getAttribute('dir') === 'ltr' ? 'rtl' : 'ltr');
+        });
+      });
+
+      // Mobile Menu Offcanvas Drawer Logic
+      const mobileMenuWrapper = document.getElementById('mobileMenuWrapper');
+      const mobileDrawer = document.getElementById('mobileDrawer');
+      const mobileMenuOpen = document.getElementById('mobileMenuOpen');
+      const mobileMenuClose = document.getElementById('mobileMenuClose');
+      const mobileMenuBackdrop = document.getElementById('mobileMenuBackdrop');
+
+      function openMobileMenu() {
+        mobileMenuWrapper.classList.remove('opacity-0', 'pointer-events-none');
+        mobileDrawer.classList.remove('translate-x-full');
+        html.style.overflow = 'hidden';
+      }
+
+      function closeMobileMenu() {
+        mobileMenuWrapper.classList.add('opacity-0', 'pointer-events-none');
+        mobileDrawer.classList.add('translate-x-full');
+        html.style.overflow = '';
+      }
+
+      if (mobileMenuOpen && mobileMenuClose && mobileMenuBackdrop) {
+        mobileMenuOpen.addEventListener('click', openMobileMenu);
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        mobileMenuBackdrop.addEventListener('click', closeMobileMenu);
+      }
+
+      // Sticky Header
+      const header = document.getElementById('header');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) header.classList.add('scrolled');
+        else header.classList.remove('scrolled');
+      });
+
+      // Accordion Logic
+      const accordionItems = document.querySelectorAll('.accordion-item');
+      accordionItems.forEach(item => {
+        const header = item.querySelector('.accordion-header');
+        header.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+
+          accordionItems.forEach(i => {
+            i.classList.remove('active');
+            i.querySelector('.accordion-content').style.maxHeight = null;
+          });
+
+          if (!isActive) {
+            item.classList.add('active');
+            const content = item.querySelector('.accordion-content');
+            content.style.maxHeight = content.scrollHeight + "px";
+          }
+        });
+      });
+
+      // Form Submissions & Custom Toast Notification Logic
+      const vaultForm = document.getElementById('vaultReservationForm');
+      const newsletterForm = document.getElementById('newsletterForm');
+      const toastContainer = document.getElementById('toast-container');
+
+      function showToast(title, desc) {
+        const toast = document.createElement('div');
+        toast.className = 'toast-message toast-success';
+        toast.innerHTML = `
+          <div class="toast-icon-wrap"><i data-lucide="check" class="w-5 h-5"></i></div>
+          <div class="toast-body">
+            <div class="toast-title">${title}</div>
+            <div class="toast-desc">${desc}</div>
+          </div>
+        `;
+        toastContainer.appendChild(toast);
+        lucide.createIcons();
+        setTimeout(() => toast.classList.add('toast-visible'), 100);
+        setTimeout(() => {
+          toast.classList.remove('toast-visible');
+          setTimeout(() => toast.remove(), 500);
+        }, 4000);
+      }
+
+      if (vaultForm) {
+        vaultForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          showToast('Vault Protocol Reserved', 'A confirmation email and biometric access key schedule have been dispatched.');
+          vaultForm.reset();
+        });
+      }
+
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          showToast('Registry Confirmed', 'You have been securely added to the VIP dispatch list.');
+          newsletterForm.reset();
+        });
+      }
+    });
+  </script>
+</body>
+
+</html>
