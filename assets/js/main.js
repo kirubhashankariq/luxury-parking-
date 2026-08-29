@@ -3,6 +3,24 @@
  * Global Application Logic: Theme Engine, RTL Switcher, Toast Notification, & UI Components
  */
 
+// ===================================================================
+// 🌟 1. INSTANT MEMORY APPLY
+// Runs before the page even paints to prevent dark mode flashes
+// ===================================================================
+(function instantThemeCheck() {
+  const savedTheme = localStorage.getItem('veloce_theme') || 'dark';
+
+  if (savedTheme === 'light') {
+    document.documentElement.classList.remove('dark');
+    document.documentElement.classList.add('light');
+    document.documentElement.setAttribute('data-theme', 'light');
+  } else {
+    document.documentElement.classList.remove('light');
+    document.documentElement.classList.add('dark');
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+})();
+
 (function () {
   'use strict';
 
@@ -46,7 +64,6 @@
 
     container.appendChild(toast);
 
-    // Trigger animation in next frame
     requestAnimationFrame(() => {
       toast.classList.add('toast-visible');
     });
@@ -64,20 +81,46 @@
   };
 
   // ===================================================================
-  // 2. Theme Engine (Light / Dark Neumorphic Toggle)
+  // 🌟 2. THE WATCHDOG (MUTATION OBSERVER) - THE ULTIMATE FIX
   // ===================================================================
   function initTheme() {
-    const savedTheme = localStorage.getItem('veloce_theme') || 'dark'; // Defaulting to midnight luxury
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    updateThemeIcons(savedTheme);
+    // This watchdog forces the memory to save whenever the <html> tag changes
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'class' || mutation.attributeName === 'data-theme') {
+          const isDark = document.documentElement.classList.contains('dark') || document.documentElement.getAttribute('data-theme') === 'dark';
+          const activeTheme = isDark ? 'dark' : 'light';
 
+          localStorage.setItem('veloce_theme', activeTheme);
+          updateThemeIcons(activeTheme);
+        }
+      });
+    });
+
+    // Attach the watchdog to the HTML tag
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class', 'data-theme'] });
+
+    // Ensure icons are correct on first load
+    updateThemeIcons(localStorage.getItem('veloce_theme') || 'dark');
+
+    // Button Click Logic
     document.querySelectorAll('.theme-toggle-btn').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('veloce_theme', newTheme);
-        updateThemeIcons(newTheme);
+      btn.addEventListener('click', (e) => {
+        e.preventDefault(); // Stop any default link jumping
+
+        const isDark = document.documentElement.classList.contains('dark') || document.documentElement.getAttribute('data-theme') === 'dark';
+        const newTheme = isDark ? 'light' : 'dark';
+
+        // Update the HTML tag. The Watchdog will automatically see this and save it!
+        if (newTheme === 'light') {
+          document.documentElement.classList.remove('dark');
+          document.documentElement.classList.add('light');
+          document.documentElement.setAttribute('data-theme', 'light');
+        } else {
+          document.documentElement.classList.remove('light');
+          document.documentElement.classList.add('dark');
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
 
         showToast(
           'Theme Switched',
@@ -183,7 +226,6 @@
         const content = item.querySelector('.accordion-content');
         const isActive = item.classList.contains('active');
 
-        // Optional: close other accordions in same group
         const parent = item.parentElement;
         if (parent) {
           parent.querySelectorAll('.accordion-item').forEach((sibling) => {
@@ -207,10 +249,9 @@
   }
 
   // ===================================================================
-  // 6. Global Form Submissions (Newsletter, Contact, Fast Booking)
+  // 6. Global Form Submissions
   // ===================================================================
   function initForms() {
-    // Newsletter Forms
     document.querySelectorAll('.newsletter-form').forEach((form) => {
       form.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -226,7 +267,6 @@
       });
     });
 
-    // General Message / Booking Forms
     document.querySelectorAll('.ajax-toast-form').forEach((form) => {
       form.addEventListener('submit', (e) => {
         e.preventDefault();

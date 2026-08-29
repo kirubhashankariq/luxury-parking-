@@ -3,6 +3,14 @@
 
 <head>
   <meta charset="UTF-8" />
+<script>
+  (function() {
+    const savedTheme = localStorage.getItem('veloce_theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+    const savedDir = localStorage.getItem('veloce_dir') || 'ltr';
+    document.documentElement.setAttribute('dir', savedDir);
+  })();
+</script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d4af37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z'/><path d='m9 12 2 2 4-4'/></svg>">
@@ -1306,13 +1314,30 @@
       const html = document.documentElement;
 
       // Theme Toggle Logic
+      // 1. Sync theme icons on page load
+      const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+      if (currentTheme === 'light') {
+        document.querySelectorAll('.icon-sun').forEach(el => el.classList.remove('hidden'));
+        document.querySelectorAll('.icon-moon').forEach(el => el.classList.add('hidden'));
+      } else {
+        document.querySelectorAll('.icon-sun').forEach(el => el.classList.add('hidden'));
+        document.querySelectorAll('.icon-moon').forEach(el => el.classList.remove('hidden'));
+      }
+
+      // 2. Theme Toggle Logic with Memory Save
       const themeToggleBtns = document.querySelectorAll('.themeToggleBtn');
       themeToggleBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-          const isDark = html.getAttribute('data-theme') === 'dark';
-          html.setAttribute('data-theme', isDark ? 'light' : 'dark');
-          document.querySelectorAll('.icon-sun').forEach(el => isDark ? el.classList.remove('hidden') : el.classList.add('hidden'));
-          document.querySelectorAll('.icon-moon').forEach(el => isDark ? el.classList.add('hidden') : el.classList.remove('hidden'));
+          const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          const newTheme = isDark ? 'light' : 'dark';
+          
+          // Apply theme and save to memory
+          document.documentElement.setAttribute('data-theme', newTheme);
+          localStorage.setItem('veloce_theme', newTheme);
+
+          // Update Icons
+          document.querySelectorAll('.icon-sun').forEach(el => newTheme === 'light' ? el.classList.remove('hidden') : el.classList.add('hidden'));
+          document.querySelectorAll('.icon-moon').forEach(el => newTheme === 'light' ? el.classList.add('hidden') : el.classList.remove('hidden'));
         });
       });
 
